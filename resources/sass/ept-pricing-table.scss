@@ -58,6 +58,8 @@
         text-transform: uppercase;
         p {
             line-height: 2;
+            margin: 0;
+            padding: 3px;
         }
     }
     .ribbon-right {
@@ -68,134 +70,154 @@
         left: -82px;
         transform: rotate(-45deg);
     }
+    .ept-center-icon {
+        text-align: right;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
 
-// golbal css
-.ept-pricing-header {
-    padding: 0px 20px;
-    .title {
-        font-size: 24px;
-        padding: 0;
-        margin: 0;
-        line-height: 1.2;
-        font-weight: 600;
-    }
-    .decription {
-        margin: 9px 0px 0px 0px;
-    }
-} 
-
-.ept-pricing-price {
-    padding: 40px 0 15px 0;
-    font-weight: 800;
-    color: #555;
-    // background: #000;
-    .currency, .freaction-part {
-        font-size: 18px;
-        line-height: 1;
-        align-self: flex-start;
-    }
-    .currency {
-        margin-right: 3px;
-    }
-   
-    .freaction-part {
-        margin-left: 3px;
-    }
-    .price {
-        font-size: 65px;
-        line-height: 0.8;
-    }
-    .original-price {
-        margin-right: 15px;
-        align-self: end;
-        text-decoration: line-through;
-    }
-    .period {
-        width: 100%;
-        display: block;
-        text-align: center;
-        margin-top: 12px;
-        font-weight: 400;
-        order: 2;
-    }
-}
-.ept-features {
-    // padding: 20px 0;
-    // background: red;
-    .items {
-        width: 100%;
-        flex-direction: column;
-        align-items: initial;
-        .ept-features-top-icon {
-            color: #fff;
-            font-size: 61px;
-            margin: 20px 0px 5px 0px;
-            // margin: 10px auto;
+    // golbal css
+    .ept-pricing-header {
+        padding: 0px 20px;
+        .title {
+            font-size: 24px;
+            padding: 0;
+            margin: 0;
+            line-height: 1.2;
+            font-weight: 600;
         }
-        li {
-            list-style: none;
-            position: relative;
-            padding-top: 20px;
-            padding-bottom: 20px;
-            // color: #606060;
-            + li:before {
-                content: "";
-                display: block;
-                position: absolute;
-                top: 0;
-                width: 100%;
+        .decription {
+            margin: 9px 0px 0px 0px;
+        }
+    } 
+
+    .ept-pricing-price {
+        padding: 40px 0 15px 0;
+        font-weight: 800;
+        color: #555;
+        // background: #000;
+        .currency, .freaction-part {
+            font-size: 18px;
+            line-height: 1;
+            align-self: flex-start;
+        }
+        .currency {
+            margin-right: 3px;
+        }
+    
+        .freaction-part {
+            margin-left: 3px;
+        }
+        .price {
+            font-size: 65px;
+            line-height: 0.8;
+        }
+        .original-price {
+            margin-right: 15px;
+            align-self: end;
+            text-decoration: line-through;
+        }
+        .period {
+            width: 100%;
+            display: block;
+            text-align: center;
+            margin-top: 12px;
+            font-weight: 400;
+            order: 2;
+        }
+    }
+    .ept-center-icon {
+        svg {
+            width: 60px;
+        }
+    }
+    .ept-features {
+        // padding: 20px 0;
+        // background: red;
+        .items {
+            width: 100%;
+            flex-direction: column;
+            align-items: initial;
+            .ept-features-top-icon {
+                color: #fff;
+                font-size: 61px;
+                margin: 20px 0px 5px 0px;
+                // margin: 10px auto;
+            }
+            li {
+                list-style: none;
+                position: relative;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                // color: #606060;
+                + li:before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    width: 100%;
+                }
+            }
+            .ept-features-icon {
+                margin-right: 10px;
+            }
+        } 
+    }
+
+    .ept-additional-text {
+        text-align: center;
+        p {
+            padding: 10px;
+            margin: 0;
+        }
+    }
+
+    .footer {
+    //    flex-direction: column;
+    padding: 20px 0;
+        .ept-button {
+            display: inline-block;
+            line-height: 1;
+            background-color: #61CE70;
+            font-size: 15px;
+            padding: 12px 24px;
+            border-radius: 3px;
+            color: #fff;
+            fill: #fff;
+            text-align: center;
+            transition: all .3s;
+            &.ept-button-size-md {
+                font-size: 16px;
+                padding: 15px 30px;
+                border-radius: 4px;
+            }
+            &.ept-button-size-xs {
+                font-size: 13px;
+                padding: 10px 20px;
+                border-radius: 2px;
+            }
+            &.ept-button-size-xl {
+                font-size: 20px;
+                padding: 25px 50px;
+                border-radius: 6px;
+            }
+            &.ept-button-size-lg {
+                font-size: 18px;
+                padding: 20px 40px;
+                border-radius: 5px;
+            }
+            &.ept-button-size-sm {
+                padding: 12px 24px;
             }
         }
-        .ept-features-icon {
-            margin-right: 10px;
-        }
-   } 
-}
-.footer {
-//    flex-direction: column;
-   padding: 20px 0;
-    .ept-button {
-        display: inline-block;
-        line-height: 1;
-        background-color: #61CE70;
-        font-size: 15px;
-        padding: 12px 24px;
-        border-radius: 3px;
-        color: #fff;
-        fill: #fff;
-        text-align: center;
-        transition: all .3s;
-         &.ept-button-size-md {
-            font-size: 16px;
-            padding: 15px 30px;
-            border-radius: 4px;
-        }
-         &.ept-button-size-xs {
-            font-size: 13px;
-            padding: 10px 20px;
-            border-radius: 2px;
-        }
-         &.ept-button-size-xl {
-            font-size: 20px;
-            padding: 25px 50px;
-            border-radius: 6px;
-        }
-         &.ept-button-size-lg {
-            font-size: 18px;
-            padding: 20px 40px;
-            border-radius: 5px;
-        }
-        &.ept-button-size-sm {
-            padding: 12px 24px;
+        .additional-text {
+            margin: 10px auto;
+            color: #7a7a7a;
         }
     }
-    .additional-text {
-        margin: 10px auto;
-        color: #7a7a7a;
-    }
-}
-
-   
 }
 
 
@@ -235,39 +257,41 @@
             font-size: 48px;
         }
     }
+    // .ept-center-icon {
+    //     svg {
+    //         width: 60px;
+    //     }
+    // }
     .ept-features {
         // padding: 20px 0;
         background-color: #000000;
         .items {
-            .ept-features-top-icon {
-            }
+            margin: 0;
+            padding: 0;
             li {
                 color: #FFFFFF;
-                + li:before {
-                    content: "";
-                    border-top-style: solid;
-                    border-top-color: #272424;
-                    border-top-width: 2px;
-                    width: 87%;
-                }
+                // + li:before {
+                //     content: "";
+                //     // border-top-style: solid;
+                //     border-top-color: #272424;
+                //     border-top-width: 2px;
+                //     width: 87%;
+                // }
             }
-            // .ept-features-icon {
-            //     margin-right: 10px;
-            // }
-       } 
+        } 
     }
-    .footer {
-       background-color: #000000;
-       flex-direction: column;
-       .ept-button {
-            color: #FFFFFF;
-            background-color: #962744;
-       }
-       .additional-text {
-            color: #FFFFFF;
-            margin: 30px 0px 10px 0px;
-        }
-    }
+    // .footer {
+    //    background-color: #000000;
+    //    flex-direction: column;
+    //    .ept-button {
+    //         color: #FFFFFF;
+    //         background-color: #962744;
+    //    }
+    // //    .additional-text {
+    // //         color: #FFFFFF;
+    // //         margin: 30px 0px 10px 0px;
+    // //     }
+    // }
 }
 
 .ept-pricing-table-template-3 {
@@ -321,3 +345,4 @@
         }
     }
 }
+

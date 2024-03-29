@@ -2,29 +2,17 @@
 /**
  * Plugin Name: Elementor Pricing Table
  * Description: Pricing Table for Elementor.
- * Plugin URI:  https://creativeidea.com/
+ * Plugin URI:  https://wpcreativeidea.com/
  * Version:     1.0.0
- * Author:      creativeidea
- * Author URI:  https://creativeidea.test/
+ * Author:      wpcreativeidea
+ * Author URI:  https://wpcreativeidea.com/
  * Text Domain: elementor-pricing-table
- *
- * Elementor tested up to: 3.7.0
- * Elementor Pro tested up to: 3.7.0
- */
+*/
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-/**
- * Register pricing Widget.
- *
- * Include widget file and register widget class.
- *
- * @since 1.0.0
- * @param \Elementor\Widgets_Manager $widgets_manager Elementor widgets manager.
- * @return void
- */
 
 /**
  * Main Elementor Pricing Table Class
