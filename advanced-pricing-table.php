@@ -24,10 +24,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 define('APT_DIR_FILE', __FILE__);
 define('APT_PLUGIN_URL', plugin_dir_url(__FILE__));
-define('APT_LITE', 'elementorPriceTableLite');
+define('APT_LITE', 'AdvancedPriceTableLite');
 define('APT_PLUGIN_VERSION', '1.0.0');
 
-final class ElementorPricingTableLite 
+final class AdvancedPricingTableLite 
 {
 
 	/**
@@ -65,7 +65,7 @@ final class ElementorPricingTableLite
 	 * @access private
 	 * @static
 	 *
-	 * @var ElementorPricingTableLite 
+	 * @var AdvancedPricingTableLite 
 	 * The single instance of the class.
 	 */
 	private static $_instance = null;
@@ -80,7 +80,7 @@ final class ElementorPricingTableLite
 	 * @access public
 	 * @static
 	 *
-	 * @return ElementorPricingTableLite 
+	 * @return AdvancedPricingTableLite 
 	 * An instance of the class.
 	 */
 	public static function instance() {
@@ -136,16 +136,10 @@ final class ElementorPricingTableLite
 			add_action( 'elementor/init', [ $this, 'init' ] );
 		}
 
-		add_action( 'admin_notices', [$this, 'ept_admin_Notice'] );
-
-		// if (defined('ATCPRO_DIR_FILE')) {
-		// 	if (!class_exists(ATCPRO\Services\ATCWidgetPro::class)) {
-		// 		require_once(ATCPRO_DIR_PATH.'Services/slider-widget.php');
-		// 	}
-		// }
+		add_action( 'admin_notices', [$this, 'apt_admin_Notice'] );
 	}
 
-	public function ept_admin_Notice() {
+	public function apt_admin_Notice() {
 	    //get the current screen
 	 	$screen = get_current_screen();
  	    //Checks if settings updated 
@@ -215,7 +209,7 @@ final class ElementorPricingTableLite
 		add_action( 'elementor/widgets/widgets_registered', [ $this, 'init_widgets' ] );
 		
 		add_action('elementor/frontend/after_enqueue_styles', function() {
-			wp_enqueue_style( 'ept-pricing-table', plugin_dir_url( __FILE__ ).'assets/css/ept-pricing-table.css', array(), APT_PLUGIN_VERSION);
+			wp_enqueue_style( 'apt-pricing-table', plugin_dir_url( __FILE__ ).'assets/css/apt-pricing-table.css', array(), APT_PLUGIN_VERSION);
 		});
 	}
 
@@ -311,9 +305,6 @@ final class ElementorPricingTableLite
 		);
 
 		printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', wp_kses_post($message) );
-
 	}
-
 }
-
-ElementorPricingTableLite::instance();
+AdvancedPricingTableLite::instance();

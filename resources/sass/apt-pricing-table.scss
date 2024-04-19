@@ -1,4 +1,4 @@
-.ept-pricing-table-container {
+.apt-pricing-table-container {
     position: relative;
     overflow: hidden;
 
@@ -19,7 +19,7 @@
     color: #000;
     background-color: #F6F5F5;
 
-    .ept-pricing-price, .ept-pricing-header, .ept-features, .ept-button-box, .items, .ept-features .items li, .items li span, .ept-features-top-icon{
+    .apt-pricing-price, .apt-pricing-header, .apt-features, .apt-button-box, .items, .apt-features .items li, .items li span, .apt-features-top-icon{
         display: flex;
         justify-content: center;
         align-items: center;
@@ -27,7 +27,7 @@
     }
 
     // golbal css
-    // .ept-pricing-header {
+    // .apt-pricing-header {
     //     // padding: 0px 20px;
     //     .title {
     //         font-size: 24px;
@@ -41,7 +41,7 @@
     //     }
     // } 
 
-    .ept-pricing-header {
+    .apt-pricing-header {
         padding: 30px;
         .title {
             width: 100%;
@@ -61,7 +61,7 @@
         }
     }
 
-    .ept-pricing-price {
+    .apt-pricing-price {
         position: relative;
         &:before {
             content: "";
@@ -96,7 +96,7 @@
         left: -82px;
         transform: rotate(-45deg);
     }
-    .ept-center-icon {
+    .apt-center-icon {
         text-align: right;
         display: flex;
         justify-content: center;
@@ -105,7 +105,7 @@
         padding-bottom: 20px;
     }
 
-    .ept-pricing-price {
+    .apt-pricing-price {
         padding: 40px 0 15px 0;
         font-weight: 800;
         color: #555;
@@ -140,19 +140,19 @@
             order: 2;
         }
     }
-    .ept-center-icon {
+    .apt-center-icon {
         svg {
             width: 60px;
         }
     }
-    .ept-features {
+    .apt-features {
         // padding: 20px 0;
         // background: red;
         .items {
             width: 100%;
             flex-direction: column;
             align-items: initial;
-            .ept-features-top-icon {
+            .apt-features-top-icon {
                 color: #fff;
                 font-size: 61px;
                 margin: 20px 0px 5px 0px;
@@ -172,13 +172,13 @@
                     width: 100%;
                 }
             }
-            .ept-features-icon {
+            .apt-features-icon {
                 margin-right: 10px;
             }
         } 
     }
 
-    .ept-additional-text {
+    .apt-additional-text {
         text-align: center;
         p {
             padding: 10px;
@@ -186,9 +186,9 @@
         }
     }
 
-    .ept-button-box {
+    .apt-button-box {
         padding: 20px 0;
-        .ept-button {
+        .apt-button {
             display: inline-block;
             line-height: 1;
             background-color: #61CE70;
@@ -200,27 +200,27 @@
             text-align: center;
             transition: all .3s;
             text-decoration: none;
-            &.ept-button-size-md {
+            &.apt-button-size-md {
                 font-size: 16px;
                 padding: 15px 30px;
                 border-radius: 4px;
             }
-            &.ept-button-size-xs {
+            &.apt-button-size-xs {
                 font-size: 13px;
                 padding: 10px 20px;
                 border-radius: 2px;
             }
-            &.ept-button-size-xl {
+            &.apt-button-size-xl {
                 font-size: 20px;
                 padding: 25px 50px;
                 border-radius: 6px;
             }
-            &.ept-button-size-lg {
+            &.apt-button-size-lg {
                 font-size: 18px;
                 padding: 20px 40px;
                 border-radius: 5px;
             }
-            &.ept-button-size-sm {
+            &.apt-button-size-sm {
                 padding: 12px 24px;
             }
         }
@@ -232,8 +232,8 @@
 }
 
 
-.ept-pricing-table-template-1 {
-    .ept-pricing-header {
+.apt-pricing-table-template-1 {
+    .apt-pricing-header {
         flex-direction: column;
         color: #fff;
         background-color: #54595D;
@@ -248,19 +248,19 @@
         //     margin: 9px 0px 0px 0px;
         // }
     }
-    .ept-button-box {
+    .apt-button-box {
        flex-direction: column;
     }
 }
 
-.ept-pricing-table-template-2 {
-    .ept-pricing-header {
+.apt-pricing-table-template-2 {
+    .apt-pricing-header {
         flex-direction: column;
         background-color: #962744;
         color: #fff;
         padding: 20px 0px 0px 0px;
     }
-    .ept-pricing-price {
+    .apt-pricing-price {
         background-color: rgb(150, 39, 68);
         color: rgb(255, 255, 255);
         padding: 0px 0px 20px;
@@ -268,12 +268,12 @@
             font-size: 48px;
         }
     }
-    // .ept-center-icon {
+    // .apt-center-icon {
     //     svg {
     //         width: 60px;
     //     }
     // }
-    .ept-features {
+    .apt-features {
         // padding: 20px 0;
         background-color: #000000;
         .items {
@@ -291,10 +291,10 @@
             }
         } 
     }
-    // .ept-button-box {
+    // .apt-button-box {
     //    background-color: #000000;
     //    flex-direction: column;
-    //    .ept-button {
+    //    .apt-button {
     //         color: #FFFFFF;
     //         background-color: #962744;
     //    }
@@ -305,16 +305,16 @@
     // }
 }
 
-.ept-pricing-table-template-3 {
+.apt-pricing-table-template-3 {
     border: solid 1px #06DA98;
     border-radius: 15px;
-    .ept-pricing-header {
+    .apt-pricing-header {
         flex-direction: column;
         // background-color: #962744;
         color: #06DA98;
         padding: 20px 0px 0px 0px;
     }
-    .ept-pricing-price {
+    .apt-pricing-price {
         // background-color: rgb(150, 39, 68);
         color: #06DA98;
         padding: 0px 0px 20px;
@@ -322,11 +322,11 @@
             font-size: 48px;
         }
     }
-    .ept-features {
+    .apt-features {
         // padding: 20px 0;
         // background-color: #000000;
         .items {
-            // .ept-features-top-icon {
+            // .apt-features-top-icon {
             // }
             li {
                 color: #000;
@@ -338,15 +338,15 @@
                     width: 87%;
                 }
             }
-            // .ept-features-icon {
+            // .apt-features-icon {
             //     margin-right: 10px;
             // }
        } 
     }
-    .ept-button-box {
+    .apt-button-box {
     //    background-color: #000000;
        flex-direction: column;
-       .ept-button {
+       .apt-button {
             color: #FFFFFF;
             background-color: #962744;
        }
