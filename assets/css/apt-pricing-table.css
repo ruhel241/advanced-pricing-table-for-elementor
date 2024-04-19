@@ -16,19 +16,30 @@
   margin: 0;
   box-sizing: border-box;
 }
-.ept-pricing-table-container .ept-pricing-price, .ept-pricing-table-container .ept-pricing-header, .ept-pricing-table-container .ept-features, .ept-pricing-table-container .footer, .ept-pricing-table-container .items, .ept-pricing-table-container .ept-features .items li, .ept-pricing-table-container .items li span, .ept-pricing-table-container .ept-features-top-icon {
+.ept-pricing-table-container .ept-pricing-price, .ept-pricing-table-container .ept-pricing-header, .ept-pricing-table-container .ept-features, .ept-pricing-table-container .ept-button-box, .ept-pricing-table-container .items, .ept-pricing-table-container .ept-features .items li, .ept-pricing-table-container .items li span, .ept-pricing-table-container .ept-features-top-icon {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
+.ept-pricing-table-container .ept-pricing-header {
+  padding: 30px;
+}
 .ept-pricing-table-container .ept-pricing-header .title {
   width: 100%;
   text-align: center;
+  font-size: 24px;
+  padding: 0;
+  margin: 0;
+  line-height: 1.2;
+  font-weight: 600;
 }
 .ept-pricing-table-container .ept-pricing-header .title::after {
   content: "";
   display: block;
+}
+.ept-pricing-table-container .ept-pricing-header .decription {
+  margin: 9px 0px 0px 0px;
 }
 .ept-pricing-table-container .ept-pricing-price {
   position: relative;
@@ -72,19 +83,6 @@
   align-items: center;
   padding-top: 20px;
   padding-bottom: 20px;
-}
-.ept-pricing-table-container .ept-pricing-header {
-  padding: 0px 20px;
-}
-.ept-pricing-table-container .ept-pricing-header .title {
-  font-size: 24px;
-  padding: 0;
-  margin: 0;
-  line-height: 1.2;
-  font-weight: 600;
-}
-.ept-pricing-table-container .ept-pricing-header .decription {
-  margin: 9px 0px 0px 0px;
 }
 .ept-pricing-table-container .ept-pricing-price {
   padding: 40px 0 15px 0;
@@ -155,10 +153,10 @@
   padding: 10px;
   margin: 0;
 }
-.ept-pricing-table-container .footer {
+.ept-pricing-table-container .ept-button-box {
   padding: 20px 0;
 }
-.ept-pricing-table-container .footer .ept-button {
+.ept-pricing-table-container .ept-button-box .ept-button {
   display: inline-block;
   line-height: 1;
   background-color: #61CE70;
@@ -169,31 +167,32 @@
   fill: #fff;
   text-align: center;
   transition: all 0.3s;
+  text-decoration: none;
 }
-.ept-pricing-table-container .footer .ept-button.ept-button-size-md {
+.ept-pricing-table-container .ept-button-box .ept-button.ept-button-size-md {
   font-size: 16px;
   padding: 15px 30px;
   border-radius: 4px;
 }
-.ept-pricing-table-container .footer .ept-button.ept-button-size-xs {
+.ept-pricing-table-container .ept-button-box .ept-button.ept-button-size-xs {
   font-size: 13px;
   padding: 10px 20px;
   border-radius: 2px;
 }
-.ept-pricing-table-container .footer .ept-button.ept-button-size-xl {
+.ept-pricing-table-container .ept-button-box .ept-button.ept-button-size-xl {
   font-size: 20px;
   padding: 25px 50px;
   border-radius: 6px;
 }
-.ept-pricing-table-container .footer .ept-button.ept-button-size-lg {
+.ept-pricing-table-container .ept-button-box .ept-button.ept-button-size-lg {
   font-size: 18px;
   padding: 20px 40px;
   border-radius: 5px;
 }
-.ept-pricing-table-container .footer .ept-button.ept-button-size-sm {
+.ept-pricing-table-container .ept-button-box .ept-button.ept-button-size-sm {
   padding: 12px 24px;
 }
-.ept-pricing-table-container .footer .additional-text {
+.ept-pricing-table-container .ept-button-box .additional-text {
   margin: 10px auto;
   color: #7a7a7a;
 }
@@ -203,7 +202,7 @@
   color: #fff;
   background-color: #54595D;
 }
-.ept-pricing-table-template-1 .footer {
+.ept-pricing-table-template-1 .ept-button-box {
   flex-direction: column;
 }
 
@@ -258,14 +257,14 @@
   border-top-width: 2px;
   width: 87%;
 }
-.ept-pricing-table-template-3 .footer {
+.ept-pricing-table-template-3 .ept-button-box {
   flex-direction: column;
 }
-.ept-pricing-table-template-3 .footer .ept-button {
+.ept-pricing-table-template-3 .ept-button-box .ept-button {
   color: #FFFFFF;
   background-color: #962744;
 }
-.ept-pricing-table-template-3 .footer .additional-text {
+.ept-pricing-table-template-3 .ept-button-box .additional-text {
   color: #FFFFFF;
   margin: 30px 0px 10px 0px;
 }

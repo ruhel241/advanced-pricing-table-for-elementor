@@ -1,12 +1,12 @@
 <?php
 /**
- * Plugin Name: Elementor Pricing Table
+ * Plugin Name: Advanced Pricing Table for Elementor 
  * Description: Pricing Table for Elementor.
  * Plugin URI:  https://wpcreativeidea.com/
  * Version:     1.0.0
  * Author:      wpcreativeidea
  * Author URI:  https://wpcreativeidea.com/
- * Text Domain: elementor-pricing-table
+ * Text Domain: advanced-pricing-table
 */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -15,17 +15,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 /**
- * Main Elementor Pricing Table Class
+ * Main Advanced Pricing Table for Elementor Class
  *
  * The main class that initiates and runs the plugin.
  *
  * @since 1.0.0
  */
 
-define('EPT_DIR_FILE', __FILE__);
-define('EPT_PLUGIN_URL', plugin_dir_url(__FILE__));
-define('EPT_LITE', 'elementorPriceTableLite');
-define('EPT_PLUGIN_VERSION', '1.0.0');
+define('APT_DIR_FILE', __FILE__);
+define('APT_PLUGIN_URL', plugin_dir_url(__FILE__));
+define('APT_LITE', 'elementorPriceTableLite');
+define('APT_PLUGIN_VERSION', '1.0.0');
 
 final class ElementorPricingTableLite 
 {
@@ -55,7 +55,7 @@ final class ElementorPricingTableLite
 	 *
 	 * @var string Minimum PHP version required to run the plugin.
 	 */
-	const MINIMUM_PHP_VERSION = '7.0';
+	const MINIMUM_PHP_VERSION = '7.4';
 
 	/**
 	 * Instance
@@ -115,7 +115,7 @@ final class ElementorPricingTableLite
 	 * @access public
 	 */
 	// public function i18n() {
-	// 	load_plugin_textdomain( 'elementor-pricing-table' );
+	// 	load_plugin_textdomain( 'advanced-pricing-table' );
 	// }
 
 	/**
@@ -153,8 +153,8 @@ final class ElementorPricingTableLite
             ?>
                 <div class="notice notice-success is-dismissible">
                     <p>
-                        <?php _e('Congratulations! you have installed "Elementor Pricing Table" for elementor plugin, Please rating this plugin.', 'elementor-pricing-table'); ?>
-                        <em><a href="https://wordpress.org/support/plugin/elementor-pricing-table/reviews/#new-post" target="_blank">Rating</a></em>
+                        <?php esc_html__('Congratulations! you have installed "Advanced Pricing Table for Elementor " for elementor plugin, Please rating this plugin.', 'advanced-pricing-table'); ?>
+                        <em><a href="https://wordpress.org/support/plugin/advanced-pricing-table/reviews/#new-post" target="_blank">Rating</a></em>
                     </p>
                 </div>
             <?php
@@ -215,22 +215,8 @@ final class ElementorPricingTableLite
 		add_action( 'elementor/widgets/widgets_registered', [ $this, 'init_widgets' ] );
 		
 		add_action('elementor/frontend/after_enqueue_styles', function() {
-			wp_enqueue_style( 'ept-pricing-table', plugin_dir_url( __FILE__ ).'assets/css/ept-pricing-table.css');
+			wp_enqueue_style( 'ept-pricing-table', plugin_dir_url( __FILE__ ).'assets/css/ept-pricing-table.css', array(), APT_PLUGIN_VERSION);
 		});
-
-		// add_action('elementor/editor/after_enqueue_styles', function() {
-		// 	wp_enqueue_style( 'atc-editor-css', plugin_dir_url( __FILE__ ). 'assets/css/atc-editor.css', array(), ATC_PLUGIN_VERSION);
-		// });
-
-		// // after_enqueue_scripts
-		// add_action('elementor/frontend/after_enqueue_scripts', function() {
-		// 	wp_enqueue_script( 'atc-swiper-js', plugin_dir_url( __FILE__ ). 'assets/js/atc-testimonial.js', array('jquery'));
-			
-		// 	wp_localize_script('atc-swiper-js', 'atcSwiperVar', array(
-        //         'has_pro' => defined('ATCPRO')
-        //     ));
-		// });
-		
 	}
 
 	/**
@@ -247,12 +233,12 @@ final class ElementorPricingTableLite
 		// Include Widget files
 	    require_once( __DIR__ . '/widgets/pricing-widget.php' );
         // Register widget
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new EPT\Classes\Widgets\Elementor_Pricing_Widget() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new APT\Classes\Widgets\Advanced_Pricing_Widget() );
 	}
 
 	public function loadTextDomain()
     {
-        load_plugin_textdomain('elementor-pricing-table', false, basename(dirname(__FILE__)) . '/languages');
+        load_plugin_textdomain('advanced-pricing-table', false, basename(dirname(__FILE__)) . '/languages');
 	}
 	
 	
@@ -271,11 +257,11 @@ final class ElementorPricingTableLite
 
 		$message = sprintf(
 			/* translators: 1: Plugin name 2: Elementor */
-			esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'elementor-pricing-table' ),
-			'<strong>' . esc_html__( 'Elementor Pricing Table', 'elementor-pricing-table' ) . '</strong>',
+			esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'advanced-pricing-table' ),
+			'<strong>' . esc_html__( 'Advanced Pricing Table for Elementor ', 'advanced-pricing-table' ) . '</strong>',
 		);
 
-		printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
+		printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', wp_kses_post($message) );
 
 	}
 
@@ -294,12 +280,12 @@ final class ElementorPricingTableLite
 
 		$message = sprintf(
 			/* translators: 1: Plugin name 2: Elementor 3: Required Elementor version */
-			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'elementor-pricing-table' ),
-			'<strong>' . esc_html__( 'Elementor Pricing Table', 'elementor-pricing-table' ) . '</strong>',
+			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'advanced-pricing-table' ),
+			'<strong>' . esc_html__( 'Advanced Pricing Table for Elementor ', 'advanced-pricing-table' ) . '</strong>',
 			 self::MINIMUM_ELEMENTOR_VERSION
 		);
 
-		printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
+		printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', wp_kses_post($message) );
 
 	}
 
@@ -318,13 +304,13 @@ final class ElementorPricingTableLite
 
 		$message = sprintf(
 			/* translators: 1: Plugin name 2: PHP 3: Required PHP version */
-			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'elementor-pricing-table' ),
-			'<strong>' . esc_html__( 'Elementor Pricing Table', 'elementor-pricing-table' ) . '</strong>',
-			'<strong>' . esc_html__( 'PHP', 'elementor-pricing-table' ) . '</strong>',
+			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'advanced-pricing-table' ),
+			'<strong>' . esc_html__( 'Advanced Pricing Table for Elementor ', 'advanced-pricing-table' ) . '</strong>',
+			'<strong>' . esc_html__( 'PHP', 'advanced-pricing-table' ) . '</strong>',
 			 self::MINIMUM_PHP_VERSION
 		);
 
-		printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
+		printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', wp_kses_post($message) );
 
 	}
 

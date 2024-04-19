@@ -19,19 +19,45 @@
     color: #000;
     background-color: #F6F5F5;
 
-    .ept-pricing-price, .ept-pricing-header, .ept-features, .footer, .items, .ept-features .items li, .items li span, .ept-features-top-icon{
+    .ept-pricing-price, .ept-pricing-header, .ept-features, .ept-button-box, .items, .ept-features .items li, .items li span, .ept-features-top-icon{
         display: flex;
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
     }
-   
-    .ept-pricing-header .title {
-        width: 100%;
-        text-align: center;
-        &::after {
-            content: "";
-            display: block;
+
+    // golbal css
+    // .ept-pricing-header {
+    //     // padding: 0px 20px;
+    //     .title {
+    //         font-size: 24px;
+    //         padding: 0;
+    //         margin: 0;
+    //         line-height: 1.2;
+    //         font-weight: 600;
+    //     }
+    //     .decription {
+    //         margin: 9px 0px 0px 0px;
+    //     }
+    // } 
+
+    .ept-pricing-header {
+        padding: 30px;
+        .title {
+            width: 100%;
+            text-align: center;
+            font-size: 24px;
+            padding: 0;
+            margin: 0;
+            line-height: 1.2;
+            font-weight: 600;
+            &::after {
+                content: "";
+                display: block;
+            }
+        }
+        .decription {
+            margin: 9px 0px 0px 0px;
         }
     }
 
@@ -78,21 +104,6 @@
         padding-top: 20px;
         padding-bottom: 20px;
     }
-
-    // golbal css
-    .ept-pricing-header {
-        padding: 0px 20px;
-        .title {
-            font-size: 24px;
-            padding: 0;
-            margin: 0;
-            line-height: 1.2;
-            font-weight: 600;
-        }
-        .decription {
-            margin: 9px 0px 0px 0px;
-        }
-    } 
 
     .ept-pricing-price {
         padding: 40px 0 15px 0;
@@ -175,9 +186,8 @@
         }
     }
 
-    .footer {
-    //    flex-direction: column;
-    padding: 20px 0;
+    .ept-button-box {
+        padding: 20px 0;
         .ept-button {
             display: inline-block;
             line-height: 1;
@@ -189,6 +199,7 @@
             fill: #fff;
             text-align: center;
             transition: all .3s;
+            text-decoration: none;
             &.ept-button-size-md {
                 font-size: 16px;
                 padding: 15px 30px;
@@ -237,7 +248,7 @@
         //     margin: 9px 0px 0px 0px;
         // }
     }
-    .footer {
+    .ept-button-box {
        flex-direction: column;
     }
 }
@@ -280,7 +291,7 @@
             }
         } 
     }
-    // .footer {
+    // .ept-button-box {
     //    background-color: #000000;
     //    flex-direction: column;
     //    .ept-button {
@@ -315,8 +326,8 @@
         // padding: 20px 0;
         // background-color: #000000;
         .items {
-            .ept-features-top-icon {
-            }
+            // .ept-features-top-icon {
+            // }
             li {
                 color: #000;
                 + li:before {
@@ -332,7 +343,7 @@
             // }
        } 
     }
-    .footer {
+    .ept-button-box {
     //    background-color: #000000;
        flex-direction: column;
        .ept-button {
