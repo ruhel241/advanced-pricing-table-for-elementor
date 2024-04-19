@@ -1,5 +1,5 @@
 {
-  "name": "advanced-pricing-table",
+  "name": "advanced-pricing-table-for-elementor",
   "version": "1.0.0",
   "description": "Wordpress Pricing Table For Elementor",
   "main": "index.js",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ruhel241/advanced-pricing-table.git"
+    "url": "git+https://github.com/ruhel241/advanced-pricing-table-for-elementor.git"
   },
   "author": "Md Ruhel khan",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ruhel241/advanced-pricing-table/issues"
+    "url": "https://github.com/ruhel241/advanced-pricing-table-for-elementor/issues"
   },
-  "homepage": "https://github.com/ruhel241/advanced-pricing-table#readme",
+  "homepage": "https://github.com/ruhel241/advanced-pricing-table-for-elementor#readme",
   "dependencies": {
     "laravel-mix": "^6.0.49",
     "sass-loader": "^13.2.0"

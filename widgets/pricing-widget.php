@@ -33,7 +33,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 	 * @return string Widget name.
 	 */
 	public function get_name() {
-		return 'advanced-pricing-table';
+		return 'advanced-pricing-table-for-elementor';
 	}
 
 	/**
@@ -46,7 +46,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return esc_html__( 'Advanced Pricing Table', 'advanced-pricing-table' );
+		return esc_html__( 'Advanced Pricing Table', 'advanced-pricing-table-for-elementor' );
 	}
 
 	/**
@@ -86,7 +86,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 	 * @return array Widget keywords.
 	 */
 	public function get_keywords() {
-		return [ 'price', 'pricing', 'table', 'product', 'image', 'plan', 'button' ];
+		return [ 'price', 'pricing', 'table', 'price table', 'pricing table' ];
 	}
 
 	/**
@@ -102,48 +102,48 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		$this->start_controls_section(
 			'apt_content_section',
 			[
-				'label' => esc_html__( 'Header', 'advanced-pricing-table' ),
+				'label' => esc_html__( 'Header', 'advanced-pricing-table-for-elementor' ),
 				'tab' => Controls_Manager::TAB_CONTENT
 			]
 		);
 			$this->add_control(
 				'apt_header_title',
 				[
-					'label' => esc_html__( 'Title', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Title', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::TEXT,
 					'dynamic' => [
 						'active' => true,
 					],
-					'default' => esc_html__( 'Standard', 'advanced-pricing-table' ),
-					'placeholder' => esc_html__( 'Standard', 'advanced-pricing-table' ),
+					'default' => esc_html__( 'Standard', 'advanced-pricing-table-for-elementor' ),
+					'placeholder' => esc_html__( 'Standard', 'advanced-pricing-table-for-elementor' ),
 				]
 			);
 			$this->add_control(
 				'apt_header_description',
 				[
-					'label' => esc_html__( 'Description', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Description', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::TEXTAREA,
 					'rows' => 10,
-					// 'default' => esc_html__( 'Type your description here', 'advanced-pricing-table' ),
+					// 'default' => esc_html__( 'Type your description here', 'advanced-pricing-table-for-elementor' ),
 					'dynamic' => [
 						'active' => true,
 					],
-					'placeholder' => esc_html__( 'Type your description here', 'advanced-pricing-table' ),
+					'placeholder' => esc_html__( 'Type your description here', 'advanced-pricing-table-for-elementor' ),
 				]
 			);
 			$this->add_control(
 				'apt_header_title_tag',
 				[
-					'label' => esc_html__( 'Title HTML Tag', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Title HTML Tag', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SELECT,
 					'default' => 'h2',
 					'options' => [
-						'h1'  => esc_html__( 'H1', 'advanced-pricing-table' ),
-						'h2'  => esc_html__( 'H2', 'advanced-pricing-table' ),
-						'h3'  => esc_html__( 'H3', 'advanced-pricing-table' ),
-						'h4'  => esc_html__( 'H4', 'advanced-pricing-table' ),
-						'h5'  => esc_html__( 'H5', 'advanced-pricing-table' ),
-						'h6'  => esc_html__( 'H6', 'advanced-pricing-table' ),
+						'h1'  => esc_html__( 'H1', 'advanced-pricing-table-for-elementor' ),
+						'h2'  => esc_html__( 'H2', 'advanced-pricing-table-for-elementor' ),
+						'h3'  => esc_html__( 'H3', 'advanced-pricing-table-for-elementor' ),
+						'h4'  => esc_html__( 'H4', 'advanced-pricing-table-for-elementor' ),
+						'h5'  => esc_html__( 'H5', 'advanced-pricing-table-for-elementor' ),
+						'h6'  => esc_html__( 'H6', 'advanced-pricing-table-for-elementor' ),
 					],
 					// 'selectors' => [
 					// 	'{{WRAPPER}} .your-class' => 'border-style: {{VALUE}};',
@@ -155,36 +155,36 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		$this->start_controls_section(
 			'apt_pricing_section',
 			[
-				'label' => esc_html__( 'Pricing', 'advanced-pricing-table' ),
+				'label' => esc_html__( 'Pricing', 'advanced-pricing-table-for-elementor' ),
 				'tab' => Controls_Manager::TAB_CONTENT
 			]
 		);
 			$this->add_control(
 				'apt_pricing_currency_symbol',
 				[
-					'label' => esc_html__( 'Currency Symbol', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Currency Symbol', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SELECT,
 					'options' => [
-						'' => esc_html__( 'None', 'advanced-pricing-table' ),
-						'&#36;'   => esc_html__( 'Dollar', 'advanced-pricing-table' ),
-						'&#128;'  => esc_html__( 'Euro', 'advanced-pricing-table' ),
-						'&#3647;' => esc_html__( 'Baht', 'advanced-pricing-table' ),
-						'&#8355;' => esc_html__( 'Franc', 'advanced-pricing-table' ),
-						'&fnof;'  => esc_html__( 'Guilder', 'advanced-pricing-table' ),
-						'kr' 	  => esc_html__( 'Krona', 'advanced-pricing-table' ),
-						'&#8356;' => esc_html__( 'Lira', 'advanced-pricing-table' ),
-						'&#8359;' => esc_html__( 'Peseta', 'advanced-pricing-table' ),
-						'&#8369;' => esc_html__( 'Peso', 'advanced-pricing-table' ),
-						'&#163;'  => esc_html__( 'Pound Sterling', 'advanced-pricing-table' ),
-						'R$'	  => esc_html__( 'Real', 'advanced-pricing-table' ),
-						'&#8381;' => esc_html__( 'Ruble', 'advanced-pricing-table' ),
-						'&#8360;' => esc_html__( 'Rupee', 'advanced-pricing-table' ),
-						'&#8377;' => esc_html__( 'Rupee (Indian)', 'advanced-pricing-table' ),
-						'&#8362;' => esc_html__( 'Shekel', 'advanced-pricing-table' ),
-						'&#165;'  => esc_html__( 'Yen/Yuan', 'advanced-pricing-table' ),
-						'&#8361;' => esc_html__( 'Won', 'advanced-pricing-table' ),
-						'&#2547;' => esc_html__( 'Taka', 'advanced-pricing-table' ),
-						'custom'  => esc_html__( 'Custom', 'advanced-pricing-table' ),
+						'' => esc_html__( 'None', 'advanced-pricing-table-for-elementor' ),
+						'&#36;'   => esc_html__( 'Dollar', 'advanced-pricing-table-for-elementor' ),
+						'&#128;'  => esc_html__( 'Euro', 'advanced-pricing-table-for-elementor' ),
+						'&#3647;' => esc_html__( 'Baht', 'advanced-pricing-table-for-elementor' ),
+						'&#8355;' => esc_html__( 'Franc', 'advanced-pricing-table-for-elementor' ),
+						'&fnof;'  => esc_html__( 'Guilder', 'advanced-pricing-table-for-elementor' ),
+						'kr' 	  => esc_html__( 'Krona', 'advanced-pricing-table-for-elementor' ),
+						'&#8356;' => esc_html__( 'Lira', 'advanced-pricing-table-for-elementor' ),
+						'&#8359;' => esc_html__( 'Peseta', 'advanced-pricing-table-for-elementor' ),
+						'&#8369;' => esc_html__( 'Peso', 'advanced-pricing-table-for-elementor' ),
+						'&#163;'  => esc_html__( 'Pound Sterling', 'advanced-pricing-table-for-elementor' ),
+						'R$'	  => esc_html__( 'Real', 'advanced-pricing-table-for-elementor' ),
+						'&#8381;' => esc_html__( 'Ruble', 'advanced-pricing-table-for-elementor' ),
+						'&#8360;' => esc_html__( 'Rupee', 'advanced-pricing-table-for-elementor' ),
+						'&#8377;' => esc_html__( 'Rupee (Indian)', 'advanced-pricing-table-for-elementor' ),
+						'&#8362;' => esc_html__( 'Shekel', 'advanced-pricing-table-for-elementor' ),
+						'&#165;'  => esc_html__( 'Yen/Yuan', 'advanced-pricing-table-for-elementor' ),
+						'&#8361;' => esc_html__( 'Won', 'advanced-pricing-table-for-elementor' ),
+						'&#2547;' => esc_html__( 'Taka', 'advanced-pricing-table-for-elementor' ),
+						'custom'  => esc_html__( 'Custom', 'advanced-pricing-table-for-elementor' ),
 					],
 					'default' => '&#36;',
 				]
@@ -192,7 +192,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_pricing_currency_symbol_custom',
 				[
-					'label' => esc_html__( 'Custom Symbol', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Custom Symbol', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::TEXT,
 					'condition' => [
 						'apt_pricing_currency_symbol' => 'custom',
@@ -202,7 +202,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_pricing_price',
 				[
-					'label' => esc_html__( 'Price', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Price', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::TEXT,
 					'default' => '39.99',
 					'dynamic' => [
@@ -213,7 +213,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_pricing_currency_format',
 				[
-					'label' => esc_html__( 'Currency Format', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Currency Format', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SELECT,
 					'options' => [
 						'' => '1,234.56 (Default)',
@@ -224,17 +224,17 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_pricing_sale',
 				[
-					'label' => esc_html__( 'Sale', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Sale', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SWITCHER,
-					'label_on' => esc_html__( 'On', 'advanced-pricing-table' ),
-					'label_off' => esc_html__( 'Off', 'advanced-pricing-table' ),
+					'label_on' => esc_html__( 'On', 'advanced-pricing-table-for-elementor' ),
+					'label_off' => esc_html__( 'Off', 'advanced-pricing-table-for-elementor' ),
 					'default' => '',
 				]
 			);
 			$this->add_control(
 				'apt_pricing_original_price',
 				[
-					'label' => esc_html__( 'Original Price', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Original Price', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::NUMBER,
 					'default' => '59',
 					'condition' => [
@@ -248,9 +248,9 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_pricing_period',
 				[
-					'label' => esc_html__( 'Period', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Period', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::TEXT,
-					'default' => esc_html__( 'Monthly', 'advanced-pricing-table' ),
+					'default' => esc_html__( 'Monthly', 'advanced-pricing-table-for-elementor' ),
 				]
 			);
 		$this->end_controls_section();
@@ -258,7 +258,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		$this->start_controls_section(
 			'apt_features_section',
 			[
-				'label' => esc_html__( 'Features', 'advanced-pricing-table' ),
+				'label' => esc_html__( 'Features', 'advanced-pricing-table-for-elementor' ),
 				'tab' => Controls_Manager::TAB_CONTENT
 			]
 		);
@@ -266,9 +266,9 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$repeater->add_control(
 				'apt_features_item_text',
 				[
-					'label' => esc_html__( 'Text', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Text', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::TEXT,
-					'default' => esc_html__( 'List Item', 'advanced-pricing-table' ),
+					'default' => esc_html__( 'List Item', 'advanced-pricing-table-for-elementor' ),
 				]
 			);
 			$default_icon = [
@@ -278,7 +278,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$repeater->add_control(
 				'apt_features_selected_item_icon',
 				[
-					'label' => esc_html__( 'Icon', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Icon', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::ICONS,
 					'fa4compatibility' => 'item_icon',
 					'default' => $default_icon,
@@ -292,7 +292,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$repeater->add_control(
 				'apt_features_item_icon_color',
 				[
-					'label' => esc_html__( 'Icon Color', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Icon Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
 						'{{WRAPPER}} .apt-pricing-table-container .apt-features .items li i' => 'color: {{VALUE}}',
@@ -307,15 +307,15 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					'fields' => $repeater->get_controls(),
 					'default' => [
 						[
-							'apt_features_item_text' => esc_html__( 'List Item #1', 'advanced-pricing-table' ),
+							'apt_features_item_text' => esc_html__( 'List Item #1', 'advanced-pricing-table-for-elementor' ),
 							'apt_features_selected_item_icon' => $default_icon,
 						],
 						[
-							'apt_features_item_text' => esc_html__( 'List Item #2', 'advanced-pricing-table' ),
+							'apt_features_item_text' => esc_html__( 'List Item #2', 'advanced-pricing-table-for-elementor' ),
 							'apt_features_selected_item_icon' => $default_icon,
 						],
 						[
-							'apt_features_item_text' => esc_html__( 'List Item #3', 'advanced-pricing-table' ),
+							'apt_features_item_text' => esc_html__( 'List Item #3', 'advanced-pricing-table-for-elementor' ),
 							'apt_features_selected_item_icon' => $default_icon,
 						],
 					],
@@ -328,7 +328,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		$this->start_controls_section(
 			'apt_center_icon_section',
 			[
-				'label' => esc_html__( 'Center Icon', 'advanced-pricing-table' ),
+				'label' => esc_html__( 'Center Icon', 'advanced-pricing-table-for-elementor' ),
 				'tab' => Controls_Manager::TAB_CONTENT,
 				'condition' => ['apt_center_icon_show' => 'yes']
 			]
@@ -354,7 +354,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		$this->start_controls_section(
 			'apt_button_section',
 			[
-				'label' => esc_html__( 'Button', 'advanced-pricing-table' ),
+				'label' => esc_html__( 'Button', 'advanced-pricing-table-for-elementor' ),
 				'tab' => Controls_Manager::TAB_CONTENT,
 				'condition' => ['apt_button_show' => 'yes']
 			]
@@ -362,9 +362,9 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_button_text',
 				[
-					'label' => esc_html__( 'Button Text', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Button Text', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::TEXT,
-					'default' => esc_html__( 'Click Here', 'advanced-pricing-table' ),
+					'default' => esc_html__( 'Click Here', 'advanced-pricing-table-for-elementor' ),
 					'dynamic' => [
 						'active' => true,
 					]
@@ -373,9 +373,9 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_button_link',
 				[
-					'label' => esc_html__( 'Link', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Link', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::URL,
-					'placeholder' => esc_html__( 'https://your-link.com', 'advanced-pricing-table' ),
+					'placeholder' => esc_html__( 'https://your-link.com', 'advanced-pricing-table-for-elementor' ),
 					'default' => [
 						'url' => '#',
 					],
@@ -389,7 +389,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		$this->start_controls_section(
 			'apt_additional_text_section',
 			[
-				'label' => esc_html__( 'Additional Text', 'advanced-pricing-table' ),
+				'label' => esc_html__( 'Additional Text', 'advanced-pricing-table-for-elementor' ),
 				'tab' => Controls_Manager::TAB_CONTENT,
 				'condition' => ['apt_additional_text_show' => 'yes']
 			]
@@ -397,10 +397,10 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_additional_textarea',
 				[
-					'label' => esc_html__( 'Additional text', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Additional text', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::TEXTAREA,
 					// 'type' => Controls_Manager::WYSIWYG,
-					'default' => esc_html__( 'This is text element', 'advanced-pricing-table' ),
+					'default' => esc_html__( 'This is text element', 'advanced-pricing-table-for-elementor' ),
 					'rows' => 7,
 					'dynamic' => [
 						'active' => true,
@@ -426,7 +426,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		$this->start_controls_section(
 			'apt_ribbon_section',
 			[
-				'label' => esc_html__( 'Ribbon', 'advanced-pricing-table' ),
+				'label' => esc_html__( 'Ribbon', 'advanced-pricing-table-for-elementor' ),
 				'tab' => Controls_Manager::TAB_CONTENT,
 				'condition' => [
 					'apt_ribbon_show' => 'yes',
@@ -436,9 +436,9 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_ribbon_title',
 				[
-					'label' => esc_html__( 'Title', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Title', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::TEXT,
-					'default' => esc_html__( 'Popular', 'advanced-pricing-table' ),
+					'default' => esc_html__( 'Popular', 'advanced-pricing-table-for-elementor' ),
 					'dynamic' => [
 						'active' => true,
 					],
@@ -447,15 +447,15 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_ribbon_horizontal_position',
 				[
-					'label' => esc_html__( 'Position', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Position', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::CHOOSE,
 					'options' => [
 						'left' => [
-							'title' => esc_html__( 'Left', 'advanced-pricing-table' ),
+							'title' => esc_html__( 'Left', 'advanced-pricing-table-for-elementor' ),
 							'icon' => 'eicon-h-align-left',
 						],
 						'right' => [
-							'title' => esc_html__( 'Right', 'advanced-pricing-table' ),
+							'title' => esc_html__( 'Right', 'advanced-pricing-table-for-elementor' ),
 							'icon' => 'eicon-h-align-right',
 						],
 					],
@@ -467,7 +467,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		$this->start_controls_section(
 			'apt_section_pricing_table_style',
 			[
-				'label' => esc_html__( 'Pricing Table', 'advanced-pricing-table' ),
+				'label' => esc_html__( 'Pricing Table', 'advanced-pricing-table-for-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				// 'show_label' => false
 			]
@@ -476,7 +476,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		$this->add_control(
 			'apt_pricing_table_bg_color',
 			[
-				'label' => esc_html__( 'Background Color', 'advanced-pricing-table' ),
+				'label' => esc_html__( 'Background Color', 'advanced-pricing-table-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				// 'global' => [
 				// 	'default' => Global_Colors::COLOR_SECONDARY,
@@ -522,7 +522,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'apt_pricing_table_box_shadow',
-				'label' => esc_html__( 'Box Shadow', 'advanced-pricing-table' ),
+				'label' => esc_html__( 'Box Shadow', 'advanced-pricing-table-for-elementor' ),
 				// 'selector' => '{{WRAPPER}} .coupon .input-text, {{WRAPPER}} .e-cart-totals .input-text, {{WRAPPER}} select, {{WRAPPER}} .select2-selection--single',
 			]
 		);
@@ -532,7 +532,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		$this->start_controls_section(
 			'apt_section_header_style',
 			[
-				'label' => esc_html__( 'Header', 'advanced-pricing-table' ),
+				'label' => esc_html__( 'Header', 'advanced-pricing-table-for-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				// 'show_label' => false
 			]
@@ -540,7 +540,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_header_bg_color',
 				[
-					'label' => esc_html__( 'Background Color', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Background Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					// 'global' => [
 					// 	'default' => Global_Colors::COLOR_SECONDARY,
@@ -562,7 +562,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_header_title_divider',
 				[
-					'label' => esc_html__( 'Divider', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Divider', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SWITCHER,
 					'default' => 'yes',
 					'separator' => 'before',
@@ -574,14 +574,14 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_header_title_divider_style',
 				[
-					'label' => esc_html__( 'Style', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Style', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SELECT,
 					'options' => [
-						'none'   => esc_html__( 'none', 'advanced-pricing-table' ),
-						'solid'  => esc_html__( 'Solid', 'advanced-pricing-table' ),
-						'double' => esc_html__( 'Double', 'advanced-pricing-table' ),
-						'dotted' => esc_html__( 'Dotted', 'advanced-pricing-table' ),
-						'dashed' => esc_html__( 'Dashed', 'advanced-pricing-table' ),
+						'none'   => esc_html__( 'none', 'advanced-pricing-table-for-elementor' ),
+						'solid'  => esc_html__( 'Solid', 'advanced-pricing-table-for-elementor' ),
+						'double' => esc_html__( 'Double', 'advanced-pricing-table-for-elementor' ),
+						'dotted' => esc_html__( 'Dotted', 'advanced-pricing-table-for-elementor' ),
+						'dashed' => esc_html__( 'Dashed', 'advanced-pricing-table-for-elementor' ),
 					],
 					'default' => 'solid',
 					'condition' => [
@@ -595,7 +595,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_header_title_divider_color',
 				[
-					'label' => esc_html__( 'Color', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					'default' => '#ddd',
 					'global' => [
@@ -612,7 +612,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_header_title_divider_weight',
 				[
-					'label' => esc_html__( 'Weight', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Weight', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SLIDER,
 					'default' => [
 						'size' => 2,
@@ -635,7 +635,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_header_title_divider_width',
 				[
-					'label' => esc_html__( 'Width', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Width', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SLIDER,
 					// 'size_units' => [ 'px', '%' ],
 					'range' => [
@@ -664,7 +664,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_header_title_divider_gap',
 				[
-					'label' => esc_html__( 'Gap', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Gap', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SLIDER,
 					'default' => [
 						'size' => 10,
@@ -688,7 +688,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_responsive_control(
 				'apt_header_padding',
 				[
-					'label' => esc_html__( 'Padding', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Padding', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::DIMENSIONS,
 					'size_units' => [ 'px', '%', 'em' ],
 					'selectors' => [
@@ -699,7 +699,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_heading_hr',
 				[
-					'label' => esc_html__( 'Title', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Title', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::HEADING,
 					'separator' => 'before',
 				]
@@ -707,7 +707,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_heading_color',
 				[
-					'label' => esc_html__( 'Color', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
 						'{{WRAPPER}} .apt-pricing-table-container .apt-pricing-header .title' => 'color: {{VALUE}}',
@@ -727,7 +727,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_sub_heading_style',
 				[
-					'label' => esc_html__( 'Sub Title', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Sub Title', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::HEADING,
 					'separator' => 'before',
 				]
@@ -735,7 +735,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_sub_heading_color',
 				[
-					'label' => esc_html__( 'Color', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
 						'{{WRAPPER}} .apt-pricing-table-container .apt-pricing-header .decription' => 'color: {{VALUE}}',
@@ -757,7 +757,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		$this->start_controls_section(
 			'apt_section_pricing_style',
 			[
-				'label' => esc_html__( 'Pricing', 'advanced-pricing-table' ),
+				'label' => esc_html__( 'Pricing', 'advanced-pricing-table-for-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 			]
@@ -765,7 +765,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_pricing_bg_color',
 				[
-					'label' => esc_html__( 'Background Color', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Background Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
 						'{{WRAPPER}} .apt-pricing-table-container .apt-pricing-price' => 'background-color: {{VALUE}}',
@@ -775,7 +775,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_pricing_divider',
 				[
-					'label' => esc_html__( 'Divider', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Divider', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SWITCHER,
 					'default' => '',
 					'separator' => 'before',
@@ -787,14 +787,14 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_pricing_divider_style',
 				[
-					'label' => esc_html__( 'Style', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Style', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SELECT,
 					'options' => [
-						'none'   => esc_html__( 'none', 'advanced-pricing-table' ),
-						'solid'  => esc_html__( 'Solid', 'advanced-pricing-table' ),
-						'double' => esc_html__( 'Double', 'advanced-pricing-table' ),
-						'dotted' => esc_html__( 'Dotted', 'advanced-pricing-table' ),
-						'dashed' => esc_html__( 'Dashed', 'advanced-pricing-table' ),
+						'none'   => esc_html__( 'none', 'advanced-pricing-table-for-elementor' ),
+						'solid'  => esc_html__( 'Solid', 'advanced-pricing-table-for-elementor' ),
+						'double' => esc_html__( 'Double', 'advanced-pricing-table-for-elementor' ),
+						'dotted' => esc_html__( 'Dotted', 'advanced-pricing-table-for-elementor' ),
+						'dashed' => esc_html__( 'Dashed', 'advanced-pricing-table-for-elementor' ),
 					],
 					'default' => 'solid',
 					'condition' => [
@@ -808,7 +808,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_pricing_divider_color',
 				[
-					'label' => esc_html__( 'Color', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					'default' => '#ddd',
 					'global' => [
@@ -825,7 +825,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_pricing_divider_weight',
 				[
-					'label' => esc_html__( 'Weight', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Weight', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SLIDER,
 					'default' => [
 						'size' => 2,
@@ -848,7 +848,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_pricing_divider_width',
 				[
-					'label' => esc_html__( 'Width', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Width', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SLIDER,
 					// 'size_units' => [ 'px', '%' ],
 					'range' => [
@@ -877,7 +877,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_pricing_divider_gap',
 				[
-					'label' => esc_html__( 'Gap', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Gap', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SLIDER,
 					'default' => [
 						'size' => 10,
@@ -900,7 +900,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_responsive_control(
 				'apt_pricing_padding',
 				[
-					'label' => esc_html__( 'Padding', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Padding', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::DIMENSIONS,
 					'size_units' => [ 'px', '%', 'em' ],
 					'selectors' => [
@@ -911,7 +911,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_price_color',
 				[
-					'label' => esc_html__( 'Color', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
 						'{{WRAPPER}} .apt-pricing-table-container .apt-pricing-price' => 'color: {{VALUE}}',
@@ -932,7 +932,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_heading_currency_style',
 				[
-					'label' => esc_html__( 'Currency Symbol', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Currency Symbol', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::HEADING,
 					'separator' => 'before',
 					'condition' => [
@@ -943,7 +943,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_currency_size',
 				[
-					'label' => esc_html__( 'Size', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Size', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SLIDER,
 					'range' => [
 						'px' => [
@@ -962,7 +962,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_currency_position',
 				[
-					'label' => esc_html__( 'Position', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Position', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::CHOOSE,
 					'default' => 'before',
 					'selectors_dictionary' => [
@@ -974,11 +974,11 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					],
 					'options' => [
 						'before' => [
-							'title' => esc_html__( 'Before', 'advanced-pricing-table' ),
+							'title' => esc_html__( 'Before', 'advanced-pricing-table-for-elementor' ),
 							'icon' => 'eicon-h-align-left',
 						],
 						'after' => [
-							'title' => esc_html__( 'After', 'advanced-pricing-table' ),
+							'title' => esc_html__( 'After', 'advanced-pricing-table-for-elementor' ),
 							'icon' => 'eicon-h-align-right',
 						],
 					],
@@ -987,19 +987,19 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_currency_vertical_position',
 				[
-					'label' => esc_html__( 'Vertical Position', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Vertical Position', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::CHOOSE,
 					'options' => [
 						'top' => [
-							'title' => esc_html__( 'Top', 'advanced-pricing-table' ),
+							'title' => esc_html__( 'Top', 'advanced-pricing-table-for-elementor' ),
 							'icon' => 'eicon-v-align-top',
 						],
 						'middle' => [
-							'title' => esc_html__( 'Middle', 'advanced-pricing-table' ),
+							'title' => esc_html__( 'Middle', 'advanced-pricing-table-for-elementor' ),
 							'icon' => 'eicon-v-align-middle',
 						],
 						'bottom' => [
-							'title' => esc_html__( 'Bottom', 'advanced-pricing-table' ),
+							'title' => esc_html__( 'Bottom', 'advanced-pricing-table-for-elementor' ),
 							'icon' => 'eicon-v-align-bottom',
 						],
 					],
@@ -1020,7 +1020,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_fractional_part_style',
 				[
-					'label' => esc_html__( 'Fractional Part', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Fractional Part', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::HEADING,
 					'separator' => 'before',
 				]
@@ -1028,7 +1028,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_fractional-part_size',
 				[
-					'label' => esc_html__( 'Size', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Size', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SLIDER,
 					'range' => [
 						'px' => [
@@ -1044,19 +1044,19 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_fractional_part_vertical_position',
 				[
-					'label' => esc_html__( 'Vertical Position', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Vertical Position', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::CHOOSE,
 					'options' => [
 						'top' => [
-							'title' => esc_html__( 'Top', 'advanced-pricing-table' ),
+							'title' => esc_html__( 'Top', 'advanced-pricing-table-for-elementor' ),
 							'icon' => 'eicon-v-align-top',
 						],
 						'middle' => [
-							'title' => esc_html__( 'Middle', 'advanced-pricing-table' ),
+							'title' => esc_html__( 'Middle', 'advanced-pricing-table-for-elementor' ),
 							'icon' => 'eicon-v-align-middle',
 						],
 						'bottom' => [
-							'title' => esc_html__( 'Bottom', 'advanced-pricing-table' ),
+							'title' => esc_html__( 'Bottom', 'advanced-pricing-table-for-elementor' ),
 							'icon' => 'eicon-v-align-bottom',
 						],
 					],
@@ -1074,7 +1074,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_heading_original_price_style',
 				[
-					'label' => esc_html__( 'Original Price', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Original Price', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::HEADING,
 					'separator' => 'before',
 					'condition' => [
@@ -1086,7 +1086,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_original_price_color',
 				[
-					'label' => esc_html__( 'Color', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					// 'global' => [
 					// 	'default' => Global_Colors::COLOR_SECONDARY,
@@ -1117,19 +1117,19 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_original_price_vertical_position',
 				[
-					'label' => esc_html__( 'Vertical Position', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Vertical Position', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::CHOOSE,
 					'options' => [
 						'top' => [
-							'title' => esc_html__( 'Top', 'advanced-pricing-table' ),
+							'title' => esc_html__( 'Top', 'advanced-pricing-table-for-elementor' ),
 							'icon' => 'eicon-v-align-top',
 						],
 						'middle' => [
-							'title' => esc_html__( 'Middle', 'advanced-pricing-table' ),
+							'title' => esc_html__( 'Middle', 'advanced-pricing-table-for-elementor' ),
 							'icon' => 'eicon-v-align-middle',
 						],
 						'bottom' => [
-							'title' => esc_html__( 'Bottom', 'advanced-pricing-table' ),
+							'title' => esc_html__( 'Bottom', 'advanced-pricing-table-for-elementor' ),
 							'icon' => 'eicon-v-align-bottom',
 						],
 					],
@@ -1151,7 +1151,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_heading_period_style',
 				[
-					'label' => esc_html__( 'Period', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Period', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::HEADING,
 					'separator' => 'before',
 					'condition' => [
@@ -1162,7 +1162,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_period_color',
 				[
-					'label' => esc_html__( 'Color', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					// 'global' => [
 					// 	'default' => Global_Colors::COLOR_SECONDARY,
@@ -1191,7 +1191,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_period_position',
 				[
-					'label' => esc_html__( 'Position', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Position', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::CHOOSE,
 					'default' => 'before',
 					'selectors_dictionary' => [
@@ -1203,11 +1203,11 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					],
 					'options' => [
 						'below' => [
-							'title' => esc_html__( 'Below', 'advanced-pricing-table' ),
+							'title' => esc_html__( 'Below', 'advanced-pricing-table-for-elementor' ),
 							'icon' => 'eicon-h-align-left',
 						],
 						'beside' => [
-							'title' => esc_html__( 'Beside', 'advanced-pricing-table' ),
+							'title' => esc_html__( 'Beside', 'advanced-pricing-table-for-elementor' ),
 							'icon' => 'eicon-h-align-right',
 						],
 					],
@@ -1218,7 +1218,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		$this->start_controls_section(
 			'section_center_icon_style',
 			[
-				'label' => esc_html__( 'Center Icon', 'advanced-pricing-table' ),
+				'label' => esc_html__( 'Center Icon', 'advanced-pricing-table-for-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 				'condition' => ['apt_center_icon_show' => 'yes']
@@ -1228,7 +1228,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'center_icon_color',
 				[
-					'label' => esc_html__( 'Color', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					// 'global' => [
 					// 	'default' => Global_Colors::COLOR_TEXT,
@@ -1241,7 +1241,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'center_icon_bgcolor',
 				[
-					'label' => esc_html__( 'Background Color', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Background Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					// 'global' => [
 					// 	'default' => Global_Colors::COLOR_TEXT,
@@ -1254,7 +1254,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_center_icon_size',
 				[
-					'label' => esc_html__( 'Size', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Size', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SLIDER,
 					'range' => [
 						'px' => [
@@ -1270,7 +1270,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_center_icon_padding',
 				[
-					'label' => esc_html__( 'Padding', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Padding', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::DIMENSIONS,
 					'size_units' => [ 'px', '%', 'em' ],
 					'selectors' => [
@@ -1283,7 +1283,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		$this->start_controls_section(
 			'section_features_list_style',
 			[
-				'label' => esc_html__( 'Features', 'advanced-pricing-table' ),
+				'label' => esc_html__( 'Features', 'advanced-pricing-table-for-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 			]
@@ -1292,7 +1292,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'features_list_color',
 				[
-					'label' => esc_html__( 'Color', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					// 'global' => [
 					// 	'default' => Global_Colors::COLOR_TEXT,
@@ -1306,7 +1306,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'features_list_bg_color',
 				[
-					'label' => esc_html__( 'Background Color', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Background Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
 						'{{WRAPPER}} .apt-pricing-table-container .apt-features' => 'background-color: {{VALUE}}',
@@ -1326,19 +1326,19 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'features_list_alignment',
 				[
-					'label' => esc_html__( 'Alignment', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Alignment', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::CHOOSE,
 					'options' => [
 						'left' => [
-							'title' => esc_html__( 'Left', 'advanced-pricing-table' ),
+							'title' => esc_html__( 'Left', 'advanced-pricing-table-for-elementor' ),
 							'icon' => 'eicon-text-align-left',
 						],
 						'center' => [
-							'title' => esc_html__( 'Center', 'advanced-pricing-table' ),
+							'title' => esc_html__( 'Center', 'advanced-pricing-table-for-elementor' ),
 							'icon' => 'eicon-text-align-center',
 						],
 						'right' => [
-							'title' => esc_html__( 'Right', 'advanced-pricing-table' ),
+							'title' => esc_html__( 'Right', 'advanced-pricing-table-for-elementor' ),
 							'icon' => 'eicon-text-align-right',
 						],
 					],
@@ -1350,7 +1350,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_responsive_control(
 				'features_list_padding',
 				[
-					'label' => esc_html__( 'Padding', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Padding', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::DIMENSIONS,
 					'size_units' => [ 'px', '%', 'em' ],
 					'selectors' => [
@@ -1362,7 +1362,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'list_divider',
 				[
-					'label' => esc_html__( 'Divider', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Divider', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SWITCHER,
 					'default' => 'yes',
 					'separator' => 'before',
@@ -1374,14 +1374,14 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'divider_style',
 				[
-					'label' => esc_html__( 'Style', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Style', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SELECT,
 					'options' => [
-						'none'   => esc_html__( 'none', 'advanced-pricing-table' ),
-						'solid' => esc_html__( 'Solid', 'advanced-pricing-table' ),
-						'double' => esc_html__( 'Double', 'advanced-pricing-table' ),
-						'dotted' => esc_html__( 'Dotted', 'advanced-pricing-table' ),
-						'dashed' => esc_html__( 'Dashed', 'advanced-pricing-table' ),
+						'none'   => esc_html__( 'none', 'advanced-pricing-table-for-elementor' ),
+						'solid' => esc_html__( 'Solid', 'advanced-pricing-table-for-elementor' ),
+						'double' => esc_html__( 'Double', 'advanced-pricing-table-for-elementor' ),
+						'dotted' => esc_html__( 'Dotted', 'advanced-pricing-table-for-elementor' ),
+						'dashed' => esc_html__( 'Dashed', 'advanced-pricing-table-for-elementor' ),
 					],
 					'default' => 'solid',
 					'condition' => [
@@ -1395,7 +1395,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'divider_color',
 				[
-					'label' => esc_html__( 'Color', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					'default' => '#272424',
 					// 'global' => [
@@ -1412,7 +1412,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'divider_weight',
 				[
-					'label' => esc_html__( 'Weight', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Weight', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SLIDER,
 					'default' => [
 						'size' => 2,
@@ -1435,7 +1435,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'divider_width',
 				[
-					'label' => esc_html__( 'Width', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Width', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SLIDER,
 					// 'size_units' => [ 'px', '%' ],
 					'range' => [
@@ -1464,7 +1464,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'divider_gap',
 				[
-					'label' => esc_html__( 'Gap', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Gap', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SLIDER,
 					// 'default' => [
 					// 	'size' => 20,
@@ -1489,7 +1489,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		$this->start_controls_section(
 			'section_button_style',
 			[
-				'label' => esc_html__( 'Button', 'advanced-pricing-table' ),
+				'label' => esc_html__( 'Button', 'advanced-pricing-table-for-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 				'condition' => ['apt_button_show' => 'yes']
@@ -1498,7 +1498,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'button_div_bg_color',
 				[
-					'label' => esc_html__( 'Background Color', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Background Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
 						'{{WRAPPER}} .apt-pricing-table-container .apt-button-box' => 'background-color: {{VALUE}}',
@@ -1508,7 +1508,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_responsive_control(
 				'button_div_padding',
 				[
-					'label' => esc_html__( 'Padding', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Padding', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::DIMENSIONS,
 					'size_units' => [ 'px', '%', 'em' ],
 					'selectors' => [
@@ -1519,7 +1519,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'heading_button_label',
 				[
-					'label' => esc_html__( 'Button', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Button', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::HEADING,
 					'separator' => 'before'
 				]
@@ -1527,15 +1527,15 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_button_size',
 				[
-					'label' => esc_html__( 'Size', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Size', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SELECT,
 					'default' => 'md',
 					'options' => [
-						'xs' => esc_html__( 'Extra Small', 'advanced-pricing-table' ),
-						'sm' => esc_html__( 'Small', 'advanced-pricing-table' ),
-						'md' => esc_html__( 'Medium', 'advanced-pricing-table' ),
-						'lg' => esc_html__( 'Large', 'advanced-pricing-table' ),
-						'xl' => esc_html__( 'Extra Large', 'advanced-pricing-table' ),
+						'xs' => esc_html__( 'Extra Small', 'advanced-pricing-table-for-elementor' ),
+						'sm' => esc_html__( 'Small', 'advanced-pricing-table-for-elementor' ),
+						'md' => esc_html__( 'Medium', 'advanced-pricing-table-for-elementor' ),
+						'lg' => esc_html__( 'Large', 'advanced-pricing-table-for-elementor' ),
+						'xl' => esc_html__( 'Extra Large', 'advanced-pricing-table-for-elementor' ),
 					]
 				]
 			);
@@ -1545,13 +1545,13 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				$this->start_controls_tab(
 					'tab_button_normal',
 					[
-						'label' => esc_html__( 'Normal', 'advanced-pricing-table' ),
+						'label' => esc_html__( 'Normal', 'advanced-pricing-table-for-elementor' ),
 					]
 				);
 				$this->add_control(
 					'button_text_color',
 					[
-						'label' => esc_html__( 'Text Color', 'advanced-pricing-table' ),
+						'label' => esc_html__( 'Text Color', 'advanced-pricing-table-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
 						'default' => '',
 						'selectors' => [
@@ -1598,7 +1598,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				$this->add_control(
 					'button_border_radius',
 					[
-						'label' => esc_html__( 'Border Radius', 'advanced-pricing-table' ),
+						'label' => esc_html__( 'Border Radius', 'advanced-pricing-table-for-elementor' ),
 						'type' => Controls_Manager::DIMENSIONS,
 						'size_units' => [ 'px', '%' ],
 						'selectors' => [
@@ -1609,7 +1609,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				$this->add_control(
 					'button_text_padding',
 					[
-						'label' => esc_html__( 'Text Padding', 'advanced-pricing-table' ),
+						'label' => esc_html__( 'Text Padding', 'advanced-pricing-table-for-elementor' ),
 						'type' => Controls_Manager::DIMENSIONS,
 						'size_units' => [ 'px', 'em', '%' ],
 						'selectors' => [
@@ -1622,13 +1622,13 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				$this->start_controls_tab(
 					'tab_button_hover',
 					[
-						'label' => esc_html__( 'Hover', 'advanced-pricing-table' ),
+						'label' => esc_html__( 'Hover', 'advanced-pricing-table-for-elementor' ),
 					]
 				);
 					$this->add_control(
 						'button_hover_color',
 						[
-							'label' => esc_html__( 'Text Color', 'advanced-pricing-table' ),
+							'label' => esc_html__( 'Text Color', 'advanced-pricing-table-for-elementor' ),
 							'type' => Controls_Manager::COLOR,
 							'selectors' => [
 								'{{WRAPPER}} .apt-pricing-table-container .apt-button-box .apt-button:hover' => 'color: {{VALUE}};',
@@ -1652,7 +1652,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					$this->add_control(
 						'button_hover_border_color',
 						[
-							'label' => esc_html__( 'Border Color', 'advanced-pricing-table' ),
+							'label' => esc_html__( 'Border Color', 'advanced-pricing-table-for-elementor' ),
 							'type' => Controls_Manager::COLOR,
 							'selectors' => [
 								'{{WRAPPER}} .apt-pricing-table-container .apt-button-box .apt-button:hover' => 'border-color: {{VALUE}};',
@@ -1662,7 +1662,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					// $this->add_control(
 					// 	'button_hover_animation',
 					// 	[
-					// 		'label' => esc_html__( 'Animation', 'advanced-pricing-table' ),
+					// 		'label' => esc_html__( 'Animation', 'advanced-pricing-table-for-elementor' ),
 					// 		'type' => Controls_Manager::HOVER_ANIMATION,
 					// 	]
 					// );
@@ -1674,7 +1674,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		$this->start_controls_section(
 			'apt_section_additional_text_style',
 			[	
-				'label' => esc_html__( 'Additional Text', 'advanced-pricing-table' ),
+				'label' => esc_html__( 'Additional Text', 'advanced-pricing-table-for-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 				'condition' => [
@@ -1686,7 +1686,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'additional_text_color',
 				[
-					'label' => esc_html__( 'Color', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					// 'global' => [
 					// 	'default' => Global_Colors::COLOR_TEXT,
@@ -1699,7 +1699,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'additional_text_bgcolor',
 				[
-					'label' => esc_html__( 'Background Color', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Background Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					// 'global' => [
 					// 	'default' => Global_Colors::COLOR_TEXT,
@@ -1722,19 +1722,19 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'additional_text_alignment',
 				[
-					'label' => esc_html__( 'Alignment', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Alignment', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::CHOOSE,
 					'options' => [
 						'left' => [
-							'title' => esc_html__( 'Left', 'advanced-pricing-table' ),
+							'title' => esc_html__( 'Left', 'advanced-pricing-table-for-elementor' ),
 							'icon' => 'eicon-text-align-left',
 						],
 						'center' => [
-							'title' => esc_html__( 'Center', 'advanced-pricing-table' ),
+							'title' => esc_html__( 'Center', 'advanced-pricing-table-for-elementor' ),
 							'icon' => 'eicon-text-align-center',
 						],
 						'right' => [
-							'title' => esc_html__( 'Right', 'advanced-pricing-table' ),
+							'title' => esc_html__( 'Right', 'advanced-pricing-table-for-elementor' ),
 							'icon' => 'eicon-text-align-right',
 						],
 					],
@@ -1746,7 +1746,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'additional_text_margin',
 				[
-					'label' => esc_html__( 'Margin', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Margin', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::DIMENSIONS,
 					'size_units' => [ 'px', '%', 'em' ],
 					// 'default' => [
@@ -1764,7 +1764,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'additional_text_padding',
 				[
-					'label' => esc_html__( 'Padding', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Padding', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::DIMENSIONS,
 					'size_units' => [ 'px', '%', 'em' ],
 					// 'default' => [
@@ -1784,7 +1784,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		$this->start_controls_section(
 			'apt_section_ribbon_style',
 			[
-				'label' => esc_html__( 'Ribbon', 'advanced-pricing-table' ),
+				'label' => esc_html__( 'Ribbon', 'advanced-pricing-table-for-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 				'condition' => [
@@ -1795,7 +1795,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_ribbon_bg_color',
 				[
-					'label' => esc_html__( 'Background Color', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Background Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					'global' => [
 						'default' => Global_Colors::COLOR_ACCENT,
@@ -1809,7 +1809,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			// $this->add_responsive_control(
 			// 	'apt_ribbon_distance',
 			// 	[
-			// 		'label' => esc_html__( 'Distance', 'advanced-pricing-table' ),
+			// 		'label' => esc_html__( 'Distance', 'advanced-pricing-table-for-elementor' ),
 			// 		'type' => Controls_Manager::SLIDER,
 			// 		'range' => [
 			// 			'px' => [
@@ -1826,7 +1826,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_responsive_control(
 				'apt_ribbon_top',
 				[
-					'label' => esc_html__( 'Ribbon Top', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Ribbon Top', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SLIDER,
 					'range' => [
 						'px' => [
@@ -1842,7 +1842,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_responsive_control(
 				'apt_ribbon_left',
 				[
-					'label' => esc_html__( 'Ribbon Left', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Ribbon Left', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SLIDER,
 					'range' => [
 						'px' => [
@@ -1861,7 +1861,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_responsive_control(
 				'apt_ribbon_right',
 				[
-					'label' => esc_html__( 'Ribbon Right', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Ribbon Right', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SLIDER,
 					'range' => [
 						'px' => [
@@ -1880,7 +1880,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_responsive_control(
 				'apt_ribbon_height',
 				[
-					'label' => esc_html__( 'Ribbon Height', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Ribbon Height', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SLIDER,
 					'range' => [
 						'px' => [
@@ -1897,7 +1897,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'apt_ribbon_text_color',
 				[
-					'label' => esc_html__( 'Text Color', 'advanced-pricing-table' ),
+					'label' => esc_html__( 'Text Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					'default' => '#ffffff',
 					'separator' => 'before',
@@ -1929,7 +1929,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		$this->start_controls_section(
 			'apt_section_additional_options',
 			[
-				'label' => esc_html__( 'Additional Options', 'advanced-pricing-table' ),
+				'label' => esc_html__( 'Additional Options', 'advanced-pricing-table-for-elementor' ),
 				'tab' => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -1937,12 +1937,12 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		$this->add_control(
 			'apt_pricing_template',
 			[
-				'label'   => esc_html__( 'Pricing Table Template', 'advanced-pricing-table' ),
+				'label'   => esc_html__( 'Pricing Table Template', 'advanced-pricing-table-for-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					'1' => esc_html__( 'Template 1', 'advanced-pricing-table' ),
-					'2' => esc_html__( 'Template 2', 'advanced-pricing-table' ),
-					'3' => esc_html__( 'Template 3', 'advanced-pricing-table' ),
+					'1' => esc_html__( 'Template 1', 'advanced-pricing-table-for-elementor' ),
+					'2' => esc_html__( 'Template 2', 'advanced-pricing-table-for-elementor' ),
+					'3' => esc_html__( 'Template 3', 'advanced-pricing-table-for-elementor' ),
 				],
 				'default' => '1',
 			]
@@ -1951,10 +1951,10 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		$this->add_control(
 			'apt_center_icon_show',
 			[
-				'label' 	   => esc_html__( 'Center Icon', 'advanced-pricing-table' ),
+				'label' 	   => esc_html__( 'Center Icon', 'advanced-pricing-table-for-elementor' ),
 				'type' 		   => Controls_Manager::SWITCHER,
-				'label_on' 	   => esc_html__( 'Show', 'advanced-pricing-table' ),
-				'label_off'    => esc_html__( 'Hide', 'advanced-pricing-table' ),
+				'label_on' 	   => esc_html__( 'Show', 'advanced-pricing-table-for-elementor' ),
+				'label_off'    => esc_html__( 'Hide', 'advanced-pricing-table-for-elementor' ),
 				'return_value' => 'yes',
 				'default' 	   => 'yes'
 			]
@@ -1963,10 +1963,10 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		$this->add_control(
 			'apt_ribbon_show',
 			[
-				'label' => esc_html__( 'Ribbon', 'advanced-pricing-table' ),
+				'label' => esc_html__( 'Ribbon', 'advanced-pricing-table-for-elementor' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' 	   => esc_html__( 'Show', 'advanced-pricing-table' ),
-				'label_off'    => esc_html__( 'Hide', 'advanced-pricing-table' ),
+				'label_on' 	   => esc_html__( 'Show', 'advanced-pricing-table-for-elementor' ),
+				'label_off'    => esc_html__( 'Hide', 'advanced-pricing-table-for-elementor' ),
 				'return_value' => 'yes',
 				'default' 	   => 'yes'
 			]
@@ -1975,10 +1975,10 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		$this->add_control(
 			'apt_button_show',
 			[
-				'label' => esc_html__( 'Button', 'advanced-pricing-table' ),
+				'label' => esc_html__( 'Button', 'advanced-pricing-table-for-elementor' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' 	   => esc_html__( 'Show', 'advanced-pricing-table' ),
-				'label_off'    => esc_html__( 'Hide', 'advanced-pricing-table' ),
+				'label_on' 	   => esc_html__( 'Show', 'advanced-pricing-table-for-elementor' ),
+				'label_off'    => esc_html__( 'Hide', 'advanced-pricing-table-for-elementor' ),
 				'return_value' => 'yes',
 				'default' 	   => 'yes'
 			]
@@ -1987,10 +1987,10 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		$this->add_control(
 			'apt_additional_text_show',
 			[
-				'label' => esc_html__( 'Additional Text', 'advanced-pricing-table' ),
+				'label' => esc_html__( 'Additional Text', 'advanced-pricing-table-for-elementor' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' 	   => esc_html__( 'Show', 'advanced-pricing-table' ),
-				'label_off'    => esc_html__( 'Hide', 'advanced-pricing-table' ),
+				'label_on' 	   => esc_html__( 'Show', 'advanced-pricing-table-for-elementor' ),
+				'label_off'    => esc_html__( 'Hide', 'advanced-pricing-table-for-elementor' ),
 				'return_value' => 'yes',
 				'default' 	   => 'yes'
 			]
