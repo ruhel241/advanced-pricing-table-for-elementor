@@ -1,4 +1,4 @@
-=== Advanced Pricing Table for Elementor ===
+=== Advanced Pricing Table For Elementor ===
 Contributors: wpcreativeidea
 Tags: price, price table, pricing table, table, pricing
 Requires at least: 5.0
@@ -7,6 +7,8 @@ Requires PHP: 7.4
 Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+Advanced Pricing Table for Elementor. You can add title, describes, price, Ribbon, icon, items, button, additional text etc.
 
 == Description ==
 

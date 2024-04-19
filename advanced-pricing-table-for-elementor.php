@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Advanced Pricing Table for Elementor 
+ * Plugin Name: Advanced Pricing Table For Elementor 
  * Description: Pricing Table for Elementor.
  * Plugin URI:  https://wpcreativeidea.com/
  * Version:     1.0.0
