@@ -2,12 +2,14 @@
 /**
  * Plugin Name: Advanced Pricing Table For Elementor 
  * Description: Pricing Table for Elementor.
- * Plugin URI:  https://wpcreativeidea.com/
  * Version:     1.0.0
  * Author:      wpcreativeidea
  * Author URI:  https://wpcreativeidea.com/
+ * Plugin URI:  https://github.com/ruhel241/advanced-pricing-table-for-elementor
+ * License: GPLv2 or later
  * Text Domain: advanced-pricing-table-for-elementor
 */
+
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -132,12 +134,80 @@ final class AdvancedPricingTableLite
 	 */
 	public function on_plugins_loaded() {
 
+		if (! did_action( 'elementor/loaded' ) ) {
+			return $this->injectDependency();
+		}
+	
 		if ( $this->is_compatible() ) {
 			add_action( 'elementor/init', [ $this, 'init' ] );
 		}
 
 		add_action( 'admin_notices', [$this, 'apt_admin_Notice'] );
 	}
+
+
+	 /**
+     * Notify the user about the Advanced Pricing Table dependency and instructs to install it.
+     */
+    protected function injectDependency()
+    {
+        add_action('admin_notices', function () {
+            $pluginInfo = $this->getInstallationDetails();
+
+            $class = 'notice notice-error';
+
+            $install_url_text = 'Click Here to Install the Plugin';
+
+            if ($pluginInfo->action == 'activate') {
+                $install_url_text = 'Click Here to Activate the Plugin';
+            }
+
+			
+            $message = 'Advanced Pricing Table For Elementor Add-On Requires Elementor Base Plugin, <b><a href="' . $pluginInfo->url
+                . '">' . $install_url_text . '</a></b>';
+
+            printf('<div class="%1$s"><p>%2$s</p></div>', esc_attr($class), wp_kses_post($message));
+        });
+    }
+
+    /**
+     * Get the Advanced Pricing Table plugin installation information e.g. the URL to install.
+     *
+     * @return \stdClass $activation
+     */
+    protected function getInstallationDetails()
+    {
+        $activation = (object)[
+            'action' => 'install',
+            'url'    => ''
+        ];
+
+        $allPlugins = get_plugins();
+
+        if (isset($allPlugins['elementor/elementor.php'])) {
+            $url = wp_nonce_url(
+                self_admin_url('plugins.php?action=activate&plugin=elementor/elementor.php'),
+                'activate-plugin_elementor/elementor.php'
+            );
+            
+            $activation->action = 'activate';
+        } else {
+            $api = (object)[
+                'slug' => 'elementor'
+            ];
+
+            $url = wp_nonce_url(
+                self_admin_url('update.php?action=install-plugin&plugin=' . $api->slug),
+                'install-plugin_' . $api->slug
+            );
+        }
+
+        $activation->url = $url;
+
+        return $activation;
+    }
+
+
 
 	public function apt_admin_Notice() {
 	    //get the current screen
@@ -147,7 +217,7 @@ final class AdvancedPricingTableLite
             ?>
                 <div class="notice notice-success is-dismissible">
                     <p>
-                        <?php esc_html__('Congratulations! you have installed "Advanced Pricing Table for Elementor " for elementor plugin, Please rating this plugin.', 'advanced-pricing-table-for-elementor'); ?>
+                        <?php echo esc_html__('Congratulations! you have installed "Advanced Pricing Table" for elementor plugin, Please rating this plugin.', 'advanced-pricing-table-for-elementor'); ?>
                         <em><a href="https://wordpress.org/support/plugin/advanced-pricing-table-for-elementor/reviews/#new-post" target="_blank">Rating</a></em>
                     </p>
                 </div>
@@ -247,8 +317,10 @@ final class AdvancedPricingTableLite
 	 */
 	public function admin_notice_missing_main_plugin() {
 
-		if ( isset( $_GET['activate'] ) ) unset( $_GET['activate'] );
-
+		if ( isset( $_GET['activate'] ) ) {
+			unset( $_GET['activate'] );
+		}
+		
 		$message = sprintf(
 			/* translators: 1: Plugin name 2: Elementor */
 			esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'advanced-pricing-table-for-elementor' ),
@@ -270,7 +342,9 @@ final class AdvancedPricingTableLite
 	 */
 	public function admin_notice_minimum_elementor_version() {
 
-		if ( isset( $_GET['activate'] ) ) unset( $_GET['activate'] );
+		if ( isset( $_GET['activate'] ) ) {
+			unset( $_GET['activate'] );
+		}
 
 		$message = sprintf(
 			/* translators: 1: Plugin name 2: Elementor 3: Required Elementor version */
@@ -294,7 +368,9 @@ final class AdvancedPricingTableLite
 	 */
 	public function admin_notice_minimum_php_version() {
 
-		if ( isset( $_GET['activate'] ) ) unset( $_GET['activate'] );
+		if ( isset( $_GET['activate'] ) ) {
+			unset( $_GET['activate'] );
+		}
 
 		$message = sprintf(
 			/* translators: 1: Plugin name 2: PHP 3: Required PHP version */

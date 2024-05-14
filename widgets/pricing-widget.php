@@ -1937,14 +1937,14 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		$this->add_control(
 			'apt_pricing_template',
 			[
-				'label'   => esc_html__( 'Pricing Table Template', 'advanced-pricing-table-for-elementor' ),
+				'label'   => esc_html__( 'Template', 'advanced-pricing-table-for-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
 					'1' => esc_html__( 'Template 1', 'advanced-pricing-table-for-elementor' ),
 					'2' => esc_html__( 'Template 2', 'advanced-pricing-table-for-elementor' ),
 					'3' => esc_html__( 'Template 3', 'advanced-pricing-table-for-elementor' ),
 				],
-				'default' => '1',
+				'default' => '2',
 			]
 		);
 
