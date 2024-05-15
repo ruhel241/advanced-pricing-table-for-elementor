@@ -117,6 +117,7 @@ final class AdvancedPricingTableLite
 		}
 
 		add_action( 'admin_notices', [$this, 'apt_admin_Notice'] );
+		add_action( 'admin_init', [$this,  'apt_notice_dismissed'] );
 	}
 
 
@@ -184,19 +185,31 @@ final class AdvancedPricingTableLite
 
 
 	public function apt_admin_Notice() {
-	    //get the current screen
-	 	$screen = get_current_screen();
- 	    //Checks if settings updated 
+	   	$screen  = get_current_screen();
+		$user_id = get_current_user_id();
+ 	  
         if ( $screen->id == 'dashboard' ||  $screen->id == 'plugins' ) {
-            ?>
-                <div class="notice notice-success is-dismissible">
-                    <p>
-                        <?php echo esc_html__('Congratulations! you have installed "Advanced Pricing Table" for elementor plugin, Please rating this plugin.', 'advanced-pricing-table-for-elementor'); ?>
-                        <em><a href="https://wordpress.org/support/plugin/advanced-pricing-table-for-elementor/reviews/#new-post" target="_blank">Rating</a></em>
-                    </p>
-                </div>
-            <?php
+			if ( !get_user_meta( $user_id, 'apt-notice-dismissed' ) ) {
+				?>
+					<div class="notice notice-success is-dismissible">
+						<p>
+							<?php echo esc_html__('Congratulations! you have installed "Advanced Pricing Table" for elementor plugin, Please rating this plugin.', 'advanced-pricing-table-for-elementor'); ?>
+							<em><a href="https://wordpress.org/support/plugin/advanced-pricing-table-for-elementor/reviews/#new-post" target="_blank">Rating</a></em>
+						</p>
+						<a href="?apt-dismissed-notice" type="button" class="notice-dismiss"></a>
+					</div>
+				<?php
+			}
 	 	}
+	}
+
+	public function apt_notice_dismissed() {
+		$user_id = get_current_user_id();
+	
+		if ( isset( $_GET['apt-dismissed-notice'] ) ) {
+			add_user_meta( $user_id, 'apt-notice-dismissed', 'true', true );
+		}
+			
 	}
 	
 	/**
