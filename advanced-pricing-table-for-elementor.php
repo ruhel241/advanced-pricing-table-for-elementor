@@ -105,35 +105,9 @@ final class AdvancedPricingTableLite
 		add_action( 'plugins_loaded', [ $this, 'on_plugins_loaded' ] );
 	}
 
-	/**
-	 * Load Textdomain
-	 *
-	 * Load plugin localization files.
-	 *
-	 * Fired by `init` action hook.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @access public
-	 */
-	// public function i18n() {
-	// 	load_plugin_textdomain( 'advanced-pricing-table-for-elementor' );
-	// }
-
-	/**
-	 * On Plugins Loaded
-	 *
-	 * Checks if Elementor has loaded, and performs some compatibility checks.
-	 * If All checks pass, inits the plugin.
-	 *
-	 * Fired by `plugins_loaded` action hook.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @access public
-	 */
+	
 	public function on_plugins_loaded() {
-
+		
 		if (! did_action( 'elementor/loaded' ) ) {
 			return $this->injectDependency();
 		}
@@ -302,7 +276,7 @@ final class AdvancedPricingTableLite
 
 	public function loadTextDomain()
     {
-        load_plugin_textdomain('advanced-pricing-table-for-elementor', false, basename(dirname(__FILE__)) . '/languages');
+		load_plugin_textdomain('advanced-pricing-table-for-elementor', false, APT_PLUGIN_URL. '/languages');
 	}
 	
 	
