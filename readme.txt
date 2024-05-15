@@ -1,8 +1,8 @@
 === Advanced Pricing Table For Elementor ===
-Contributors: wpcreativeidea, ruhel241
+Contributors: wpcreativeidea,ruhel241
 Tags: price, price table, pricing table, table, pricing
 Tested up to: 6.5.2
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 Requires at least: 5.0
 Requires PHP: 7.4
 License: GPLv2 or later
@@ -52,6 +52,9 @@ Yes you can style title, fontsize change, color, typoghaphy etc.
 == Screenshots ==
 
 == Changelog ==
+
+= 1.0.1 =
+* Bug fix & refactor code
 
 = 1.0.0 =
 * Init First version
