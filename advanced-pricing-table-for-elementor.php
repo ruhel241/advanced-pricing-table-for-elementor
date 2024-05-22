@@ -2,9 +2,9 @@
 /**
  * Plugin Name: Advanced Pricing Table For Elementor 
  * Description: Advanced Pricing Table for Elementor, this is elementor addon, and it's easy to use for elementor users.
- * Version:     1.0.1
+ * Version:     1.0.2
  * Author:      wpcreativeidea
- * Author URI:  https://wpcreativeidea.com/
+ * Author URI:  https://profiles.wordpress.org/wpcreativeidea/
  * Plugin URI:  https://github.com/ruhel241/advanced-pricing-table-for-elementor
  * License: GPLv2 or later
  * Text Domain: advanced-pricing-table-for-elementor
@@ -21,13 +21,13 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * The main class that initiates and runs the plugin.
  *
- * @since 1.0.1
+ * @since  1.0.2
  */
 
 define('APT_DIR_FILE', __FILE__);
 define('APT_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('APT_LITE', 'AdvancedPriceTableLite');
-define('APT_PLUGIN_VERSION', '1.0.1');
+define('APT_PLUGIN_VERSION', ' 1.0.2');
 
 final class AdvancedPricingTableLite 
 {
@@ -35,16 +35,16 @@ final class AdvancedPricingTableLite
 	/**
 	 * Plugin Version
 	 *
-	 * @since 1.0.1
+	 * @since  1.0.2
 	 *
 	 * @var string The plugin version.
 	 */
-	const VERSION = '1.0.1';
+	const VERSION = ' 1.0.2';
 
 	/**
 	 * Minimum Elementor Version
 	 *
-	 * @since 1.0.1
+	 * @since  1.0.2
 	 *
 	 * @var string Minimum Elementor version required to run the plugin.
 	 */
@@ -53,7 +53,7 @@ final class AdvancedPricingTableLite
 	/**
 	 * Minimum PHP Version
 	 *
-	 * @since 1.0.1
+	 * @since  1.0.2
 	 *
 	 * @var string Minimum PHP version required to run the plugin.
 	 */
@@ -62,7 +62,7 @@ final class AdvancedPricingTableLite
 	/**
 	 * Instance
 	 *
-	 * @since 1.0.1
+	 * @since  1.0.2
 	 *
 	 * @access private
 	 * @static
@@ -77,7 +77,7 @@ final class AdvancedPricingTableLite
 	 *
 	 * Ensures only one instance of the class is loaded or can be loaded.
 	 *
-	 * @since 1.0.1
+	 * @since  1.0.2
 	 *
 	 * @access public
 	 * @static
@@ -97,7 +97,7 @@ final class AdvancedPricingTableLite
 	/**
 	 * Constructor
 	 *
-	 * @since 1.0.1
+	 * @since  1.0.2
 	 *
 	 * @access public
 	 */
@@ -218,7 +218,7 @@ final class AdvancedPricingTableLite
 	 * Checks if the installed version of Elementor meets the plugin's minimum requirement.
 	 * Checks if the installed PHP version meets the plugin's minimum requirement.
 	 *
-	 * @since 1.0.1
+	 * @since  1.0.2
 	 *
 	 * @access public
 	 */
@@ -254,7 +254,7 @@ final class AdvancedPricingTableLite
 	 *
 	 * Fired by `plugins_loaded` action hook.
 	 *
-	 * @since 1.0.1
+	 * @since  1.0.2
 	 *
 	 * @access public
 	 */
@@ -275,7 +275,7 @@ final class AdvancedPricingTableLite
 	 *
 	 * Include widgets files and register them
 	 *
-	 * @since 1.0.1
+	 * @since  1.0.2
 	 *
 	 * @access public
 	 */
@@ -298,7 +298,7 @@ final class AdvancedPricingTableLite
 	 *
 	 * Warning when the site doesn't have Elementor installed or activated.
 	 *
-	 * @since 1.0.1
+	 * @since  1.0.2
 	 *
 	 * @access public
 	 */
@@ -323,7 +323,7 @@ final class AdvancedPricingTableLite
 	 *
 	 * Warning when the site doesn't have a minimum required Elementor version.
 	 *
-	 * @since 1.0.1
+	 * @since  1.0.2
 	 *
 	 * @access public
 	 */
@@ -349,7 +349,7 @@ final class AdvancedPricingTableLite
 	 *
 	 * Warning when the site doesn't have a minimum required PHP version.
 	 *
-	 * @since 1.0.1
+	 * @since  1.0.2
 	 *
 	 * @access public
 	 */
