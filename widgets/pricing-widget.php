@@ -1,6 +1,6 @@
 <?php
 
-namespace APT\Classes\Widgets;
+namespace APTFE\Classes\Widgets;
 
 use Elementor\Utils;
 use Elementor\Repeater;
@@ -19,7 +19,7 @@ use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 /**
  * Elementor pricing Widget.
  *
- * @since  1.0.2
+ * @since  1.0.4
  */
 class Advanced_Pricing_Widget extends Widget_Base {
 
@@ -28,7 +28,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 	 *
 	 * Retrieve pricing widget name.
 	 *
-	 * @since  1.0.2
+	 * @since  1.0.4
 	 * @access public
 	 * @return string Widget name.
 	 */
@@ -41,7 +41,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 	 *
 	 * Retrieve pricing widget title.
 	 *
-	 * @since  1.0.2
+	 * @since  1.0.4
 	 * @access public
 	 * @return string Widget title.
 	 */
@@ -54,7 +54,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 	 *
 	 * Retrieve pricing widget icon.
 	 *
-	 * @since  1.0.2
+	 * @since  1.0.4
 	 * @access public
 	 * @return string Widget icon.
 	 */
@@ -68,7 +68,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 	 *
 	 * Retrieve the list of categories the pricing widget belongs to.
 	 *
-	 * @since  1.0.2
+	 * @since  1.0.4
 	 * @access public
 	 * @return array Widget categories.
 	 */
@@ -81,7 +81,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 	 *
 	 * Retrieve the list of keywords the pricing widget belongs to.
 	 *
-	 * @since  1.0.2
+	 * @since  1.0.4
 	 * @access public
 	 * @return array Widget keywords.
 	 */
@@ -94,20 +94,20 @@ class Advanced_Pricing_Widget extends Widget_Base {
 	 *
 	 * Add input fields to allow the user to customize the widget settings.
 	 *
-	 * @since  1.0.2
+	 * @since  1.0.4
 	 * @access protected
 	 */
 	protected function register_controls() {
 
 		$this->start_controls_section(
-			'apt_content_section',
+			'aptfe_content_section',
 			[
 				'label' => esc_html__( 'Header', 'advanced-pricing-table-for-elementor' ),
 				'tab' => Controls_Manager::TAB_CONTENT
 			]
 		);
 			$this->add_control(
-				'apt_header_title',
+				'aptfe_header_title',
 				[
 					'label' => esc_html__( 'Title', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::TEXT,
@@ -119,7 +119,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				]
 			);
 			$this->add_control(
-				'apt_header_description',
+				'aptfe_header_description',
 				[
 					'label' => esc_html__( 'Description', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::TEXTAREA,
@@ -132,7 +132,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				]
 			);
 			$this->add_control(
-				'apt_header_title_tag',
+				'aptfe_header_title_tag',
 				[
 					'label' => esc_html__( 'Title HTML Tag', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SELECT,
@@ -153,14 +153,14 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'apt_pricing_section',
+			'aptfe_pricing_section',
 			[
 				'label' => esc_html__( 'Pricing', 'advanced-pricing-table-for-elementor' ),
 				'tab' => Controls_Manager::TAB_CONTENT
 			]
 		);
 			$this->add_control(
-				'apt_pricing_currency_symbol',
+				'aptfe_pricing_currency_symbol',
 				[
 					'label' => esc_html__( 'Currency Symbol', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SELECT,
@@ -190,17 +190,17 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				]
 			);
 			$this->add_control(
-				'apt_pricing_currency_symbol_custom',
+				'aptfe_pricing_currency_symbol_custom',
 				[
 					'label' => esc_html__( 'Custom Symbol', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::TEXT,
 					'condition' => [
-						'apt_pricing_currency_symbol' => 'custom',
+						'aptfe_pricing_currency_symbol' => 'custom',
 					],
 				]
 			);
 			$this->add_control(
-				'apt_pricing_price',
+				'aptfe_pricing_price',
 				[
 					'label' => esc_html__( 'Price', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::TEXT,
@@ -211,7 +211,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				]
 			);
 			$this->add_control(
-				'apt_pricing_currency_format',
+				'aptfe_pricing_currency_format',
 				[
 					'label' => esc_html__( 'Currency Format', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SELECT,
@@ -222,7 +222,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				]
 			);
 			$this->add_control(
-				'apt_pricing_sale',
+				'aptfe_pricing_sale',
 				[
 					'label' => esc_html__( 'Sale', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SWITCHER,
@@ -232,13 +232,13 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				]
 			);
 			$this->add_control(
-				'apt_pricing_original_price',
+				'aptfe_pricing_original_price',
 				[
 					'label' => esc_html__( 'Original Price', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::NUMBER,
 					'default' => '59',
 					'condition' => [
-						'apt_pricing_sale' => 'yes',
+						'aptfe_pricing_sale' => 'yes',
 					],
 					'dynamic' => [
 						'active' => true,
@@ -246,7 +246,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				]
 			);
 			$this->add_control(
-				'apt_pricing_period',
+				'aptfe_pricing_period',
 				[
 					'label' => esc_html__( 'Period', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::TEXT,
@@ -256,7 +256,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'apt_features_section',
+			'aptfe_features_section',
 			[
 				'label' => esc_html__( 'Features', 'advanced-pricing-table-for-elementor' ),
 				'tab' => Controls_Manager::TAB_CONTENT
@@ -264,7 +264,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		);
 			$repeater = new Repeater();
 			$repeater->add_control(
-				'apt_features_item_text',
+				'aptfe_features_item_text',
 				[
 					'label' => esc_html__( 'Text', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::TEXT,
@@ -276,7 +276,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					'library' => 'fa-regular'
 			];
 			$repeater->add_control(
-				'apt_features_selected_item_icon',
+				'aptfe_features_selected_item_icon',
 				[
 					'label' => esc_html__( 'Icon', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::ICONS,
@@ -290,51 +290,51 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				]
 			);
 			$repeater->add_control(
-				'apt_features_item_icon_color',
+				'aptfe_features_item_icon_color',
 				[
 					'label' => esc_html__( 'Icon Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-features .items li i' => 'color: {{VALUE}}',
-						'{{WRAPPER}} .apt-pricing-table-container .apt-features .items li svg' => 'fill: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-features .items li i' => 'color: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-features .items li svg' => 'fill: {{VALUE}}',
 					],
 				]
 			);
 			$this->add_control(
-				'apt_features_list',
+				'aptfe_features_list',
 				[
 					'type' => Controls_Manager::REPEATER,
 					'fields' => $repeater->get_controls(),
 					'default' => [
 						[
-							'apt_features_item_text' => esc_html__( 'List Item #1', 'advanced-pricing-table-for-elementor' ),
-							'apt_features_selected_item_icon' => $default_icon,
+							'aptfe_features_item_text' => esc_html__( 'List Item #1', 'advanced-pricing-table-for-elementor' ),
+							'aptfe_features_selected_item_icon' => $default_icon,
 						],
 						[
-							'apt_features_item_text' => esc_html__( 'List Item #2', 'advanced-pricing-table-for-elementor' ),
-							'apt_features_selected_item_icon' => $default_icon,
+							'aptfe_features_item_text' => esc_html__( 'List Item #2', 'advanced-pricing-table-for-elementor' ),
+							'aptfe_features_selected_item_icon' => $default_icon,
 						],
 						[
-							'apt_features_item_text' => esc_html__( 'List Item #3', 'advanced-pricing-table-for-elementor' ),
-							'apt_features_selected_item_icon' => $default_icon,
+							'aptfe_features_item_text' => esc_html__( 'List Item #3', 'advanced-pricing-table-for-elementor' ),
+							'aptfe_features_selected_item_icon' => $default_icon,
 						],
 					],
-					'title_field' => '{{{ apt_features_item_text }}}',
+					'title_field' => '{{{ aptfe_features_item_text }}}',
 				]
 			);
 			
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'apt_center_icon_section',
+			'aptfe_center_icon_section',
 			[
 				'label' => esc_html__( 'Center Icon', 'advanced-pricing-table-for-elementor' ),
 				'tab' => Controls_Manager::TAB_CONTENT,
-				'condition' => ['apt_center_icon_show' => 'yes']
+				'condition' => ['aptfe_center_icon_show' => 'yes']
 			]
 		);
 			$this->add_control(
-				'apt_features_top_icon',
+				'aptfe_features_top_icon',
 				[
 					'label' => esc_html__( 'Icon', 'textdomain' ),
 					'type' => Controls_Manager::ICONS,
@@ -352,15 +352,15 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'apt_button_section',
+			'aptfe_button_section',
 			[
 				'label' => esc_html__( 'Button', 'advanced-pricing-table-for-elementor' ),
 				'tab' => Controls_Manager::TAB_CONTENT,
-				'condition' => ['apt_button_show' => 'yes']
+				'condition' => ['aptfe_button_show' => 'yes']
 			]
 		);
 			$this->add_control(
-				'apt_button_text',
+				'aptfe_button_text',
 				[
 					'label' => esc_html__( 'Button Text', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::TEXT,
@@ -371,7 +371,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				]
 			);
 			$this->add_control(
-				'apt_button_link',
+				'aptfe_button_link',
 				[
 					'label' => esc_html__( 'Link', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::URL,
@@ -387,15 +387,15 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'apt_additional_text_section',
+			'aptfe_additional_text_section',
 			[
 				'label' => esc_html__( 'Additional Text', 'advanced-pricing-table-for-elementor' ),
 				'tab' => Controls_Manager::TAB_CONTENT,
-				'condition' => ['apt_additional_text_show' => 'yes']
+				'condition' => ['aptfe_additional_text_show' => 'yes']
 			]
 		);
 			$this->add_control(
-				'apt_additional_textarea',
+				'aptfe_additional_textarea',
 				[
 					'label' => esc_html__( 'Additional text', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::TEXTAREA,
@@ -409,7 +409,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			);
 
 			// $this->add_control(
-			// 	'apt_additional_textarea', [
+			// 	'aptfe_additional_textarea', [
 			// 		'label' => __( 'Content', 'advanced-testimonial-carousel-for-elementor-pro' ),
 			// 		'type' => Controls_Manager::WYSIWYG,
 			// 		'default' => __( 'Lorem ipsum dolor sit amet, tpat dictum purus, at malesuada tellus convallis et. Aliquam erat volutpat. Vestibulum felis ex, ultrices posuere facilisis eget, malesuada quis elit. Nulla ac eleifend odio' , 'advanced-testimonial-carousel-for-elementor-pro' ),
@@ -424,17 +424,17 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'apt_ribbon_section',
+			'aptfe_ribbon_section',
 			[
 				'label' => esc_html__( 'Ribbon', 'advanced-pricing-table-for-elementor' ),
 				'tab' => Controls_Manager::TAB_CONTENT,
 				'condition' => [
-					'apt_ribbon_show' => 'yes',
+					'aptfe_ribbon_show' => 'yes',
 				],
 			]
 		);	
 			$this->add_control(
-				'apt_ribbon_title',
+				'aptfe_ribbon_title',
 				[
 					'label' => esc_html__( 'Title', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::TEXT,
@@ -445,7 +445,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				]
 			);
 			$this->add_control(
-				'apt_ribbon_horizontal_position',
+				'aptfe_ribbon_horizontal_position',
 				[
 					'label' => esc_html__( 'Position', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::CHOOSE,
@@ -465,7 +465,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'apt_section_pricing_table_style',
+			'aptfe_section_pricing_table_style',
 			[
 				'label' => esc_html__( 'Pricing Table', 'advanced-pricing-table-for-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -474,7 +474,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		);
 
 		$this->add_control(
-			'apt_pricing_table_bg_color',
+			'aptfe_pricing_table_bg_color',
 			[
 				'label' => esc_html__( 'Background Color', 'advanced-pricing-table-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
@@ -482,7 +482,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				// 	'default' => Global_Colors::COLOR_SECONDARY,
 				// ],
 				'selectors' => [
-					'{{WRAPPER}} .apt-pricing-table-container .apt-pricing-header' => 'background-color: {{VALUE}};'
+					'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-header' => 'background-color: {{VALUE}};'
 				],
 			]
 		);
@@ -490,13 +490,13 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' => 'apt_pricing_table_border',
+				'name' => 'aptfe_pricing_table_border',
 				// 'selector' => '{{WRAPPER}} .wrapper',
 			]
 		);
 
 		$this->add_control(
-			'apt_pricing_table_border_radius',
+			'aptfe_pricing_table_border_radius',
 			[
 				'label' => esc_html__( 'Border Radius', 'textdomain' ),
 				'type' => Controls_Manager::DIMENSIONS,
@@ -508,7 +508,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		);
 
 		// $this->add_control(
-		// 	'apt_pricing_table_box_shadow',
+		// 	'aptfe_pricing_table_box_shadow',
 		// 	[
 		// 		'label' => esc_html__( 'Box Shadow', 'textdomain' ),
 		// 		'type' => \Elementor\Controls_Manager::BOX_SHADOW,
@@ -521,7 +521,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name' => 'apt_pricing_table_box_shadow',
+				'name' => 'aptfe_pricing_table_box_shadow',
 				'label' => esc_html__( 'Box Shadow', 'advanced-pricing-table-for-elementor' ),
 				// 'selector' => '{{WRAPPER}} .coupon .input-text, {{WRAPPER}} .e-cart-totals .input-text, {{WRAPPER}} select, {{WRAPPER}} .select2-selection--single',
 			]
@@ -530,7 +530,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'apt_section_header_style',
+			'aptfe_section_header_style',
 			[
 				'label' => esc_html__( 'Header', 'advanced-pricing-table-for-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -538,7 +538,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			]
 		);
 			$this->add_control(
-				'apt_header_bg_color',
+				'aptfe_header_bg_color',
 				[
 					'label' => esc_html__( 'Background Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
@@ -546,7 +546,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					// 	'default' => Global_Colors::COLOR_SECONDARY,
 					// ],
 					'selectors' => [
-                        '{{WRAPPER}} .apt-pricing-table-container .apt-pricing-header' => 'background-color: {{VALUE}};'
+                        '{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-header' => 'background-color: {{VALUE}};'
                     ],
 				]
 			);
@@ -554,25 +554,25 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			// $this->add_group_control(
 			// 	Group_Control_Border::get_type(),
 			// 	[
-			// 		'name' => 'apt_header_border',
-			// 		'selector' => '{{WRAPPER}} .apt-pricing-table-container .apt-pricing-header .title::after',
+			// 		'name' => 'aptfe_header_border',
+			// 		'selector' => '{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-header .title::after',
 			// 	]
 			// );
 
 			$this->add_control(
-				'apt_header_title_divider',
+				'aptfe_header_title_divider',
 				[
 					'label' => esc_html__( 'Divider', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SWITCHER,
 					'default' => 'yes',
 					'separator' => 'before',
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-pricing-header .title::after' => 'border-top-style: none;',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-header .title::after' => 'border-top-style: none;',
 					],
 				]
 			);
 			$this->add_control(
-				'apt_header_title_divider_style',
+				'aptfe_header_title_divider_style',
 				[
 					'label' => esc_html__( 'Style', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SELECT,
@@ -585,15 +585,15 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					],
 					'default' => 'solid',
 					'condition' => [
-						'apt_header_title_divider!' => '',
+						'aptfe_header_title_divider!' => '',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-pricing-header .title::after' => 'border-top-style: {{VALUE}};',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-header .title::after' => 'border-top-style: {{VALUE}};',
 					],
 				]
 			);
 			$this->add_control(
-				'apt_header_title_divider_color',
+				'aptfe_header_title_divider_color',
 				[
 					'label' => esc_html__( 'Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
@@ -602,15 +602,15 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						'default' => Global_Colors::COLOR_TEXT,
 					],
 					'condition' => [
-						'apt_header_title_divider!' => '',
+						'aptfe_header_title_divider!' => '',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-pricing-header .title::after' => 'border-top-color: {{VALUE}};',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-header .title::after' => 'border-top-color: {{VALUE}};',
 					],
 				]
 			);
 			$this->add_control(
-				'apt_header_title_divider_weight',
+				'aptfe_header_title_divider_weight',
 				[
 					'label' => esc_html__( 'Weight', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SLIDER,
@@ -625,15 +625,15 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						],
 					],
 					'condition' => [
-						'apt_header_title_divider!' => '',
+						'aptfe_header_title_divider!' => '',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-pricing-header .title::after' => 'border-top-width: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-header .title::after' => 'border-top-width: {{SIZE}}{{UNIT}};',
 					],
 				]
 			);
 			$this->add_control(
-				'apt_header_title_divider_width',
+				'aptfe_header_title_divider_width',
 				[
 					'label' => esc_html__( 'Width', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SLIDER,
@@ -654,15 +654,15 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						'size' => 50,
 					],
 					'condition' => [
-						'apt_header_title_divider!' => '',
+						'aptfe_header_title_divider!' => '',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-pricing-header .title::after' => 'width: {{SIZE}}{{UNIT}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-header .title::after' => 'width: {{SIZE}}{{UNIT}}',
 					],
 				]
 			);
 			$this->add_control(
-				'apt_header_title_divider_gap',
+				'aptfe_header_title_divider_gap',
 				[
 					'label' => esc_html__( 'Gap', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SLIDER,
@@ -677,27 +677,27 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						],
 					],
 					'condition' => [
-						'apt_header_title_divider!' => '',
+						'aptfe_header_title_divider!' => '',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-pricing-header .title::after' => 'margin: {{SIZE}}{{UNIT}} auto;',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-header .title::after' => 'margin: {{SIZE}}{{UNIT}} auto;',
 					],
 				]
 			);
 	
 			$this->add_responsive_control(
-				'apt_header_padding',
+				'aptfe_header_padding',
 				[
 					'label' => esc_html__( 'Padding', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::DIMENSIONS,
 					'size_units' => [ 'px', '%', 'em' ],
 					'selectors' => [
-                        '{{WRAPPER}} .apt-pricing-table-container .apt-pricing-header' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                        '{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-header' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                     ]
 				]
 			);
 			$this->add_control(
-				'apt_heading_hr',
+				'aptfe_heading_hr',
 				[
 					'label' => esc_html__( 'Title', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::HEADING,
@@ -705,27 +705,27 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				]
 			);
 			$this->add_control(
-				'apt_heading_color',
+				'aptfe_heading_color',
 				[
 					'label' => esc_html__( 'Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-pricing-header .title' => 'color: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-header .title' => 'color: {{VALUE}}',
 					],
 				]
 			);
 			$this->add_group_control(
 				Group_Control_Typography::get_type(),
 				[
-					'name' => 'apt_heading_typography',
-					'selector' => '{{WRAPPER}} .apt-pricing-table-container .apt-pricing-header .title',
+					'name' => 'aptfe_heading_typography',
+					'selector' => '{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-header .title',
 					'global' => [
 						'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
 					],
 				]
 			);
 			$this->add_control(
-				'apt_sub_heading_style',
+				'aptfe_sub_heading_style',
 				[
 					'label' => esc_html__( 'Sub Title', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::HEADING,
@@ -733,20 +733,20 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				]
 			);
 			$this->add_control(
-				'apt_sub_heading_color',
+				'aptfe_sub_heading_color',
 				[
 					'label' => esc_html__( 'Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-pricing-header .decription' => 'color: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-header .decription' => 'color: {{VALUE}}',
 					],
 				]
 			);
 			$this->add_group_control(
 				Group_Control_Typography::get_type(),
 				[
-					'name' => 'apt_sub_heading_typography',
-					'selector' => '{{WRAPPER}} .apt-pricing-table-container .apt-pricing-header .decription',
+					'name' => 'aptfe_sub_heading_typography',
+					'selector' => '{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-header .decription',
 					'global' => [
 						'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 					],
@@ -755,7 +755,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'apt_section_pricing_style',
+			'aptfe_section_pricing_style',
 			[
 				'label' => esc_html__( 'Pricing', 'advanced-pricing-table-for-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -763,29 +763,29 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			]
 		);
 			$this->add_control(
-				'apt_pricing_bg_color',
+				'aptfe_pricing_bg_color',
 				[
 					'label' => esc_html__( 'Background Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-pricing-price' => 'background-color: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price' => 'background-color: {{VALUE}}',
 					],
 				]
 			);
 			$this->add_control(
-				'apt_pricing_divider',
+				'aptfe_pricing_divider',
 				[
 					'label' => esc_html__( 'Divider', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SWITCHER,
 					'default' => '',
 					'separator' => 'before',
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-pricing-price:before' => 'border-top-style: none;',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price:before' => 'border-top-style: none;',
 					],
 				]
 			);
 			$this->add_control(
-				'apt_pricing_divider_style',
+				'aptfe_pricing_divider_style',
 				[
 					'label' => esc_html__( 'Style', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SELECT,
@@ -798,15 +798,15 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					],
 					'default' => 'solid',
 					'condition' => [
-						'apt_pricing_divider!' => '',
+						'aptfe_pricing_divider!' => '',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-pricing-price:before' => 'border-top-style: {{VALUE}};',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price:before' => 'border-top-style: {{VALUE}};',
 					],
 				]
 			);
 			$this->add_control(
-				'apt_pricing_divider_color',
+				'aptfe_pricing_divider_color',
 				[
 					'label' => esc_html__( 'Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
@@ -815,15 +815,15 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						'default' => Global_Colors::COLOR_TEXT,
 					],
 					'condition' => [
-						'apt_pricing_divider!' => '',
+						'aptfe_pricing_divider!' => '',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-pricing-price:before' => 'border-top-color: {{VALUE}};',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price:before' => 'border-top-color: {{VALUE}};',
 					],
 				]
 			);
 			$this->add_control(
-				'apt_pricing_divider_weight',
+				'aptfe_pricing_divider_weight',
 				[
 					'label' => esc_html__( 'Weight', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SLIDER,
@@ -838,15 +838,15 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						],
 					],
 					'condition' => [
-						'apt_pricing_divider!' => '',
+						'aptfe_pricing_divider!' => '',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-pricing-price:before' => 'border-top-width: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price:before' => 'border-top-width: {{SIZE}}{{UNIT}};',
 					],
 				]
 			);
 			$this->add_control(
-				'apt_pricing_divider_width',
+				'aptfe_pricing_divider_width',
 				[
 					'label' => esc_html__( 'Width', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SLIDER,
@@ -867,15 +867,15 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						'size' => 50,
 					],
 					'condition' => [
-						'apt_pricing_divider!' => '',
+						'aptfe_pricing_divider!' => '',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-pricing-price:before' => 'width: {{SIZE}}{{UNIT}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price:before' => 'width: {{SIZE}}{{UNIT}}',
 					],
 				]
 			);
 			$this->add_control(
-				'apt_pricing_divider_gap',
+				'aptfe_pricing_divider_gap',
 				[
 					'label' => esc_html__( 'Gap', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SLIDER,
@@ -890,31 +890,31 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						],
 					],
 					'condition' => [
-						'apt_pricing_divider!' => '',
+						'aptfe_pricing_divider!' => '',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-pricing-price:before' => 'bottom: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price:before' => 'bottom: {{SIZE}}{{UNIT}};',
 					],
 				]
 			);
 			$this->add_responsive_control(
-				'apt_pricing_padding',
+				'aptfe_pricing_padding',
 				[
 					'label' => esc_html__( 'Padding', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::DIMENSIONS,
 					'size_units' => [ 'px', '%', 'em' ],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-pricing-price' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					],
 				]
 			);
 			$this->add_control(
-				'apt_price_color',
+				'aptfe_price_color',
 				[
 					'label' => esc_html__( 'Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-pricing-price' => 'color: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price' => 'color: {{VALUE}}',
 					],
 					'separator' => 'before',
 				]
@@ -923,25 +923,25 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'price_typography',
-					'selector' => '{{WRAPPER}} .apt-pricing-table-container .apt-pricing-price',
+					'selector' => '{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price',
 					'global' => [
 						'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
 					],
 				]
 			);
 			$this->add_control(
-				'apt_heading_currency_style',
+				'aptfe_heading_currency_style',
 				[
 					'label' => esc_html__( 'Currency Symbol', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::HEADING,
 					'separator' => 'before',
 					'condition' => [
-						'apt_pricing_currency_symbol!' => '',
+						'aptfe_pricing_currency_symbol!' => '',
 					],
 				]
 			);
 			$this->add_control(
-				'apt_currency_size',
+				'aptfe_currency_size',
 				[
 					'label' => esc_html__( 'Size', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SLIDER,
@@ -952,15 +952,15 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						],
 					],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-pricing-price .currency' => 'font-size: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price .currency' => 'font-size: {{SIZE}}{{UNIT}};',
 					],
 					'condition' => [
-						'apt_pricing_currency_symbol!' => '',
+						'aptfe_pricing_currency_symbol!' => '',
 					],
 				]
 			);
 			$this->add_control(
-				'apt_currency_position',
+				'aptfe_currency_position',
 				[
 					'label' => esc_html__( 'Position', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::CHOOSE,
@@ -970,7 +970,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						'after' => '1',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-pricing-price .currency' => 'order: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price .currency' => 'order: {{VALUE}}',
 					],
 					'options' => [
 						'before' => [
@@ -985,7 +985,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				]
 			);
 			$this->add_control(
-				'apt_currency_vertical_position',
+				'aptfe_currency_vertical_position',
 				[
 					'label' => esc_html__( 'Vertical Position', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::CHOOSE,
@@ -1010,15 +1010,15 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						'bottom' => 'flex-end',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-pricing-price .currency' => 'align-self: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price .currency' => 'align-self: {{VALUE}}',
 					],
 					'condition' => [
-						'apt_pricing_currency_symbol!' => '',
+						'aptfe_pricing_currency_symbol!' => '',
 					],
 				]
 			);
 			$this->add_control(
-				'apt_fractional_part_style',
+				'aptfe_fractional_part_style',
 				[
 					'label' => esc_html__( 'Fractional Part', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::HEADING,
@@ -1026,7 +1026,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				]
 			);
 			$this->add_control(
-				'apt_fractional-part_size',
+				'aptfe_fractional-part_size',
 				[
 					'label' => esc_html__( 'Size', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SLIDER,
@@ -1037,12 +1037,12 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						],
 					],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-pricing-price .freaction-part' => 'font-size: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price .freaction-part' => 'font-size: {{SIZE}}{{UNIT}};',
 					],
 				]
 			);
 			$this->add_control(
-				'apt_fractional_part_vertical_position',
+				'aptfe_fractional_part_vertical_position',
 				[
 					'label' => esc_html__( 'Vertical Position', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::CHOOSE,
@@ -1067,24 +1067,24 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						'bottom' => 'flex-end',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-pricing-price .freaction-part' => 'align-self: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price .freaction-part' => 'align-self: {{VALUE}}',
 					],
 				]
 			);
 			$this->add_control(
-				'apt_heading_original_price_style',
+				'aptfe_heading_original_price_style',
 				[
 					'label' => esc_html__( 'Original Price', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::HEADING,
 					'separator' => 'before',
 					'condition' => [
-						'apt_pricing_sale' => 'yes',
-						'apt_pricing_original_price!' => '',
+						'aptfe_pricing_sale' => 'yes',
+						'aptfe_pricing_original_price!' => '',
 					],
 				]
 			);
 			$this->add_control(
-				'apt_original_price_color',
+				'aptfe_original_price_color',
 				[
 					'label' => esc_html__( 'Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
@@ -1092,30 +1092,30 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					// 	'default' => Global_Colors::COLOR_SECONDARY,
 					// ],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-pricing-price .original-price' => 'color: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price .original-price' => 'color: {{VALUE}}',
 					],
 					'condition' => [
-						'apt_pricing_sale' => 'yes',
-						'apt_pricing_original_price!' => '',
+						'aptfe_pricing_sale' => 'yes',
+						'aptfe_pricing_original_price!' => '',
 					],
 				]
 			);
 			$this->add_group_control(
 				Group_Control_Typography::get_type(),
 				[
-					'name' => 'apt_original_price_typography',
-					'selector' => '{{WRAPPER}} .apt-pricing-table-container .apt-pricing-price .original-price',
+					'name' => 'aptfe_original_price_typography',
+					'selector' => '{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price .original-price',
 					'global' => [
 						'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
 					],
 					'condition' => [
-						'apt_pricing_sale' => 'yes',
-						'apt_pricing_original_price!' => '',
+						'aptfe_pricing_sale' => 'yes',
+						'aptfe_pricing_original_price!' => '',
 					],
 				]
 			);
 			$this->add_control(
-				'apt_original_price_vertical_position',
+				'aptfe_original_price_vertical_position',
 				[
 					'label' => esc_html__( 'Vertical Position', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::CHOOSE,
@@ -1140,27 +1140,27 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					],
 					'default' => 'bottom',
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-pricing-price .original-price' => 'align-self: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price .original-price' => 'align-self: {{VALUE}}',
 					],
 					'condition' => [
-						'apt_pricing_sale' => 'yes',
-						'apt_pricing_original_price!' => '',
+						'aptfe_pricing_sale' => 'yes',
+						'aptfe_pricing_original_price!' => '',
 					],
 				]
 			);
 			$this->add_control(
-				'apt_heading_period_style',
+				'aptfe_heading_period_style',
 				[
 					'label' => esc_html__( 'Period', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::HEADING,
 					'separator' => 'before',
 					'condition' => [
-						'apt_pricing_period!' => '',
+						'aptfe_pricing_period!' => '',
 					],
 				]
 			);
 			$this->add_control(
-				'apt_period_color',
+				'aptfe_period_color',
 				[
 					'label' => esc_html__( 'Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
@@ -1168,28 +1168,28 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					// 	'default' => Global_Colors::COLOR_SECONDARY,
 					// ],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-pricing-price .period' => 'color: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price .period' => 'color: {{VALUE}}',
 					],
 					'condition' => [
-						'apt_pricing_period!' => '',
+						'aptfe_pricing_period!' => '',
 					],
 				]
 			);
 			$this->add_group_control(
 				Group_Control_Typography::get_type(),
 				[
-					'name' => 'apt_period_typography',
-					'selector' => '{{WRAPPER}} .apt-pricing-table-container .apt-pricing-price .period',
+					'name' => 'aptfe_period_typography',
+					'selector' => '{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price .period',
 					'global' => [
 						'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 					],
 					'condition' => [
-						'apt_pricing_period!' => '',
+						'aptfe_pricing_period!' => '',
 					],
 				]
 			);
 			$this->add_control(
-				'apt_period_position',
+				'aptfe_period_position',
 				[
 					'label' => esc_html__( 'Position', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::CHOOSE,
@@ -1199,7 +1199,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						'beside' => 'initial',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-pricing-price .period' => 'width: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price .period' => 'width: {{VALUE}}',
 					],
 					'options' => [
 						'below' => [
@@ -1221,7 +1221,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				'label' => esc_html__( 'Center Icon', 'advanced-pricing-table-for-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
-				'condition' => ['apt_center_icon_show' => 'yes']
+				'condition' => ['aptfe_center_icon_show' => 'yes']
 			]
 		);
 
@@ -1234,7 +1234,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					// 	'default' => Global_Colors::COLOR_TEXT,
 					// ],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-center-icon svg' => 'fill: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-center-icon svg' => 'fill: {{VALUE}}',
 					]
 				]
 			);
@@ -1247,12 +1247,12 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					// 	'default' => Global_Colors::COLOR_TEXT,
 					// ],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-center-icon' => 'background-color: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-center-icon' => 'background-color: {{VALUE}}',
 					]
 				]
 			);
 			$this->add_control(
-				'apt_center_icon_size',
+				'aptfe_center_icon_size',
 				[
 					'label' => esc_html__( 'Size', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SLIDER,
@@ -1263,18 +1263,18 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						],
 					],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-center-icon svg' => 'width: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-center-icon svg' => 'width: {{SIZE}}{{UNIT}};',
 					]
 				]
 			);
 			$this->add_control(
-				'apt_center_icon_padding',
+				'aptfe_center_icon_padding',
 				[
 					'label' => esc_html__( 'Padding', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::DIMENSIONS,
 					'size_units' => [ 'px', '%', 'em' ],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-center-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-center-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
 					]
 				]
 			);
@@ -1299,7 +1299,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					// ],
 					'separator' => 'before',
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-features li' => 'color: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-features li' => 'color: {{VALUE}}',
 					]
 				]
 			);
@@ -1309,7 +1309,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					'label' => esc_html__( 'Background Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-features' => 'background-color: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-features' => 'background-color: {{VALUE}}',
 					],
 				]
 			);
@@ -1317,7 +1317,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'features_list_typography',
-					'selector' => '{{WRAPPER}} .apt-pricing-table-container .apt-features li',
+					'selector' => '{{WRAPPER}} .aptfe-pricing-table-container .aptfe-features li',
 					'global' => [
 						'default' => Global_Typography::TYPOGRAPHY_TEXT,
 					]
@@ -1343,7 +1343,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						],
 					],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-features .items li' => 'justify-content: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-features .items li' => 'justify-content: {{VALUE}}',
 					]
 				]
 			);
@@ -1354,7 +1354,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					'type' => Controls_Manager::DIMENSIONS,
 					'size_units' => [ 'px', '%', 'em' ],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-features .items li' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-features .items li' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					]
 				]
 			);
@@ -1367,7 +1367,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					'default' => 'yes',
 					'separator' => 'before',
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-features .items li+li:before' => 'border-top-style: {{VALUE}};',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-features .items li+li:before' => 'border-top-style: {{VALUE}};',
 					],
 				]
 			);
@@ -1388,7 +1388,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						'list_divider' => 'yes',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-features .items li+li:before' => 'border-top-style: {{VALUE}};',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-features .items li+li:before' => 'border-top-style: {{VALUE}};',
 					],
 				]
 			);
@@ -1405,7 +1405,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						'list_divider' => 'yes',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-features .items li+li:before' => 'border-top-color: {{VALUE}};',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-features .items li+li:before' => 'border-top-color: {{VALUE}};',
 					],
 				]
 			);
@@ -1428,7 +1428,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						'list_divider' => 'yes',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-features .items li+li:before' => 'border-top-width: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-features .items li+li:before' => 'border-top-width: {{SIZE}}{{UNIT}};',
 					],
 				]
 			);
@@ -1457,7 +1457,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						'list_divider' => 'yes',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-features .items li+li:before' => 'width: {{SIZE}}{{UNIT}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-features .items li+li:before' => 'width: {{SIZE}}{{UNIT}}',
 					],
 				]
 			);
@@ -1480,7 +1480,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						'list_divider' => 'yes',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-features .items li' => 'padding-top: {{SIZE}}{{UNIT}}; padding-bottom: {{SIZE}}{{UNIT}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-features .items li' => 'padding-top: {{SIZE}}{{UNIT}}; padding-bottom: {{SIZE}}{{UNIT}}',
 					],
 				]
 			);
@@ -1492,7 +1492,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				'label' => esc_html__( 'Button', 'advanced-pricing-table-for-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
-				'condition' => ['apt_button_show' => 'yes']
+				'condition' => ['aptfe_button_show' => 'yes']
 			]
 		);
 			$this->add_control(
@@ -1501,7 +1501,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					'label' => esc_html__( 'Background Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-button-box' => 'background-color: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-button-box' => 'background-color: {{VALUE}}',
 					],
 				]
 			);
@@ -1512,7 +1512,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					'type' => Controls_Manager::DIMENSIONS,
 					'size_units' => [ 'px', '%', 'em' ],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-button-box' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-button-box' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					],
 				]
 			);
@@ -1525,7 +1525,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				]
 			);
 			$this->add_control(
-				'apt_button_size',
+				'aptfe_button_size',
 				[
 					'label' => esc_html__( 'Size', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SELECT,
@@ -1555,7 +1555,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						'type' => Controls_Manager::COLOR,
 						'default' => '',
 						'selectors' => [
-							'{{WRAPPER}} .apt-pricing-table-container .apt-button-box .apt-button' => 'color: {{VALUE}};',
+							'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-button-box .aptfe-button' => 'color: {{VALUE}};',
 						]
 					]
 				);
@@ -1566,7 +1566,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						// 'global' => [
 						// 	'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 						// ],
-						'selector' => '{{WRAPPER}} .apt-pricing-table-container .apt-button-box .apt-button',
+						'selector' => '{{WRAPPER}} .aptfe-pricing-table-container .aptfe-button-box .aptfe-button',
 					]
 				);
 				$this->add_group_control(
@@ -1575,7 +1575,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						'name' => 'button_background',
 						'types' => [ 'classic', 'gradient' ],
 						'exclude' => [ 'image' ],
-						'selector' => '{{WRAPPER}} .apt-pricing-table-container .apt-button-box .apt-button',
+						'selector' => '{{WRAPPER}} .aptfe-pricing-table-container .aptfe-button-box .aptfe-button',
 						'fields_options' => [
 							'background' => [
 								'default' => 'classic',
@@ -1591,7 +1591,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				$this->add_group_control(
 					Group_Control_Border::get_type(), [
 						'name' => 'button_border',
-						'selector' => '{{WRAPPER}} .apt-pricing-table-container .apt-button-box .apt-button',
+						'selector' => '{{WRAPPER}} .aptfe-pricing-table-container .aptfe-button-box .aptfe-button',
 						'separator' => 'before',
 					]
 				);
@@ -1602,7 +1602,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						'type' => Controls_Manager::DIMENSIONS,
 						'size_units' => [ 'px', '%' ],
 						'selectors' => [
-							'{{WRAPPER}} .apt-pricing-table-container .apt-button-box .apt-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+							'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-button-box .aptfe-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 						]
 					]
 				);
@@ -1613,7 +1613,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						'type' => Controls_Manager::DIMENSIONS,
 						'size_units' => [ 'px', 'em', '%' ],
 						'selectors' => [
-							'{{WRAPPER}} .apt-pricing-table-container .apt-button-box .apt-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+							'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-button-box .aptfe-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 						]
 					]
 				);
@@ -1631,7 +1631,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 							'label' => esc_html__( 'Text Color', 'advanced-pricing-table-for-elementor' ),
 							'type' => Controls_Manager::COLOR,
 							'selectors' => [
-								'{{WRAPPER}} .apt-pricing-table-container .apt-button-box .apt-button:hover' => 'color: {{VALUE}};',
+								'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-button-box .aptfe-button:hover' => 'color: {{VALUE}};',
 							]
 						]
 					);
@@ -1641,7 +1641,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 							'name' => 'button_background_hover',
 							'types' => [ 'classic', 'gradient' ],
 							'exclude' => [ 'image' ],
-							'selector' => '{{WRAPPER}} .apt-pricing-table-container .apt-button-box .apt-button:hover',
+							'selector' => '{{WRAPPER}} .aptfe-pricing-table-container .aptfe-button-box .aptfe-button:hover',
 							'fields_options' => [
 								'background' => [
 									'default' => 'classic',
@@ -1655,7 +1655,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 							'label' => esc_html__( 'Border Color', 'advanced-pricing-table-for-elementor' ),
 							'type' => Controls_Manager::COLOR,
 							'selectors' => [
-								'{{WRAPPER}} .apt-pricing-table-container .apt-button-box .apt-button:hover' => 'border-color: {{VALUE}};',
+								'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-button-box .aptfe-button:hover' => 'border-color: {{VALUE}};',
 							]
 						]
 					);
@@ -1672,14 +1672,14 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'apt_section_additional_text_style',
+			'aptfe_section_additional_text_style',
 			[	
 				'label' => esc_html__( 'Additional Text', 'advanced-pricing-table-for-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 				'condition' => [
-					'apt_additional_text_show' => 'yes',
-					'apt_additional_textarea!' => '',
+					'aptfe_additional_text_show' => 'yes',
+					'aptfe_additional_textarea!' => '',
 				]
 			]
 		);
@@ -1692,7 +1692,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					// 	'default' => Global_Colors::COLOR_TEXT,
 					// ],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-additional-text .additional-text' => 'color: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-additional-text .additional-text' => 'color: {{VALUE}}',
 					]
 				]
 			);
@@ -1705,7 +1705,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					// 	'default' => Global_Colors::COLOR_TEXT,
 					// ],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-additional-text' => 'background-color: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-additional-text' => 'background-color: {{VALUE}}',
 					]
 				]
 			);
@@ -1713,7 +1713,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'additional_text_typography',
-					'selector' => '{{WRAPPER}} .apt-pricing-table-container .apt-additional-text .additional-text',
+					'selector' => '{{WRAPPER}} .aptfe-pricing-table-container .aptfe-additional-text .additional-text',
 					'global' => [
 						'default' => Global_Typography::TYPOGRAPHY_TEXT,
 					]
@@ -1739,7 +1739,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						],
 					],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-additional-text' => 'text-align: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-additional-text' => 'text-align: {{VALUE}}',
 					]
 				]
 			);
@@ -1757,7 +1757,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					// 	'unit' => 'px',
 					// ],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-additional-text .additional-text' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-additional-text .additional-text' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
 					]
 				]
 			);
@@ -1775,25 +1775,25 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					// 	'unit' => 'px',
 					// ],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .apt-additional-text .additional-text' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-additional-text .additional-text' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
 					]
 				]
 			);
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'apt_section_ribbon_style',
+			'aptfe_section_ribbon_style',
 			[
 				'label' => esc_html__( 'Ribbon', 'advanced-pricing-table-for-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 				'condition' => [
-					'apt_ribbon_show' => 'yes',
+					'aptfe_ribbon_show' => 'yes',
 				],
 			]
 		);
 			$this->add_control(
-				'apt_ribbon_bg_color',
+				'aptfe_ribbon_bg_color',
 				[
 					'label' => esc_html__( 'Background Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
@@ -1801,13 +1801,13 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						'default' => Global_Colors::COLOR_ACCENT,
 					],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .ribbon' => 'background-color: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .ribbon' => 'background-color: {{VALUE}}',
 					],
 				]
 			);
 			// $ribbon_distance_transform = is_rtl() ? 'translateY(-50%) translateX({{SIZE}}{{UNIT}}) rotate(-45deg)' : 'translateY(-50%) translateX(-50%) translateX({{SIZE}}{{UNIT}}) rotate(-45deg)';
 			// $this->add_responsive_control(
-			// 	'apt_ribbon_distance',
+			// 	'aptfe_ribbon_distance',
 			// 	[
 			// 		'label' => esc_html__( 'Distance', 'advanced-pricing-table-for-elementor' ),
 			// 		'type' => Controls_Manager::SLIDER,
@@ -1818,13 +1818,13 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			// 			],
 			// 		],
 			// 		'selectors' => [
-			// 			'{{WRAPPER}} .apt-pricing-table-container .ribbon' => 'margin-top: {{SIZE}}{{UNIT}}; transform: ' . $ribbon_distance_transform,
+			// 			'{{WRAPPER}} .aptfe-pricing-table-container .ribbon' => 'margin-top: {{SIZE}}{{UNIT}}; transform: ' . $ribbon_distance_transform,
 			// 		],
 			// 	]
 			// );
 
 			$this->add_responsive_control(
-				'apt_ribbon_top',
+				'aptfe_ribbon_top',
 				[
 					'label' => esc_html__( 'Ribbon Top', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SLIDER,
@@ -1835,12 +1835,12 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						],
 					],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .ribbon' => 'top: {{SIZE}}{{UNIT}};'
+						'{{WRAPPER}} .aptfe-pricing-table-container .ribbon' => 'top: {{SIZE}}{{UNIT}};'
 					],
 				]
 			);
 			$this->add_responsive_control(
-				'apt_ribbon_left',
+				'aptfe_ribbon_left',
 				[
 					'label' => esc_html__( 'Ribbon Left', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SLIDER,
@@ -1851,15 +1851,15 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						],
 					],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .ribbon' => 'left: {{SIZE}}{{UNIT}};'
+						'{{WRAPPER}} .aptfe-pricing-table-container .ribbon' => 'left: {{SIZE}}{{UNIT}};'
 					],
 					'condition' => [
-						'apt_ribbon_horizontal_position' => 'left',
+						'aptfe_ribbon_horizontal_position' => 'left',
 					],
 				]
 			);
 			$this->add_responsive_control(
-				'apt_ribbon_right',
+				'aptfe_ribbon_right',
 				[
 					'label' => esc_html__( 'Ribbon Right', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SLIDER,
@@ -1870,15 +1870,15 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						],
 					],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .ribbon' => 'right: {{SIZE}}{{UNIT}};'
+						'{{WRAPPER}} .aptfe-pricing-table-container .ribbon' => 'right: {{SIZE}}{{UNIT}};'
 					],
 					'condition' => [
-						'apt_ribbon_horizontal_position' => 'right',
+						'aptfe_ribbon_horizontal_position' => 'right',
 					],
 				]
 			);
 			$this->add_responsive_control(
-				'apt_ribbon_height',
+				'aptfe_ribbon_height',
 				[
 					'label' => esc_html__( 'Ribbon Height', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SLIDER,
@@ -1889,28 +1889,28 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						],
 					],
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .ribbon' => 'height: {{SIZE}}{{UNIT}};'
+						'{{WRAPPER}} .aptfe-pricing-table-container .ribbon' => 'height: {{SIZE}}{{UNIT}};'
 					],
 				]
 			);
 
 			$this->add_control(
-				'apt_ribbon_text_color',
+				'aptfe_ribbon_text_color',
 				[
 					'label' => esc_html__( 'Text Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					'default' => '#ffffff',
 					'separator' => 'before',
 					'selectors' => [
-						'{{WRAPPER}} .apt-pricing-table-container .ribbon' => 'color: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .ribbon' => 'color: {{VALUE}}',
 					],
 				]
 			);
 			$this->add_group_control(
 				Group_Control_Typography::get_type(),
 				[
-					'name' => 'apt_ribbon_typography',
-					'selector' => '{{WRAPPER}} .apt-pricing-table-container .ribbon',
+					'name' => 'aptfe_ribbon_typography',
+					'selector' => '{{WRAPPER}} .aptfe-pricing-table-container .ribbon',
 					'global' => [
 						'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 					],
@@ -1919,15 +1919,15 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_group_control(
 				Group_Control_Box_Shadow::get_type(),
 				[
-					'name' => 'apt_ribbon_box_shadow',
-					'selector' => '{{WRAPPER}} .apt-pricing-table-container .ribbon',
+					'name' => 'aptfe_ribbon_box_shadow',
+					'selector' => '{{WRAPPER}} .aptfe-pricing-table-container .ribbon',
 				]
 			);
 		$this->end_controls_section();
 
 
 		$this->start_controls_section(
-			'apt_section_additional_options',
+			'aptfe_section_additional_options',
 			[
 				'label' => esc_html__( 'Additional Options', 'advanced-pricing-table-for-elementor' ),
 				'tab' => Controls_Manager::TAB_CONTENT,
@@ -1935,7 +1935,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		);
 
 		$this->add_control(
-			'apt_pricing_template',
+			'aptfe_pricing_template',
 			[
 				'label'   => esc_html__( 'Template', 'advanced-pricing-table-for-elementor' ),
 				'type'    => Controls_Manager::SELECT,
@@ -1949,7 +1949,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		);
 
 		$this->add_control(
-			'apt_center_icon_show',
+			'aptfe_center_icon_show',
 			[
 				'label' 	   => esc_html__( 'Center Icon', 'advanced-pricing-table-for-elementor' ),
 				'type' 		   => Controls_Manager::SWITCHER,
@@ -1961,7 +1961,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		);
 
 		$this->add_control(
-			'apt_ribbon_show',
+			'aptfe_ribbon_show',
 			[
 				'label' => esc_html__( 'Ribbon', 'advanced-pricing-table-for-elementor' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -1973,7 +1973,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		);
 
 		$this->add_control(
-			'apt_button_show',
+			'aptfe_button_show',
 			[
 				'label' => esc_html__( 'Button', 'advanced-pricing-table-for-elementor' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -1985,7 +1985,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		);
 
 		$this->add_control(
-			'apt_additional_text_show',
+			'aptfe_additional_text_show',
 			[
 				'label' => esc_html__( 'Additional Text', 'advanced-pricing-table-for-elementor' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -2004,33 +2004,33 @@ class Advanced_Pricing_Widget extends Widget_Base {
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
-	 * @since  1.0.2
+	 * @since  1.0.4
 	 * @access protected
 	 */
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 
-		$centerIconShow 	= $settings['apt_center_icon_show'];
-		$ribbonShow 		= $settings['apt_ribbon_show'];
-		$additionalTextShow = $settings['apt_additional_text_show']; 
-		$buttonShow 	   	= $settings['apt_button_show']; 
+		$centerIconShow 	= $settings['aptfe_center_icon_show'];
+		$ribbonShow 		= $settings['aptfe_ribbon_show'];
+		$additionalTextShow = $settings['aptfe_additional_text_show']; 
+		$buttonShow 	   	= $settings['aptfe_button_show']; 
 
 
 		$this->add_render_attribute( 
-			'apt_pricing_options', 
+			'aptfe_pricing_options', 
 			[   
-                'id'                => 'apt-pricing-table-' . intval( $this->get_id() ),
+                'id'                => 'aptfe-pricing-table-' . intval( $this->get_id() ),
                 'class'             => [
-					'apt-pricing-table-container',
-					'apt-pricing-table-template-'.$settings['apt_pricing_template']
+					'aptfe-pricing-table-container',
+					'aptfe-pricing-table-template-'.$settings['aptfe_pricing_template']
 				]
             ]
         );
 
 		// Currency format
-		$currency_format = empty( $settings['apt_pricing_currency_format'] ) ? '.' : $settings['apt_pricing_currency_format'];
+		$currency_format = empty( $settings['aptfe_pricing_currency_format'] ) ? '.' : $settings['aptfe_pricing_currency_format'];
 
-		$price = explode( $currency_format, $settings['apt_pricing_price'] );
+		$price = explode( $currency_format, $settings['aptfe_pricing_price'] );
 		$intpart = $price[0];
 		
 		$fraction = '';
@@ -2038,92 +2038,93 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$fraction = $price[1];
 		}
 
-		if ($settings['apt_pricing_currency_symbol'] === 'custom') {
-			$settings['apt_pricing_currency_symbol'] = $settings['apt_pricing_currency_symbol_custom']; 
+		if ($settings['aptfe_pricing_currency_symbol'] === 'custom') {
+			$settings['aptfe_pricing_currency_symbol'] = $settings['aptfe_pricing_currency_symbol_custom']; 
 		}
 
 		// Button 
-		$this->add_render_attribute( 'apt_render_button_attr', 'class', [
-			'apt-button',
-			'apt-button-size-'.$settings['apt_button_size']
+		$this->add_render_attribute( 'aptfe_render_button_attr', 'class', [
+			'aptfe-button',
+			'aptfe-button-size-'.$settings['aptfe_button_size']
 		] );
 		
-		if ( ! empty( $settings['apt_button_link']['url'] ) ) {
-			$this->add_link_attributes( 'apt_render_button_attr', $settings['apt_button_link'] );
+		if ( ! empty( $settings['aptfe_button_link']['url'] ) ) {
+			$this->add_link_attributes( 'aptfe_render_button_attr', $settings['aptfe_button_link'] );
 		}
 
 		// title tag ex: h1
-		$this->add_render_attribute( 'apt_header_title_tag_attr', 'class', [
+		$this->add_render_attribute( 'aptfe_header_title_tag_attr', 'class', [
 			'title',
 		]);
-		$titleTag = Utils::validate_html_tag( $settings['apt_header_title_tag'] );
+		
+		$titleTag = Utils::validate_html_tag( $settings['aptfe_header_title_tag'] );
 	?>
-		<div <?php echo wp_kses_post($this->get_render_attribute_string( 'apt_pricing_options')); ?>> 
-			<div class="apt-pricing-header"> 
-				<?php if ( ! empty( $settings['apt_header_title_tag'] ) ) : ?>
-					<<?php Utils::print_validated_html_tag( $titleTag ); ?> <?php $this->print_render_attribute_string( 'apt_header_title_tag_attr' ); ?>>
-						<?php $this->print_unescaped_setting( 'apt_header_title' ); ?>
+		<div <?php echo wp_kses_post($this->get_render_attribute_string( 'aptfe_pricing_options')); ?>> 
+			<div class="aptfe-pricing-header"> 
+				<?php if ( ! empty( $settings['aptfe_header_title_tag'] ) ) : ?>
+					<<?php Utils::print_validated_html_tag( $titleTag ); ?> <?php $this->print_render_attribute_string( 'aptfe_header_title_tag_attr' ); ?>>
+						<?php $this->print_unescaped_setting( 'aptfe_header_title' ); ?>
 					</<?php Utils::print_validated_html_tag( $titleTag ); ?>>
 				<?php endif; ?>
-				<p class="decription"> <?php echo esc_html($settings['apt_header_description']); ?> </p>
+				<p class="decription"> <?php echo esc_html($settings['aptfe_header_description']); ?> </p>
 			</div>
 
-			<div class="apt-pricing-price"> 
-				<?php if ( 'yes' === $settings['apt_pricing_sale'] && !empty( $settings['apt_pricing_original_price'] ) ) : ?>
-					<span class="original-price"> <?php echo esc_html($settings['apt_pricing_currency_symbol'] . $settings['apt_pricing_original_price']); ?></span>
+			<div class="aptfe-pricing-price"> 
+				<?php if ( 'yes' === $settings['aptfe_pricing_sale'] && !empty( $settings['aptfe_pricing_original_price'] ) ) : ?>
+					<span class="original-price"> <?php echo esc_html($settings['aptfe_pricing_currency_symbol'] . $settings['aptfe_pricing_original_price']); ?></span>
 				<?php endif; ?>
-				<span class="currency <?php echo esc_attr("currency-position-".$settings['apt_currency_position']); ?>"> 
-					<?php echo esc_html($settings['apt_pricing_currency_symbol']); ?> 
+				<span class="currency <?php echo esc_attr("currency-position-".$settings['aptfe_currency_position']); ?>"> 
+					<?php echo esc_html($settings['aptfe_pricing_currency_symbol']); ?> 
 				</span>
 				<span class="price"> <?php echo (int) $intpart; ?> </span>
 				<span class="freaction-part"> <?php echo (int) $fraction; ?> </span>
 				<span class="period"> 
-					<?php echo esc_html($settings['apt_pricing_period']); ?> 
+					<?php echo esc_html($settings['aptfe_pricing_period']); ?> 
 				</span>
 			</div>
 
 			<?php if ($centerIconShow === 'yes'): ?>
-				<div class="apt-center-icon">
+				<div class="aptfe-center-icon">
 					<?php
 						Icons_Manager::render_icon( 
-							$settings['apt_features_top_icon'], 
-							[ 'class' => 'apt-features-top-icon', 'aria-hidden' => 'true' ]
+							$settings['aptfe_features_top_icon'], 
+							[ 'class' => 'aptfe-features-top-icon', 'aria-hidden' => 'true' ]
 						);
 					?>
 				</div>
 			<?php endif; ?> 
 
-			<div class="apt-features">
+			<div class="aptfe-features">
 				<ul class="items">
-					<?php foreach($settings['apt_features_list'] as $item) : ?>
+					<?php foreach($settings['aptfe_features_list'] as $item) : ?>
 						<li>
 							<span>
 								<?php 
-									Icons_Manager::render_icon( $item['apt_features_selected_item_icon'],  [ 'class' => 'apt-features-icon', 'aria-hidden' => 'true' ],  );
+									Icons_Manager::render_icon( $item['aptfe_features_selected_item_icon'],  [ 'class' => 'aptfe-features-icon', 'aria-hidden' => 'true' ],  );
 								?>
 							</span> 
-						<?php echo esc_html($item['apt_features_item_text']); ?> </li>
+						<?php echo esc_html($item['aptfe_features_item_text']); ?> </li>
 					<?php endforeach; ?>
 				</ul>
 			</div>
 
 			<?php if ($buttonShow === 'yes') : ?>
-				<div class="apt-button-box">
-					<a <?php $this->print_render_attribute_string( 'apt_render_button_attr' ); ?> type="button">
-						<?php $this->print_unescaped_setting( 'apt_button_text' ); ?>
+				<div class="aptfe-button-box">
+					<a <?php $this->print_render_attribute_string( 'aptfe_render_button_attr' ); ?> type="button">
+						<?php $this->print_unescaped_setting( 'aptfe_button_text' ); ?>
 					</a>
 				</div>	
 			<?php endif; ?>
 
 			<?php if ($additionalTextShow === 'yes') : ?>
-				<div class="apt-additional-text">
-					<p class="additional-text"><?php echo esc_html($settings['apt_additional_textarea']); ?> </p>
+				<div class="aptfe-additional-text">
+					<p class="additional-text"><?php echo esc_html($settings['aptfe_additional_textarea']); ?> </p>
 				</div>
 			<?php endif; ?>
 
 			<?php if ($ribbonShow === 'yes' ) : ?>
-				<div class="ribbon ribbon-<?php echo esc_attr($settings['apt_ribbon_horizontal_position']); ?>">
-					<p><?php echo esc_html($settings['apt_ribbon_title']); ?></p>
+				<div class="ribbon ribbon-<?php echo esc_attr($settings['aptfe_ribbon_horizontal_position']); ?>">
+					<p><?php echo esc_html($settings['aptfe_ribbon_title']); ?></p>
 				</div>
 			<?php endif; ?> 
 		</div>
