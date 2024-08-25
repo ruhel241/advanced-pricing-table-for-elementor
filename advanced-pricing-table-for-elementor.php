@@ -209,11 +209,9 @@ final class AdvancedPricingTableLite
 	public function aptfeNoticeDismissed() {
 		$user_id = get_current_user_id();
 	
-
-		if (isset($_GET['aptfe-dismissed-notice']) && isset($_GET['_aptfe_nonce']) && wp_verify_nonce($_GET['_aptfe_nonce'], 'aptfe_dismiss_notice_nonce')) {
+		if ( isset($_GET['aptfe-dismissed-notice']) && isset($_GET['_aptfe_nonce']) && wp_verify_nonce(sanitize_text_field(wp_unslash($_GET['_aptfe_nonce'],'aptfe_dismiss_notice_nonce'))) ) {
 			update_user_meta($user_id, 'aptfe-notice-dismissed', 'deactive');
 		}
-			
 	}
 	
 	/**
