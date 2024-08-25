@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Advanced Pricing Table For Elementor 
  * Description: Advanced Pricing Table for Elementor, this is elementor addon, and it's easy to use for elementor users.
- * Version:     1.0.4
+ * Version:     1.0.5
  * Author:      WPCreativeIdea
  * Author URI:  https://profiles.wordpress.org/wpcreativeidea/
  * Plugin URI:  https://github.com/ruhel241/advanced-pricing-table-for-elementor
@@ -20,20 +20,20 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * The main class that initiates and runs the plugin.
  *
- * @since  1.0.4
+ * @since  1.0.5
  */
 
 define('APTFE_DIR_FILE', __FILE__);
 define('APTFE_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('APTFE_LITE', 'AdvancedPriceTableLite');
-define('APTFE_PLUGIN_VERSION', '1.0.4');
+define('APTFE_PLUGIN_VERSION', '1.0.5');
 
 final class APTFE_Pricing_Table_Lite 
 {
 	/**
 	 * Instance
 	 *
-	 * @since  1.0.4
+	 * @since  1.0.5
 	 *
 	 * @access private
 	 * @static
@@ -48,7 +48,7 @@ final class APTFE_Pricing_Table_Lite
 	 *
 	 * Ensures only one instance of the class is loaded or can be loaded.
 	 *
-	 * @since  1.0.4
+	 * @since  1.0.5
 	 *
 	 * @access public
 	 * @static
@@ -68,7 +68,7 @@ final class APTFE_Pricing_Table_Lite
 	/**
 	 * Constructor
 	 *
-	 * @since  1.0.4
+	 * @since  1.0.5
 	 *
 	 * @access public
 	 */
@@ -156,7 +156,7 @@ final class APTFE_Pricing_Table_Lite
 	 *
 	 * Fired by `plugins_loaded` action hook.
 	 *
-	 * @since  1.0.4
+	 * @since  1.0.5
 	 *
 	 * @access public
 	 */
@@ -177,7 +177,7 @@ final class APTFE_Pricing_Table_Lite
 	 *
 	 * Include widgets files and register them
 	 *
-	 * @since  1.0.4
+	 * @since  1.0.5
 	 *
 	 * @access public
 	 */

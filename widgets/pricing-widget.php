@@ -19,7 +19,7 @@ use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 /**
  * Elementor pricing Widget.
  *
- * @since  1.0.4
+ * @since  1.0.5
  */
 class Advanced_Pricing_Widget extends Widget_Base {
 
@@ -28,7 +28,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 	 *
 	 * Retrieve pricing widget name.
 	 *
-	 * @since  1.0.4
+	 * @since  1.0.5
 	 * @access public
 	 * @return string Widget name.
 	 */
@@ -41,7 +41,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 	 *
 	 * Retrieve pricing widget title.
 	 *
-	 * @since  1.0.4
+	 * @since  1.0.5
 	 * @access public
 	 * @return string Widget title.
 	 */
@@ -54,7 +54,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 	 *
 	 * Retrieve pricing widget icon.
 	 *
-	 * @since  1.0.4
+	 * @since  1.0.5
 	 * @access public
 	 * @return string Widget icon.
 	 */
@@ -68,7 +68,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 	 *
 	 * Retrieve the list of categories the pricing widget belongs to.
 	 *
-	 * @since  1.0.4
+	 * @since  1.0.5
 	 * @access public
 	 * @return array Widget categories.
 	 */
@@ -81,7 +81,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 	 *
 	 * Retrieve the list of keywords the pricing widget belongs to.
 	 *
-	 * @since  1.0.4
+	 * @since  1.0.5
 	 * @access public
 	 * @return array Widget keywords.
 	 */
@@ -94,7 +94,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 	 *
 	 * Add input fields to allow the user to customize the widget settings.
 	 *
-	 * @since  1.0.4
+	 * @since  1.0.5
 	 * @access protected
 	 */
 	protected function register_controls() {
@@ -1998,7 +1998,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
-	 * @since  1.0.4
+	 * @since  1.0.5
 	 * @access protected
 	 */
 	protected function render() {
