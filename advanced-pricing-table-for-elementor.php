@@ -28,35 +28,8 @@ define('APTFE_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('APTFE_LITE', 'AdvancedPriceTableLite');
 define('APTFE_PLUGIN_VERSION', '1.0.4');
 
-final class AdvancedPricingTableLite 
+final class APTFE_Pricing_Table_Lite 
 {
-	/**
-	 * Plugin Version
-	 *
-	 * @since  1.0.4
-	 *
-	 * @var string The plugin version.
-	 */
-	const VERSION = ' 1.0.4';
-
-	/**
-	 * Minimum Elementor Version
-	 *
-	 * @since  1.0.4
-	 *
-	 * @var string Minimum Elementor version required to run the plugin.
-	 */
-	const MINIMUM_ELEMENTOR_VERSION = '3.7.0';
-
-	/**
-	 * Minimum PHP Version
-	 *
-	 * @since  1.0.4
-	 *
-	 * @var string Minimum PHP version required to run the plugin.
-	 */
-	const MINIMUM_PHP_VERSION = '7.4';
-
 	/**
 	 * Instance
 	 *
@@ -65,10 +38,10 @@ final class AdvancedPricingTableLite
 	 * @access private
 	 * @static
 	 *
-	 * @var AdvancedPricingTableLite 
+	 * @var APTFE_Pricing_Table_Lite 
 	 * The single instance of the class.
 	 */
-	private static $_instance = null;
+	private static $instance = null;
 
     /**
 	 * Instance
@@ -80,15 +53,15 @@ final class AdvancedPricingTableLite
 	 * @access public
 	 * @static
 	 *
-	 * @return AdvancedPricingTableLite 
+	 * @return APTFE_Pricing_Table_Lite 
 	 * An instance of the class.
 	 */
 	public static function instance() {
 
-		if ( is_null( self::$_instance ) ) {
-			self::$_instance = new self();
+		if ( is_null( self::$instance ) ) {
+			self::$instance = new self();
 		}
-		return self::$_instance;
+		return self::$instance;
 
 	}
 
@@ -110,12 +83,7 @@ final class AdvancedPricingTableLite
 			return $this->injectDependency();
 		}
 	
-		if ( $this->is_compatible() ) {
-			add_action( 'elementor/init', [ $this, 'init' ] );
-		}
-
-		add_action( 'admin_notices', [$this, 'aptfeAdminNotice'] );
-		add_action( 'admin_init', [$this,  'aptfeNoticeDismissed'] );
+		add_action( 'elementor/init', [ $this, 'init' ] );
 	}
 
 
@@ -135,8 +103,7 @@ final class AdvancedPricingTableLite
                 $install_url_text = 'Click Here to Activate the Plugin';
             }
 
-			
-            $message = 'Advanced Pricing Table For Elementor Add-On Requires Elementor Base Plugin, <b><a href="' . $pluginInfo->url
+			$message = 'Advanced Pricing Table For Elementor Add-On Requires Elementor Base Plugin, <b><a href="' . $pluginInfo->url
                 . '">' . $install_url_text . '</a></b>';
 
             printf('<div class="%1$s"><p>%2$s</p></div>', esc_attr($class), wp_kses_post($message));
@@ -180,74 +147,7 @@ final class AdvancedPricingTableLite
         return $activation;
     }
 
-
-
-	public function aptfeAdminNotice() {
-	   	$screen  = get_current_screen();
-		$user_id = get_current_user_id();
-		$nonce   = wp_create_nonce('aptfe_dismiss_notice_nonce');
-		
-		if (!get_user_meta( $user_id, 'aptfe-notice-dismissed', true )) {
-			add_user_meta($user_id, 'aptfe-notice-dismissed', 'active');
-		}
-
-        if ( $screen->id == 'dashboard' ||  $screen->id == 'plugins' ) {
-			if ( get_user_meta( $user_id, 'aptfe-notice-dismissed', true ) == 'active' ) { 
-				?>
-					<div class="notice notice-success is-dismissible">
-						<p>
-							<?php echo esc_html__('Congratulations! you have installed "Advanced Pricing Table" for elementor plugin, Please rating this plugin.', 'advanced-pricing-table-for-elementor'); ?>
-							<em><a href="https://wordpress.org/support/plugin/advanced-pricing-table-for-elementor/reviews/#new-post" target="_blank">Rating</a></em>
-						</p>
-						<a href="?aptfe-dismissed-notice=1&_aptfe_nonce=<?php echo esc_attr($nonce); ?>" type="button" class="notice-dismiss"></a>
-					</div>
-				<?php
-			}
-	 	}
-	}
-
-	public function aptfeNoticeDismissed() {
-		$user_id = get_current_user_id();
 	
-		if ( isset($_GET['aptfe-dismissed-notice']) && isset($_GET['_aptfe_nonce']) && wp_verify_nonce(sanitize_text_field(wp_unslash($_GET['_aptfe_nonce'],'aptfe_dismiss_notice_nonce'))) ) {
-			update_user_meta($user_id, 'aptfe-notice-dismissed', 'deactive');
-		}
-	}
-	
-	/**
-	 * Compatibility Checks
-	 *
-	 * Checks if the installed version of Elementor meets the plugin's minimum requirement.
-	 * Checks if the installed PHP version meets the plugin's minimum requirement.
-	 *
-	 * @since  1.0.4
-	 *
-	 * @access public
-	 */
-	public function is_compatible() {
-
-		// Check if Elementor installed and activated
-		if ( ! did_action( 'elementor/loaded' ) ) {
-			add_action( 'admin_notices', [ $this, 'admin_notice_missing_main_plugin' ] );
-			return false;
-		}
-
-		// Check for required Elementor version
-		if ( ! version_compare( ELEMENTOR_VERSION, self::MINIMUM_ELEMENTOR_VERSION, '>=' ) ) {
-			add_action( 'admin_notices', [ $this, 'admin_notice_minimum_elementor_version' ] );
-			return false;
-		}
-
-		// Check for required PHP version
-		if ( version_compare( PHP_VERSION, self::MINIMUM_PHP_VERSION, '<' ) ) {
-			add_action( 'admin_notices', [ $this, 'admin_notice_minimum_php_version' ] );
-			return false;
-		}
-
-		return true;
-
-	}
-
 	/**
 	 * Initialize the plugin
 	 *
@@ -294,84 +194,8 @@ final class AdvancedPricingTableLite
 		load_plugin_textdomain('advanced-pricing-table-for-elementor', false, APTFE_PLUGIN_URL. '/languages');
 	}
 	
-	
-	/**
-	 * Admin notice
-	 *
-	 * Warning when the site doesn't have Elementor installed or activated.
-	 *
-	 * @since  1.0.4
-	 *
-	 * @access public
-	 */
-	public function admin_notice_missing_main_plugin() {
-
-		if ( isset( $_GET['activate'] ) ) {
-			unset( $_GET['activate'] );
-		}
-		
-		$message = sprintf(
-			/* translators: 1: Plugin name 2: Elementor */
-			esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'advanced-pricing-table-for-elementor' ),
-			'<strong>' . esc_html__( 'Advanced Pricing Table for Elementor ', 'advanced-pricing-table-for-elementor' ) . '</strong>',
-		);
-
-		printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', wp_kses_post($message) );
-
-	}
-
-	/**
-	 * Admin notice
-	 *
-	 * Warning when the site doesn't have a minimum required Elementor version.
-	 *
-	 * @since  1.0.4
-	 *
-	 * @access public
-	 */
-	public function admin_notice_minimum_elementor_version() {
-
-		if ( isset( $_GET['activate'] ) ) {
-			unset( $_GET['activate'] );
-		}
-
-		$message = sprintf(
-			/* translators: 1: Plugin name 2: Elementor 3: Required Elementor version */
-			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'advanced-pricing-table-for-elementor' ),
-			'<strong>' . esc_html__( 'Advanced Pricing Table for Elementor ', 'advanced-pricing-table-for-elementor' ) . '</strong>',
-			 self::MINIMUM_ELEMENTOR_VERSION
-		);
-
-		printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', wp_kses_post($message) );
-	}
-
-	/**
-	 * Admin notice
-	 *
-	 * Warning when the site doesn't have a minimum required PHP version.
-	 *
-	 * @since  1.0.4
-	 *
-	 * @access public
-	 */
-	public function admin_notice_minimum_php_version() {
-
-		if ( isset( $_GET['activate'] ) ) {
-			unset( $_GET['activate'] );
-		}
-
-		$message = sprintf(
-			/* translators: 1: Plugin name 2: PHP 3: Required PHP version */
-			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'advanced-pricing-table-for-elementor' ),
-			'<strong>' . esc_html__( 'Advanced Pricing Table for Elementor ', 'advanced-pricing-table-for-elementor' ) . '</strong>',
-			'<strong>' . esc_html__( 'PHP', 'advanced-pricing-table-for-elementor' ) . '</strong>',
-			 self::MINIMUM_PHP_VERSION
-		);
-
-		printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', wp_kses_post($message) );
-	}
 }
-AdvancedPricingTableLite::instance();
+APTFE_Pricing_Table_Lite::instance();
 
 function aptfeDeactivatePlugin() {
 	$user_id = get_current_user_id();

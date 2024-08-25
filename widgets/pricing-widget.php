@@ -1,7 +1,7 @@
 <?php
 
 namespace APTFE\Classes\Widgets;
-
+ 
 use Elementor\Utils;
 use Elementor\Repeater;
 use \Elementor\Widget_Base;
@@ -124,7 +124,6 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					'label' => esc_html__( 'Description', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::TEXTAREA,
 					'rows' => 10,
-					// 'default' => esc_html__( 'Type your description here', 'advanced-pricing-table-for-elementor' ),
 					'dynamic' => [
 						'active' => true,
 					],
@@ -336,7 +335,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'aptfe_features_top_icon',
 				[
-					'label' => esc_html__( 'Icon', 'textdomain' ),
+					'label' => esc_html__( 'Icon', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::ICONS,
 					'default' => [
 						'value' => 'far fa-gem',
@@ -498,7 +497,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		$this->add_control(
 			'aptfe_pricing_table_border_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'textdomain' ),
+				'label' => esc_html__( 'Border Radius', 'advanced-pricing-table-for-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -510,7 +509,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		// $this->add_control(
 		// 	'aptfe_pricing_table_box_shadow',
 		// 	[
-		// 		'label' => esc_html__( 'Box Shadow', 'textdomain' ),
+		// 		'label' => esc_html__( 'Box Shadow', 'advanced-pricing-table-for-elementor' ),
 		// 		'type' => \Elementor\Controls_Manager::BOX_SHADOW,
 		// 		'selectors' => [
 		// 			// '{{SELECTOR}}' => 'box-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{SPREAD}}px {{COLOR}};',
@@ -1574,17 +1573,12 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					[
 						'name' => 'button_background',
 						'types' => [ 'classic', 'gradient' ],
-						'exclude' => [ 'image' ],
+						// 'exclude' => [ 'image' ],
 						'selector' => '{{WRAPPER}} .aptfe-pricing-table-container .aptfe-button-box .aptfe-button',
 						'fields_options' => [
 							'background' => [
 								'default' => 'classic',
-							],
-							// 'color' => [
-							// 	'global' => [
-							// 		'default' => Global_Colors::COLOR_ACCENT,
-							// 	],
-							// ],
+							]
 						]
 					]
 				);
@@ -1640,7 +1634,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						[
 							'name' => 'button_background_hover',
 							'types' => [ 'classic', 'gradient' ],
-							'exclude' => [ 'image' ],
+							// 'exclude' => [ 'image' ],
 							'selector' => '{{WRAPPER}} .aptfe-pricing-table-container .aptfe-button-box .aptfe-button:hover',
 							'fields_options' => [
 								'background' => [
@@ -2076,8 +2070,8 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				<span class="currency <?php echo esc_attr("currency-position-".$settings['aptfe_currency_position']); ?>"> 
 					<?php echo esc_html($settings['aptfe_pricing_currency_symbol']); ?> 
 				</span>
-				<span class="price"> <?php echo (int) $intpart; ?> </span>
-				<span class="freaction-part"> <?php echo (int) $fraction; ?> </span>
+				<span class="price"> <?php echo esc_html((int) $intpart); ?> </span>
+				<span class="freaction-part"> <?php echo esc_html((int) $fraction); ?> </span>
 				<span class="period"> 
 					<?php echo esc_html($settings['aptfe_pricing_period']); ?> 
 				</span>
