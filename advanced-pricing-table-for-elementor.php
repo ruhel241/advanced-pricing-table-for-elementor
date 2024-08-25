@@ -82,7 +82,7 @@ final class APTFE_Pricing_Table_Lite
 		if (! did_action( 'elementor/loaded' ) ) {
 			return $this->injectDependency();
 		}
-	
+
 		add_action( 'elementor/init', [ $this, 'init' ] );
 	}
 
@@ -193,12 +193,5 @@ final class APTFE_Pricing_Table_Lite
     {
 		load_plugin_textdomain('advanced-pricing-table-for-elementor', false, APTFE_PLUGIN_URL. '/languages');
 	}
-	
 }
 APTFE_Pricing_Table_Lite::instance();
-
-function aptfeDeactivatePlugin() {
-	$user_id = get_current_user_id();
-	update_user_meta($user_id, 'aptfe-notice-dismissed', 'active');
-}
-register_deactivation_hook( __FILE__, 'aptfeDeactivatePlugin' );

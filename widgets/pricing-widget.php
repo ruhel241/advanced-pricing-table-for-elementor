@@ -2124,4 +2124,14 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		</div>
 	<?php
 	}
+
+	/**
+	 * Render element output in the editor.
+	 *
+	 * Used to generate the live preview, using a Backbone JavaScript template.
+	 *
+	 * @since 2.9.0
+	 * @access protected
+	 */
+	protected function content_template() {}
 }
