@@ -1,7 +1,6 @@
 .aptfe-pricing-table-container {
   position: relative;
   overflow: hidden;
-  font-size: 16px;
   color: #000;
   background-color: #F6F5F5;
 }
@@ -28,7 +27,6 @@
 .aptfe-pricing-table-container .aptfe-pricing-header .title {
   width: 100%;
   text-align: center;
-  font-size: 24px;
   padding: 0;
   margin: 0;
   line-height: 1.2;
@@ -118,7 +116,8 @@
   order: 2;
 }
 .aptfe-pricing-table-container .aptfe-center-icon svg {
-  width: 60px;
+  fill: #54595D;
+  width: 20%;
 }
 .aptfe-pricing-table-container .aptfe-features .items {
   width: 100%;
@@ -142,6 +141,11 @@
   position: absolute;
   top: 0;
   width: 100%;
+}
+.aptfe-pricing-table-container .aptfe-features .items li svg {
+  fill: #54595D;
+  height: 1.3em;
+  width: 1.3em;
 }
 .aptfe-pricing-table-container .aptfe-features .items .aptfe-features-icon {
   margin-right: 10px;
@@ -252,10 +256,6 @@
 }
 .aptfe-pricing-table-template-3 .aptfe-features .items li + li:before {
   content: "";
-  border-top-style: solid;
-  border-top-color: #272424;
-  border-top-width: 2px;
-  width: 87%;
 }
 .aptfe-pricing-table-template-3 .aptfe-button-box {
   flex-direction: column;

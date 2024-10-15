@@ -119,18 +119,6 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				]
 			);
 			$this->add_control(
-				'aptfe_header_description',
-				[
-					'label' => esc_html__( 'Description', 'advanced-pricing-table-for-elementor' ),
-					'type' => Controls_Manager::TEXTAREA,
-					'rows' => 10,
-					'dynamic' => [
-						'active' => true,
-					],
-					'placeholder' => esc_html__( 'Type your description here', 'advanced-pricing-table-for-elementor' ),
-				]
-			);
-			$this->add_control(
 				'aptfe_header_title_tag',
 				[
 					'label' => esc_html__( 'Title HTML Tag', 'advanced-pricing-table-for-elementor' ),
@@ -149,6 +137,19 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					// ],
 				]
 			);
+			$this->add_control(
+				'aptfe_header_description',
+				[
+					'label' => esc_html__( 'Sub Title', 'advanced-pricing-table-for-elementor' ),
+					'type' => Controls_Manager::TEXT,
+					// 'rows' => 3,
+					'dynamic' => [
+						'active' => true,
+					],
+					'placeholder' => esc_html__( 'Type your description here', 'advanced-pricing-table-for-elementor' ),
+				]
+			);
+			
 		$this->end_controls_section();
 
 		$this->start_controls_section(
@@ -271,23 +272,24 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				]
 			);
 			$default_icon = [
-					'value' => 'far fa-arrow-alt-circle-right',
-					'library' => 'fa-regular'
+					'value' => 'far-check-circle',
+					'library' => 'fa-regular', 
 			];
 			$repeater->add_control(
 				'aptfe_features_selected_item_icon',
 				[
 					'label' => esc_html__( 'Icon', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::ICONS,
-					'fa4compatibility' => 'item_icon',
+					//'fa4compatibility' => 'item_icon',
 					'default' => $default_icon,
 					'recommended' => [
 						'fa-regular' => [
-							'arrow-alt-circle-right',
+							'check-circle',
 						]
 					]
 				]
 			);
+			
 			$repeater->add_control(
 				'aptfe_features_item_icon_color',
 				[
@@ -1233,6 +1235,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					// 	'default' => Global_Colors::COLOR_TEXT,
 					// ],
 					'selectors' => [
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-center-icon i' => 'color: {{VALUE}}',
 						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-center-icon svg' => 'fill: {{VALUE}}',
 					]
 				]
@@ -1255,13 +1258,15 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				[
 					'label' => esc_html__( 'Size', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::SLIDER,
+					'size_units' => [ 'px', '%', 'em' ],
 					'range' => [
 						'px' => [
 							'min' => 20,
-							'max' => 100,
+							'max' => 200,
 						],
 					],
 					'selectors' => [
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-center-icon i' => 'font-size: {{SIZE}}{{UNIT}};',
 						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-center-icon svg' => 'width: {{SIZE}}{{UNIT}};',
 					]
 				]
@@ -1288,20 +1293,20 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			]
 		);
 
-			$this->add_control(
-				'features_list_color',
-				[
-					'label' => esc_html__( 'Color', 'advanced-pricing-table-for-elementor' ),
-					'type' => Controls_Manager::COLOR,
-					// 'global' => [
-					// 	'default' => Global_Colors::COLOR_TEXT,
-					// ],
-					'separator' => 'before',
-					'selectors' => [
-						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-features li' => 'color: {{VALUE}}',
-					]
-				]
-			);
+			// $this->add_control(
+			// 	'features_list_color',
+			// 	[
+			// 		'label' => esc_html__( 'Color', 'advanced-pricing-table-for-elementor' ),
+			// 		'type' => Controls_Manager::COLOR,
+			// 		// 'global' => [
+			// 		// 	'default' => Global_Colors::COLOR_TEXT,
+			// 		// ],
+			// 		'separator' => 'before',
+			// 		'selectors' => [
+			// 			'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-features li' => 'color: {{VALUE}}',
+			// 		]
+			// 	]
+			// );
 			$this->add_control(
 				'features_list_bg_color',
 				[
@@ -2091,13 +2096,14 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			<div class="aptfe-features">
 				<ul class="items">
 					<?php foreach($settings['aptfe_features_list'] as $item) : ?>
-						<li>
-							<span>
-								<?php 
-									Icons_Manager::render_icon( $item['aptfe_features_selected_item_icon'],  [ 'class' => 'aptfe-features-icon', 'aria-hidden' => 'true' ],  );
-								?>
+						<li class="item">
+							<?php 
+								Icons_Manager::render_icon( $item['aptfe_features_selected_item_icon'],  [ 'class' => 'aptfe-features-icon', 'aria-hidden' => 'true' ],  );
+							?>
+							<span class="item-text">
+								<?php echo esc_html($item['aptfe_features_item_text']); ?>
 							</span> 
-						<?php echo esc_html($item['aptfe_features_item_text']); ?> </li>
+					 	</li>
 					<?php endforeach; ?>
 				</ul>
 			</div>
