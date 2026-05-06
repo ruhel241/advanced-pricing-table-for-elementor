@@ -1,19 +1,22 @@
 .aptfe-pricing-table-container {
+    display: flex;
+    flex-direction: column;
     position: relative;
     overflow: hidden;
-
+    padding: 32px 48px;
+    // padding: 20px 25px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     &:hover{
-        background: #ffff;
+        // background: #ffff;
         box-shadow: 0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%);
+        // box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
         transition: .5s;
-        -webkit-box-shadow: 0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%);
     }
-
-    *, *:before, *:after {
+    *, *:before, *:after, p, h1, h2 {
         padding: 0;
         margin: 0;
         box-sizing: border-box;
-    }  
+    } 
     // border: solid;
     // font-size: 16px;
     color: #000;
@@ -21,28 +24,15 @@
 
     .aptfe-pricing-price, .aptfe-pricing-header, .aptfe-features, .aptfe-button-box, .items, .aptfe-features .items li, .items li span, .aptfe-features-top-icon{
         display: flex;
-        justify-content: center;
-        align-items: center;
+        // justify-content: center;
+        // align-items: center;
         flex-wrap: wrap;
     }
 
-    // golbal css
-    // .aptfe-pricing-header {
-    //     // padding: 0px 20px;
-    //     .title {
-    //         font-size: 24px;
-    //         padding: 0;
-    //         margin: 0;
-    //         line-height: 1.2;
-    //         font-weight: 600;
-    //     }
-    //     .decription {
-    //         margin: 9px 0px 0px 0px;
-    //     }
-    // } 
-
     .aptfe-pricing-header {
-        padding: 30px;
+        order: 1;
+        flex-direction: column;
+        // padding: 30px;
         .title {
             width: 100%;
             text-align: center;
@@ -51,74 +41,48 @@
             margin: 0;
             line-height: 1.2;
             font-weight: 600;
+            display: flex;
+            flex-direction: column;
             &::after {
                 content: "";
                 display: block;
             }
         }
         .decription {
-            margin: 9px 0px 0px 0px;
+            text-align: center;
+            // margin: 9px 0px 0px 0px;
         }
     }
-
     .aptfe-pricing-price {
+        order: 2;
         position: relative;
+        padding-top: 10px;
+        padding-bottom: 10px;
         &:before {
             content: "";
             display: block;
             position: absolute;
             bottom: 13px;
         }
-    }
-    .ribbon {
-        background: #61ce70;
-        color: white;
-        font-size: 13px;
-        font-weight: 600;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 250px;
-        position: absolute;
-        top: 27px;
-        text-transform: uppercase;
-        p {
-            line-height: 2;
-            margin: 0;
-            padding: 3px;
-        }
-    }
-    .ribbon-right {
-        right: -82px;
-        transform: rotate(45deg);
-    }
-    .ribbon-left {
-        left: -82px;
-        transform: rotate(-45deg);
-    }
-    .aptfe-center-icon {
-        text-align: right;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding-top: 20px;
-        padding-bottom: 20px;
-    }
-
-    .aptfe-pricing-price {
-        padding: 40px 0 15px 0;
+        // padding: 40px 0 15px 0;
         font-weight: 800;
         color: #555;
         // background: #000;
+        
+        .pricing-additional-text {
+            flex: 1 0 100%;
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
         .currency, .freaction-part {
             font-size: 18px;
             line-height: 1;
             align-self: flex-start;
         }
         .currency {
-            margin-right: 3px;
+            // margin-right: 3px;
         }
-    
         .freaction-part {
             margin-left: 3px;
         }
@@ -135,35 +99,55 @@
             width: 100%;
             display: block;
             text-align: center;
-            margin-top: 12px;
+            // margin-top: 12px;
             font-weight: 400;
             order: 2;
+            &.period_position_below {
+                margin-top: 12px;
+            }
         }
     }
     .aptfe-center-icon {
+        order: 3;
+        text-align: right;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 15px;
+        padding-bottom: 15px;
         svg {
             fill:#54595D;
             width: 20%
         }
     }
     .aptfe-features {
+        order: 4;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        // margin: 0 auto;
         // padding: 20px 0;
         // background: red;
         .items {
-            width: 100%;
+            // width: 100%;
             flex-direction: column;
             align-items: initial;
+            // margin: 0 auto;
+            padding: 0;
             .aptfe-features-top-icon {
                 color: #fff;
                 font-size: 61px;
-                margin: 20px 0px 5px 0px;
+                // margin: 20px 0px 5px 0px;
                 // margin: 10px auto;
             }
             li {
+                font-size: 14px;
                 list-style: none;
                 position: relative;
-                padding-top: 20px;
-                padding-bottom: 20px;
+                flex-wrap: nowrap;
+                align-items: center;
+                font-weight: 600;
+                // padding-top: 20px;
+                // padding-bottom: 20px;
                 // color: #606060;
                 + li:before {
                     content: "";
@@ -172,28 +156,31 @@
                     top: 0;
                     width: 100%;
                 }
+                i {
+                    color:#54595D;
+                    font-size: 15px;
+                }
                 svg {
                     fill:#54595D;
-                    height: 1.3em;
-                    width: 1.3em;
+                    height: 15px;
+                    width: 15px;
                 }
             }
-            .aptfe-features-icon {
-                margin-right: 10px;
+            .aptfe-features-icon-left {
+                margin-right: 8px;
+            }
+            .aptfe-features-icon-right {
+                margin-left: 8px;
+            }
+            .item:has(.aptfe-features-icon-right) {
+                flex-direction: row-reverse;
             }
         } 
     }
-
-    .aptfe-additional-text {
-        text-align: center;
-        p {
-            padding: 10px;
-            margin: 0;
-        }
-    }
-
     .aptfe-button-box {
-        padding: 20px 0;
+        order: 5;
+        padding-top: 10px;
+        padding-bottom: 10px;
         .aptfe-button {
             display: inline-block;
             line-height: 1;
@@ -231,135 +218,480 @@
             }
         }
         .additional-text {
-            margin: 10px auto;
+            // margin: 10px auto;
             color: #7a7a7a;
         }
     }
+    .aptfe-additional-text {
+        order: 6;
+        font-size: 14px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        // text-align: center;
+        p {
+            font-weight: 600;
+            padding: 0px;
+            margin: 0;
+        }
+    }
+    .ribbon {
+        order: 7;
+        background: #61ce70;
+        color: white;
+        font-size: 13px;
+        font-weight: 600;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 250px;
+        position: absolute;
+        top: 27px;
+        text-transform: uppercase;
+        p {
+            line-height: 2;
+            margin: 0;
+            padding: 3px;
+        }
+        &.ribbon-right {
+            right: -82px;
+            transform: rotate(45deg);
+        }
+        &.ribbon-left {
+            left: -82px;
+            transform: rotate(-45deg);
+        } 
+    }     
 }
 
-
 .aptfe-pricing-table-template-1 {
+    border-radius: 10px 10px 10px 10px;
+    padding: 0px 0px 0px 0px;
+    background-color: #000;
     .aptfe-pricing-header {
         flex-direction: column;
+        background-color: #C2E3F5; //#962744;
         color: #fff;
-        background-color: #54595D;
-        // .title {
-        //     font-size: 24px;
-        //     padding: 0;
-        //     margin: 0;
-        //     line-height: 1.2;
-        //     font-weight: 600;
-        // }
-        // .decription {
-        //     margin: 9px 0px 0px 0px;
-        // }
+        padding: 20px 20px 0px 20px;
+        .title {
+            color: #111682;
+            font-weight: 600;
+            &:after {
+                border-top-style: solid;
+                border-top-color: #ABABAB;
+                border-top-width: 1px;
+                width: 100%;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+        }
+        .decription {
+            color: #111682;
+        }
+    }
+    .aptfe-pricing-price {
+        background-color: #C2E3F5; //#962744;
+        color: #111682; //rgb(255, 255, 255);
+        justify-content: center;
+        padding: 10px 20px 25px 20px;
+        .currency {
+            font-size: 34px;
+        }
+        .price {
+            font-size: 41px;
+            font-weight: 900;
+        }
+    }
+    .aptfe-center-icon {
+        padding-top: 20px;
+        padding-bottom: 0;
+        svg {
+            fill: #FFFFFF;
+            width: 60px;
+        }
+    }
+    .aptfe-features {
+        padding-left: 20px;
+        padding-right: 20px;
+        .items {
+            // margin: 0 auto;
+            // padding: 0px 20px 0px 20px;
+            li {
+                padding-top: 11px;
+                padding-bottom: 11px;
+                color: #FFFFFF;
+                + li:before {
+                    content: "";
+                    border-top-style: solid;
+                    border-top-color: #272424;
+                    border-top-width: 2px;
+                    width: 100%;
+                }
+                svg {
+                    fill: #C2E3F5; //#962744;
+                    height: 12px;
+                    width: 12px;
+                }
+                i {
+                    color: #C2E3F5; //#962744;
+                }
+            }
+        } 
     }
     .aptfe-button-box {
-       flex-direction: column;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        justify-content: center;
+       .aptfe-button {
+            color: #111682; // #FFFFFF;
+            background-color: #C2E3F5; //#962744;
+            font-weight: 600;
+       }
+    }
+    .aptfe-additional-text {
+        text-align: center;
+        padding-right: 20px;
+        padding-left: 20px;
+        .additional-text {
+           color: #FFFFFF;
+           font-size: 12px;
+        }     
     }
 }
 
 .aptfe-pricing-table-template-2 {
+    // border: solid #ddd;
+    border-radius: 10px 10px 10px 10px;
+    // padding: 0px 0px 0px 0px;
+    background-color: #fff;
     .aptfe-pricing-header {
         flex-direction: column;
-        background-color: #962744;
+        // background-color: #C2E3F5; //#962744;
         color: #fff;
-        padding: 20px 0px 0px 0px;
-    }
-    .aptfe-pricing-price {
-        background-color: rgb(150, 39, 68);
-        color: rgb(255, 255, 255);
-        padding: 0px 0px 20px;
-        .currency {
-            font-size: 48px;
+        padding-top: 25px;
+        .title {
+            font-family: "Alata", Sans-serif;
+            font-size: 23px;
+            color: #111682;
+            font-weight: 700;
+            &:after {
+                // border-top-style: solid;
+                // border-top-color: #ABABAB;
+                // border-top-width: 1px;
+                width: 100%;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+        }
+        .decription {
+            color: #111682;
         }
     }
-    // .aptfe-center-icon {
-    //     svg {
-    //         width: 60px;
-    //     }
-    // }
+    .aptfe-pricing-price {
+        // background-color: #C2E3F5; //#962744;
+        color: #111682; //rgb(255, 255, 255);
+        justify-content: center;
+        padding: 10px 0px 25px 0px;
+        .currency {
+            font-size: 22px;
+            align-self: flex-end;
+        }
+        .price {
+            font-size: 60px;
+            font-weight: 900;
+        }
+    }
+    .aptfe-center-icon {
+        padding-top: 20px;
+        padding-bottom: 0;
+        svg {
+            fill: #111682;
+            width: 60px;
+        }
+    }
     .aptfe-features {
-        // padding: 20px 0;
-        background-color: #000000;
         .items {
-            margin: 0;
-            padding: 0;
+            // margin: 0 auto;
+            // padding: 0px 20px 0px 20px;
             li {
-                color: #FFFFFF;
+                padding-top: 8px;
+                padding-bottom: 8px;
+                color: #111682;
                 // + li:before {
                 //     content: "";
-                //     // border-top-style: solid;
+                //     border-top-style: solid;
                 //     border-top-color: #272424;
                 //     border-top-width: 2px;
-                //     width: 87%;
+                //     width: 100%;
                 // }
+                svg {
+                    fill: #75F700; //#962744;
+                    height: 12px;
+                    width: 12px;
+                }
+                i {
+                    color: #75F700; //#962744;
+                }
             }
         } 
     }
-    // .aptfe-button-box {
-    //    background-color: #000000;
-    //    flex-direction: column;
-    //    .aptfe-button {
-    //         color: #FFFFFF;
-    //         background-color: #962744;
-    //    }
-    // //    .additional-text {
-    // //         color: #FFFFFF;
-    // //         margin: 30px 0px 10px 0px;
-    // //     }
-    // }
+    .aptfe-button-box {
+        // padding-left: 10px;
+        // padding-right: 10px;
+        padding-bottom: 30px;
+        justify-content: center;
+       .aptfe-button {
+            border: solid 1px #111682;
+            color: #111682; // #FFFFFF;
+            background-color: initial; //#962744;
+            font-weight: 600;
+            padding: 20px 30px;
+            border-radius: 8px;
+       }
+    }
+    .aptfe-additional-text {
+        text-align: center;
+        padding-top: 30px;
+        padding-bottom: 0px;
+        .additional-text {
+           color: #111682;
+           font-size: 12px;
+        //    padding-bottom: 12px;
+        }     
+    }
 }
 
 .aptfe-pricing-table-template-3 {
-    border: solid 1px #06DA98;
-    border-radius: 15px;
+    border-radius: 10px 10px 10px 10px;
+    padding: 0px;
+    background-color: #FFFFFF;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+     // Card smooth transition
+     transition: all 0.45s ease-in-out;
+     &:hover {
+         box-shadow: 0px 0px 20px 0px rgba(244, 1, 1, 0.25);
+         transform: translateY(-4px);
+        .aptfe-button-box {
+            .aptfe-button {
+                color: #FFFFFF;
+                transform: translateY(-2px);
+                &::before {
+                    opacity: 1;
+                }
+            }
+        }
+     }
     .aptfe-pricing-header {
         flex-direction: column;
-        // background-color: #962744;
-        color: #06DA98;
-        padding: 20px 0px 0px 0px;
+        background-color: #FFFFFF;
+        padding: 20px 20px 0px 20px;
+
+        .title {
+            color: #111682;
+            font-size: 24px;
+            font-weight: 900;
+            align-items: flex-start;
+
+            &:after {
+                border-top-style: solid;
+                border-top-color: #D0D0D0;
+                border-top-width: 1px;
+                width: 100%;
+                margin-top: 14px;
+                margin-bottom: 14px;
+            }
+        }
+
+        .decription {
+            color: #111682;
+        }
     }
     .aptfe-pricing-price {
-        // background-color: rgb(150, 39, 68);
-        color: #06DA98;
-        padding: 0px 0px 20px;
+        background-color: #FFFFFF;
+        justify-content: flex-start;
+        color: #111682;
+        padding: 10px 20px 25px 20px;
+
         .currency {
-            font-size: 48px;
+            font-size: 23px;
+            align-self: flex-end;
+        }
+
+        .price {
+            font-size: 30px;
+            font-weight: 400;
+        }
+    }
+    .aptfe-center-icon {
+        padding-top: 20px;
+        padding-bottom: 0;
+
+        svg {
+            fill: #FFFFFF;
+            width: 60px;
         }
     }
     .aptfe-features {
-        // padding: 20px 0;
-        // background-color: #000000;
+        padding-left: 20px;
+        padding-right: 20px;
+
         .items {
-            // .aptfe-features-top-icon {
-            // }
+            width: 100%;
+            margin: 0;
+
             li {
-                color: #000;
+                padding-top: 11px;
+                padding-bottom: 11px;
+                color: #686868;
+
                 + li:before {
                     content: "";
-                    // border-top-style: solid;
-                    // border-top-color: #272424;
-                    // border-top-width: 2px;
-                    // width: 87%;
+                    border-top-style: solid;
+                    border-top-color: #EDEDED;
+                    border-top-width: 1px;
+                    width: 100%;
+                }
+
+                svg {
+                    fill: #073AA0;
+                    height: 12px;
+                    width: 12px;
+                }
+
+                i {
+                    color: #073AA0;
                 }
             }
-            // .aptfe-features-icon {
-            //     margin-right: 10px;
-            // }
-       } 
+        }
     }
     .aptfe-button-box {
-    //    background-color: #000000;
-       flex-direction: column;
-       .aptfe-button {
-            color: #FFFFFF;
-            background-color: #962744;
-       }
-       .additional-text {
-            color: #FFFFFF;
-            margin: 30px 0px 10px 0px;
+        justify-content: flex-start;
+        padding: 20px;
+        .aptfe-button {
+            background-color: #FBDEDE;
+            color: #111682;
+            width: 100%;
+            font-weight: 400;
+            transition: color 0.4s ease, transform 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            // Gradient layer
+            &::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(103deg, #6245CF 0%, #C9395D 100%);
+                opacity: 0;
+                transition: opacity 0.45s ease-in-out;
+                z-index: -1;
+            }
+            &:hover {
+                color: #FFFFFF;
+                transform: translateY(-2px);
+                &::before {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    .aptfe-additional-text {
+        text-align: center;
+        padding-right: 20px;
+        padding-left: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+        .additional-text {
+            color: #686868;
+            font-size: 12px;
         }
     }
 }
 
+.aptfe-pricing-table-template-4 {
+    background-color: #FFFFFF;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    border-color: #176BFF;
+    border-radius: 20px 20px 20px 20px;
+    // padding: 30px 30px 30px 30px;
+    .aptfe-pricing-header {
+       background-color: #FFFFFF;
+    //    padding: 0px 0px 0px 0px;
+       .title {
+        color: #0E00FF;
+        font-family: "Trebuchet MS", Sans-serif;
+        font-weight: 600;
+        padding-bottom: 20px;
+        padding-top: 20px;
+        font-size: 45px;
+       }
+       .decription {
+            color: #545151;
+            font-size: 16px;
+            font-family: "Trebuchet MS", Sans-serif;
+            padding-bottom: 20px;
+       }
+    }
+    .aptfe-pricing-price {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-color: #FFFFFF;
+        // padding: 30px 0px 30px 0px;
+        color: #545151;
+        order: 5;
+        justify-content: center;
+        .price {
+            font-family: "Roboto", Sans-serif;
+            font-size: 53px;
+            font-weight: 900;
+        }
+        .currency {
+            font-size: 34px; 
+        }
+        .pricing-additional-text {
+            padding-bottom: 15px;
+            color: #000;
+            font-size: 14px;
+            text-align: center;
+        }
+        .period {
+            width: initial;
+        }
+    }
+    .aptfe-features {
+        background-color: #FFFFFF;
+        .items {
+            li {
+                padding-top: 8px;
+                padding-bottom: 8px;
+                svg {
+                    fill: #0E00FF; //#962744;
+                    height: 12px;
+                    width: 12px;
+                }
+                i {
+                    color: #0E00FF; //#962744;
+                }
+            }
+        }
+    }
+    .aptfe-button-box {
+        padding-top: 20px;
+        padding-bottom: 20px;
+       .aptfe-button {
+            background-color: #084EC9;
+            padding: 20px 24px;
+            white-space: nowrap;
+            width: 100%;
+       }
+    }
+
+    .aptfe-additional-text {
+        padding-top: 40px;
+        padding-bottom: 0px;
+        font-size: 12px;
+        text-align: center;
+    }
+}

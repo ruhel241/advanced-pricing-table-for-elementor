@@ -5,7 +5,7 @@
  * Version:     1.0.5
  * Author:      WPCreativeIdea
  * Author URI:  https://profiles.wordpress.org/wpcreativeidea/
- * Plugin URI:  https://github.com/ruhel241/advanced-pricing-table-for-elementor
+ * Plugin URI:  https://wpcreativeidea.com/advanced-pricing-table-for-elementor
  * License: GPLv2 or later
  * Text Domain: advanced-pricing-table-for-elementor
  * Domain Path: /language
@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 define('APTFE_DIR_FILE', __FILE__);
 define('APTFE_PLUGIN_URL', plugin_dir_url(__FILE__));
-define('APTFE_LITE', 'AdvancedPriceTableLite');
+define('APTFE_LITE', true);
 define('APTFE_PLUGIN_VERSION', '1.0.5');
 
 final class APTFE_Pricing_Table_Lite 
@@ -162,8 +162,6 @@ final class APTFE_Pricing_Table_Lite
 	 */
 	public function init() {
 	
-		$this->loadTextDomain();
-
 		// Add Plugin actions
 		add_action( 'elementor/widgets/widgets_registered', [ $this, 'init_widgets' ] );
 		
@@ -188,10 +186,6 @@ final class APTFE_Pricing_Table_Lite
         // Register widget
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new APTFE\Classes\Widgets\Advanced_Pricing_Widget() );
 	}
-
-	public function loadTextDomain()
-    {
-		load_plugin_textdomain('advanced-pricing-table-for-elementor', false, APTFE_PLUGIN_URL. '/languages');
-	}
 }
+
 APTFE_Pricing_Table_Lite::instance();
