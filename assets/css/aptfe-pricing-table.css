@@ -19,7 +19,7 @@
   color: #000;
   background-color: #F6F5F5;
 }
-.aptfe-pricing-table-container .aptfe-pricing-price, .aptfe-pricing-table-container .aptfe-pricing-header, .aptfe-pricing-table-container .aptfe-features, .aptfe-pricing-table-container .aptfe-button-box, .aptfe-pricing-table-container .items, .aptfe-pricing-table-container .aptfe-features .items li, .aptfe-pricing-table-container .items li span, .aptfe-pricing-table-container .aptfe-features-top-icon {
+.aptfe-pricing-table-container .aptfe-pricing-container, .aptfe-pricing-table-container .aptfe-pricing-price, .aptfe-pricing-table-container .aptfe-pricing-header, .aptfe-pricing-table-container .aptfe-features, .aptfe-pricing-table-container .aptfe-button-box, .aptfe-pricing-table-container .items, .aptfe-pricing-table-container .aptfe-features .items li, .aptfe-pricing-table-container .items li span, .aptfe-pricing-table-container .aptfe-features-top-icon {
   display: flex;
   flex-wrap: wrap;
 }
@@ -44,53 +44,54 @@
 .aptfe-pricing-table-container .aptfe-pricing-header .decription {
   text-align: center;
 }
-.aptfe-pricing-table-container .aptfe-pricing-price {
+.aptfe-pricing-table-container .aptfe-pricing-container {
   order: 2;
-  position: relative;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  flex-direction: column;
 }
-.aptfe-pricing-table-container .aptfe-pricing-price:before {
+.aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price {
+  position: relative;
+}
+.aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price:before {
   content: "";
   display: block;
   position: absolute;
   bottom: 13px;
 }
-.aptfe-pricing-table-container .aptfe-pricing-price {
+.aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price {
   font-weight: 800;
   color: #555;
 }
-.aptfe-pricing-table-container .aptfe-pricing-price .pricing-additional-text {
+.aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price .pricing-additional-text {
   flex: 1 0 100%;
   text-align: center;
   padding-top: 10px;
   padding-bottom: 10px;
 }
-.aptfe-pricing-table-container .aptfe-pricing-price .currency, .aptfe-pricing-table-container .aptfe-pricing-price .freaction-part {
+.aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price .currency, .aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price .freaction-part {
   font-size: 18px;
   line-height: 1;
   align-self: flex-start;
 }
-.aptfe-pricing-table-container .aptfe-pricing-price .freaction-part {
+.aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price .freaction-part {
   margin-left: 3px;
 }
-.aptfe-pricing-table-container .aptfe-pricing-price .price {
+.aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price .price {
   font-size: 65px;
   line-height: 0.8;
 }
-.aptfe-pricing-table-container .aptfe-pricing-price .original-price {
+.aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price .original-price {
   margin-right: 15px;
   align-self: end;
   text-decoration: line-through;
 }
-.aptfe-pricing-table-container .aptfe-pricing-price .period {
+.aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price .period {
   width: 100%;
   display: block;
   text-align: center;
   font-weight: 400;
   order: 2;
 }
-.aptfe-pricing-table-container .aptfe-pricing-price .period.period_position_below {
+.aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price .period.period_position_below {
   margin-top: 12px;
 }
 .aptfe-pricing-table-container .aptfe-center-icon {
@@ -126,6 +127,7 @@
 }
 .aptfe-pricing-table-container .aptfe-features .features-heading-container .features-heading:after {
   content: "";
+  padding-top: 8px;
 }
 .aptfe-pricing-table-container .aptfe-features .items {
   flex-direction: column;
@@ -305,16 +307,18 @@
 .aptfe-pricing-table-template-1 .aptfe-pricing-header .decription {
   color: #111682;
 }
-.aptfe-pricing-table-template-1 .aptfe-pricing-price {
+.aptfe-pricing-table-template-1 .aptfe-pricing-container {
   background-color: #C2E3F5;
-  color: #111682;
-  justify-content: center;
   padding: 10px 20px 25px 20px;
 }
-.aptfe-pricing-table-template-1 .aptfe-pricing-price .currency {
+.aptfe-pricing-table-template-1 .aptfe-pricing-container .aptfe-pricing-price {
+  color: #111682;
+  justify-content: center;
+}
+.aptfe-pricing-table-template-1 .aptfe-pricing-container .aptfe-pricing-price .currency {
   font-size: 34px;
 }
-.aptfe-pricing-table-template-1 .aptfe-pricing-price .price {
+.aptfe-pricing-table-template-1 .aptfe-pricing-container .aptfe-pricing-price .price {
   font-size: 41px;
   font-weight: 900;
 }

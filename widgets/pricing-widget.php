@@ -520,6 +520,17 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				]
 			);
 			$this->add_control(
+				'aptfe_features_show',
+				[
+					'label' 	   => esc_html__( 'Features', 'advanced-pricing-table-for-elementor' ),
+					'type' 		   => Controls_Manager::SWITCHER,
+					'label_on' 	   => esc_html__( 'Show', 'advanced-pricing-table-for-elementor' ),
+					'label_off'    => esc_html__( 'Hide', 'advanced-pricing-table-for-elementor' ),
+					'return_value' => 'yes',
+					'default' 	   => 'yes'
+				]
+			);
+			$this->add_control(
 				'aptfe_center_icon_show',
 				[
 					'label' 	   => esc_html__( 'Center Icon', 'advanced-pricing-table-for-elementor' ),
@@ -983,7 +994,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					'label' => esc_html__( 'Background Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
-						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price' => 'background-color: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-container' => 'background-color: {{VALUE}}',
 					],
 				]
 			);
@@ -1008,7 +1019,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						'bottom' => '5',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price' => 'order: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price' => 'order: {{VALUE}}',
 					],
 					// 'condition' => [
 					// 	'aptfe_pricing_currency_symbol!' => '',
@@ -1036,7 +1047,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						],
 					],
 					'selectors' => [
-						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price' => 'justify-content: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price' => 'justify-content: {{VALUE}}',
 					]
 				]
 			);
@@ -1049,7 +1060,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					'default' => '',
 					'separator' => 'before',
 					'selectors' => [
-						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price:before' => 'border-top-style: none;',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price:before' => 'border-top-style: none;',
 					],
 				]
 			);
@@ -1070,7 +1081,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						'aptfe_pricing_divider!' => '',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price:before' => 'border-top-style: {{VALUE}};',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price:before' => 'border-top-style: {{VALUE}};',
 					],
 				]
 			);
@@ -1084,7 +1095,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						'aptfe_pricing_divider!' => '',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price:before' => 'border-top-color: {{VALUE}};',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price:before' => 'border-top-color: {{VALUE}};',
 					],
 				]
 			);
@@ -1107,7 +1118,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						'aptfe_pricing_divider!' => '',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price:before' => 'border-top-width: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price:before' => 'border-top-width: {{SIZE}}{{UNIT}};',
 					],
 				]
 			);
@@ -1136,7 +1147,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						'aptfe_pricing_divider!' => '',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price:before' => 'width: {{SIZE}}{{UNIT}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price:before' => 'width: {{SIZE}}{{UNIT}}',
 					],
 				]
 			);
@@ -1159,7 +1170,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						'aptfe_pricing_divider!' => '',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price:before' => 'bottom: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price:before' => 'bottom: {{SIZE}}{{UNIT}};',
 					],
 				]
 			);
@@ -1170,7 +1181,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					'type' => Controls_Manager::DIMENSIONS,
 					'size_units' => [ 'px', '%', 'em' ],
 					'selectors' => [
-						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-container' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					],
 				]
 			);
@@ -1180,7 +1191,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					'label' => esc_html__( 'Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
-						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price' => 'color: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price' => 'color: {{VALUE}}',
 					],
 					'separator' => 'before',
 				]
@@ -1189,7 +1200,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'price_typography',
-					'selector' => '{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price .price',
+					'selector' => '{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price .price',
 					'global' => [
 						'default' => '',
 					],
@@ -1218,7 +1229,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						],
 					],
 					'selectors' => [
-						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price .currency' => 'font-size: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price .currency' => 'font-size: {{SIZE}}{{UNIT}};',
 					],
 					'condition' => [
 						'aptfe_pricing_currency_symbol!' => '',
@@ -1242,8 +1253,8 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						],
 					],
 					'selectors' => [
-						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price' => 'display: flex;',
-						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price .currency' => 'order: {{VALUE}};',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price' => 'display: flex;',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price .currency' => 'order: {{VALUE}};',
 					],
 					'selectors_dictionary' => [
 						'before' => '0',
@@ -1277,7 +1288,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						'bottom' => 'flex-end',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price .currency' => 'align-self: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price .currency' => 'align-self: {{VALUE}}',
 					],
 					'condition' => [
 						'aptfe_pricing_currency_symbol!' => '',
@@ -1304,7 +1315,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						],
 					],
 					'selectors' => [
-						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price .fraction-part' => 'font-size: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price .fraction-part' => 'font-size: {{SIZE}}{{UNIT}};',
 					],
 				]
 			);
@@ -1334,7 +1345,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						'bottom' => 'flex-end',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price .fraction-part' => 'align-self: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price .fraction-part' => 'align-self: {{VALUE}}',
 					],
 				]
 			);
@@ -1359,7 +1370,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					// 	'default' => Global_Colors::COLOR_SECONDARY,
 					// ],
 					'selectors' => [
-						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price .original-price' => 'color: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price .original-price' => 'color: {{VALUE}}',
 					],
 					'condition' => [
 						'aptfe_pricing_sale' => 'yes',
@@ -1371,7 +1382,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'aptfe_original_price_typography',
-					'selector' => '{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price .original-price',
+					'selector' => '{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price .original-price',
 					'global' => [
 						'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
 					],
@@ -1407,7 +1418,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					],
 					'default' => 'bottom',
 					'selectors' => [
-						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price .original-price' => 'align-self: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price .original-price' => 'align-self: {{VALUE}}',
 					],
 					'condition' => [
 						'aptfe_pricing_sale' => 'yes',
@@ -1435,7 +1446,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					// 	'default' => Global_Colors::COLOR_SECONDARY,
 					// ],
 					'selectors' => [
-						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price .period' => 'color: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price .period' => 'color: {{VALUE}}',
 					],
 					'condition' => [
 						'aptfe_pricing_period!' => '',
@@ -1446,7 +1457,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'aptfe_period_typography',
-					'selector' => '{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price .period',
+					'selector' => '{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price .period',
 					'global' => [
 						'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 					],
@@ -1466,7 +1477,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						'beside' => 'initial',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price .period' => 'width: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price .period' => 'width: {{VALUE}}',
 					],
 					'options' => [
 						'below' => [
@@ -1508,7 +1519,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					// 	'bottom' => '5',
 					// ],
 					'selectors' => [
-						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price .period' => 'align-self: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price .period' => 'align-self: {{VALUE}}',
 					],
 					'condition' => [
 						'aptfe_period_position' => 'beside',
@@ -1536,7 +1547,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						],
 					],
 					'selectors' => [
-						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price .period' => 'text-align: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price .period' => 'text-align: {{VALUE}}',
 					],
 					'condition' => [
 						'aptfe_period_position' => 'below',
@@ -1548,9 +1559,26 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'aptfe_pricing_additional_text_style',
 				[
-					'label' => esc_html__( 'Additional text', 'advanced-pricing-table-for-elementor' ),
+					'label' => esc_html__( 'Pricing Additional text', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::HEADING,
 					'separator' => 'before',
+					'condition' => [
+						'aptfe_pricing_additional_text!' => '',
+					],
+				]
+			);
+			$this->add_group_control(
+				Group_Control_Background::get_type(),
+				[
+					'name' => 'aptfe_pricing_additional_text_bg_color',
+					'types' => [ 'classic', 'gradient' ],
+					'exclude' => [ 'image' ],
+					'fields_options' => [
+						'background' => [
+							'default' => 'classic',
+						]
+					],
+					'selector' => '{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-container .pricing-additional-text',
 					'condition' => [
 						'aptfe_pricing_additional_text!' => '',
 					],
@@ -1559,13 +1587,13 @@ class Advanced_Pricing_Widget extends Widget_Base {
 			$this->add_control(
 				'aptfe_pricing_additional_text_color',
 				[
-					'label' => esc_html__( 'Color', 'advanced-pricing-table-for-elementor' ),
+					'label' => esc_html__( 'Text Color', 'advanced-pricing-table-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					// 'global' => [
 					// 	'default' => Global_Colors::COLOR_SECONDARY,
 					// ],
 					'selectors' => [
-						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price .pricing-additional-text' => 'color: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-container .pricing-additional-text' => 'color: {{VALUE}}',
 					],
 					'condition' => [
 						'aptfe_pricing_additional_text!' => '',
@@ -1576,7 +1604,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'aptfe_pricing_additional_text_typography',
-					'selector' => '{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price .pricing-additional-text',
+					'selector' => '{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-container .pricing-additional-text',
 					'global' => [
 						'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 					],
@@ -1606,7 +1634,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 						],
 					],
 					'selectors' => [
-						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price .pricing-additional-text' => 'text-align: {{VALUE}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-container .pricing-additional-text' => 'text-align: {{VALUE}}',
 					],
 					'condition' => [
 						'aptfe_pricing_additional_text!' => '',
@@ -1614,6 +1642,86 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				]
 			);
 
+			$this->add_group_control(
+				Group_Control_Border::get_type(),
+				[
+					'name' => 'aptfe_pricing_additional_text_border',
+					'selector' => '{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-container .pricing-additional-text',
+					'condition' => [
+						'aptfe_pricing_additional_text!' => '',
+					],
+				]
+			);
+			
+			$this->add_control(
+				'aptfe_pricing_additional_text_width',
+				[
+					'label' => esc_html__( 'Width', 'advanced-pricing-table-for-elementor' ),
+					'type' => Controls_Manager::SLIDER,
+					'size_units' => [ 'px', '%' ],
+					'default' => [
+						'unit' => '%',
+						'size' => 100,
+					],
+			
+					'range' => [
+						'%' => [
+							'min' => 0,
+							'max' => 100,
+						],
+					],
+			
+					'selectors' => [
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-container .pricing-additional-text' => 'width: {{SIZE}}{{UNIT}};',
+					],
+			
+					'condition' => [
+						'aptfe_pricing_additional_text!' => '',
+						'aptfe_pricing_additional_text_border_border!' => [ '', 'none' ],
+					],
+				]
+			);
+			$this->add_control(
+				'aptfe_pricing_additional_text_border_radius',
+				[
+					'label' => esc_html__( 'Border Radius', 'advanced-pricing-table-for-elementor' ),
+					'type' => Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', '%' ],
+					'selectors' => [
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-container .pricing-additional-text' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+					'condition' => [
+						'aptfe_pricing_additional_text!' => '',
+					]
+				]
+			);
+
+			$this->add_group_control(
+				Group_Control_Box_Shadow::get_type(),
+				[
+					'name' => 'aptfe_pricing_additional_text_box_shadow',
+					'label' => esc_html__( 'Box Shadow', 'advanced-pricing-table-for-elementor' ),
+					'selector' => '{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-container .pricing-additional-text',
+					'condition' => [
+						'aptfe_pricing_additional_text!' => '',
+					]
+				]
+			);
+
+			$this->add_responsive_control(
+				'aptfe_pricing_additional_text_margin',
+				[
+					'label' => esc_html__( 'Margin', 'advanced-pricing-table-for-elementor' ),
+					'type' => Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', '%', 'em' ],
+					'selectors' => [
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-container .pricing-additional-text' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
+					],
+					'condition' => [
+						'aptfe_pricing_additional_text!' => '',
+					]
+				]
+			);
 			$this->add_responsive_control(
 				'aptfe_pricing_additional_text_padding',
 				[
@@ -1621,7 +1729,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 					'type' => Controls_Manager::DIMENSIONS,
 					'size_units' => [ 'px', '%', 'em' ],
 					'selectors' => [
-						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-price .pricing-additional-text' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
+						'{{WRAPPER}} .aptfe-pricing-table-container .aptfe-pricing-container .pricing-additional-text' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
 					],
 					'condition' => [
 						'aptfe_pricing_additional_text!' => '',
@@ -2746,10 +2854,10 @@ class Advanced_Pricing_Widget extends Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 	
-		$centerIconShow      = isset( $settings['aptfe_center_icon_show'] ) ?? 'no';
-		$ribbonShow          = isset( $settings['aptfe_ribbon_show'] ) ?? 'no';
-		$additionalTextShow  = isset( $settings['aptfe_additional_text_show'] )?? '';
-		$buttonShow          = isset( $settings['aptfe_button_show'] ) ?? 'yes';
+		$centerIconShow      = $settings['aptfe_center_icon_show'] ?? 'no';
+		$ribbonShow          = $settings['aptfe_ribbon_show'] ?? 'no';
+		$additionalTextShow  = $settings['aptfe_additional_text_show']?? '';
+		$buttonShow          = $settings['aptfe_button_show'] ?? 'yes';
 	
 		$this->add_render_attribute(
 			'aptfe_pricing_options',
@@ -2814,84 +2922,83 @@ class Advanced_Pricing_Widget extends Widget_Base {
 		?>
 	
 		<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'aptfe_pricing_options' ) ); ?>>
+			<?php if ( !empty( $settings['aptfe_header_title'] ) || !empty( $settings['aptfe_header_description'] ) ) : ?>
+				<div class="aptfe-pricing-header">
+					<?php if ( ! empty( $settings['aptfe_header_title'] ) ) : ?>
+						<<?php Utils::print_validated_html_tag( $titleTag ); ?>
+							<?php $this->print_render_attribute_string( 'aptfe_header_title_tag_attr' ); ?>>
+		
+							<?php $this->print_unescaped_setting( 'aptfe_header_title' ); ?>
+		
+						</<?php Utils::print_validated_html_tag( $titleTag ); ?>>
+					<?php endif; ?>
+		
+					<?php if ( ! empty( $settings['aptfe_header_description'] ) ) : ?>
+						<p class="decription">
+							<?php echo esc_html( $settings['aptfe_header_description'] ); ?>
+						</p>
+					<?php endif; ?>
+				</div>
+			<?php endif; ?>
 	
-			<div class="aptfe-pricing-header">
-	
-				<?php if ( ! empty( $settings['aptfe_header_title'] ) ) : ?>
-	
-					<<?php Utils::print_validated_html_tag( $titleTag ); ?>
-						<?php $this->print_render_attribute_string( 'aptfe_header_title_tag_attr' ); ?>>
-	
-						<?php $this->print_unescaped_setting( 'aptfe_header_title' ); ?>
-	
-					</<?php Utils::print_validated_html_tag( $titleTag ); ?>>
-	
-				<?php endif; ?>
-	
-				<?php if ( ! empty( $settings['aptfe_header_description'] ) ) : ?>
-					<p class="decription">
-						<?php echo esc_html( $settings['aptfe_header_description'] ); ?>
-					</p>
-				<?php endif; ?>
-	
-			</div>
-	
-			<div class="aptfe-pricing-price">
+			<div class="aptfe-pricing-container">
 				<?php if ( ! empty( $settings['aptfe_pricing_additional_text'] ) ) : ?>
-					<span class="pricing-additional-text">
+					<div class="pricing-additional-text">
 						<?php echo esc_html( $settings['aptfe_pricing_additional_text'] ); ?>
-					</span>
+					</div>
 				<?php endif; ?>
-				
-				<?php if (
-					'yes' === ( $settings['aptfe_pricing_sale'] ?? '' ) &&
-					! empty( $settings['aptfe_pricing_original_price'] )
-				) : ?>
-	
-					<span class="original-price">
-						<?php
-						echo esc_html(
-							$currency_symbol . $settings['aptfe_pricing_original_price']
-						);
-						?>
-					</span>
-	
-				<?php endif; ?>
-	
-				<?php if ( 'before' === $currencyPosition ) : ?>
-					<span class="currency currency-position-before">
-						<?php echo esc_html( $currency_symbol ); ?>
-					</span>
-				<?php endif; ?>
-	
-				<?php if ( ! empty( $intpart ) ) : ?>
-					<span class="price">
-						<?php echo esc_html( $intpart ); ?>
-					</span>
-				<?php endif; ?>
-	
-				<?php if ( ! empty( $fraction ) ) : ?>
-					<span class="fraction-part">
-						<?php echo esc_html( $fraction ); ?>
-					</span>
-				<?php endif; ?>
-	
-				<?php if ( 'after' === $currencyPosition ) : ?>
-					<span class="currency currency-position-after">
-						<?php echo esc_html( $currency_symbol ); ?>
-					</span>
-				<?php endif; ?>
-	
-				<?php
-					if ( ! empty( $settings['aptfe_pricing_period'] ) ) :
-						$period_class = ( $settings['aptfe_period_position'] ?? '' ) === 'below'
-							? 'period_position_below'
-							: '';
-				?>
-					<span class="period <?php echo esc_attr( $period_class ); ?>">
-						<?php echo esc_html( $settings['aptfe_pricing_period'] ); ?>
-					</span>
-				<?php endif; ?>
+
+				<div class="aptfe-pricing-price">
+					<?php if (
+						'yes' === ( $settings['aptfe_pricing_sale'] ?? '' ) &&
+						! empty( $settings['aptfe_pricing_original_price'] )
+					) : ?>
+		
+						<span class="original-price">
+							<?php
+							echo esc_html(
+								$currency_symbol . $settings['aptfe_pricing_original_price']
+							);
+							?>
+						</span>
+		
+					<?php endif; ?>
+		
+					<?php if ( 'before' === $currencyPosition ) : ?>
+						<span class="currency currency-position-before">
+							<?php echo esc_html( $currency_symbol ); ?>
+						</span>
+					<?php endif; ?>
+		
+					<?php if ( ! empty( $intpart ) ) : ?>
+						<span class="price">
+							<?php echo esc_html( $intpart ); ?>
+						</span>
+					<?php endif; ?>
+		
+					<?php if ( ! empty( $fraction ) ) : ?>
+						<span class="fraction-part">
+							<?php echo esc_html( $fraction ); ?>
+						</span>
+					<?php endif; ?>
+		
+					<?php if ( 'after' === $currencyPosition ) : ?>
+						<span class="currency currency-position-after">
+							<?php echo esc_html( $currency_symbol ); ?>
+						</span>
+					<?php endif; ?>
+		
+					<?php
+						if ( ! empty( $settings['aptfe_pricing_period'] ) ) :
+							$period_class = ( $settings['aptfe_period_position'] ?? '' ) === 'below'
+								? 'period_position_below'
+								: '';
+					?>
+						<span class="period <?php echo esc_attr( $period_class ); ?>">
+							<?php echo esc_html( $settings['aptfe_pricing_period'] ); ?>
+						</span>
+					<?php endif; ?>
+				</div>
 			</div>
 	
 			<?php if ( 'yes' === $centerIconShow  && !empty( $settings['aptfe_features_top_icon']['value']) ) : ?>
@@ -2908,7 +3015,7 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				</div>
 			<?php endif; ?>
 	
-			<?php if ( ! empty( $settings['aptfe_features_list'] ) ) : ?>
+			<?php if ( ! empty( $settings['aptfe_features_list'] ) && $settings['aptfe_features_show']  == 'yes' ) : ?>
 				<div class="aptfe-features">
 					<?php if ( ! empty( $settings['aptfe_features_heading_text'] ) ) : ?>
 						<div class="features-heading-container">
@@ -2934,7 +3041,6 @@ class Advanced_Pricing_Widget extends Widget_Base {
 										);
 									}
 								?>
-
 								<?php if ( ! empty( $item['aptfe_features_item_text'] ) ) : ?>
 									<span class="item-text">
 										<?php echo esc_html( $item['aptfe_features_item_text'] ); ?>
@@ -2972,7 +3078,6 @@ class Advanced_Pricing_Widget extends Widget_Base {
 				</div>
 			<?php endif; ?>
 		</div>
-	
 		<?php
 	}
 
@@ -2985,333 +3090,6 @@ class Advanced_Pricing_Widget extends Widget_Base {
 	 * @access protected
 	 */
 	protected function content_template() {
-		?>
-		<#
-			var centerIconShow     = settings.aptfe_center_icon_show || '';
-			var ribbonShow         = settings.aptfe_ribbon_show || '';
-			var additionalTextShow = settings.aptfe_additional_text_show || '';
-			var buttonShow         = settings.aptfe_button_show || '';
-	
-			view.addRenderAttribute(
-				'aptfe_pricing_options',
-				{
-					'id': 'aptfe-pricing-table-' + view.getID(),
-					'class': [
-						'aptfe-pricing-table-container',
-						'aptfe-pricing-table-template-' + ( settings.aptfe_pricing_template || '2' ),
-					],
-				}
-			);
-	
-			// Currency format
-			var currency_format = settings.aptfe_pricing_currency_format
-				? settings.aptfe_pricing_currency_format
-				: '.';
-	
-			var price = ( settings.aptfe_pricing_price || '' )
-				.toString()
-				.split( currency_format );
-	
-			var intpart  = price[0] || '';
-			var fraction = price[1] || '';
-	
-			// Currency symbol
-			var currency_symbol = settings.aptfe_pricing_currency_symbol || '';
-	
-			if ( currency_symbol === 'custom' ) {
-				currency_symbol = settings.aptfe_pricing_currency_symbol_custom || '';
-			}
-	
-			// Decode HTML entities
-			var textarea = document.createElement( 'textarea' );
-			textarea.innerHTML = currency_symbol;
-			currency_symbol = textarea.value;
-	
-			// Button
-			view.addRenderAttribute(
-				'aptfe_render_button_attr',
-				'class',
-				[
-					'aptfe-button',
-					(
-						settings.aptfe_button_size
-							? 'aptfe-button-size-' + settings.aptfe_button_size
-							: ''
-					),
-				]
-			);
-	
-			if (
-				settings.aptfe_button_link &&
-				settings.aptfe_button_link.url
-			) {
-	
-				view.addRenderAttribute(
-					'aptfe_render_button_attr',
-					'href',
-					settings.aptfe_button_link.url
-				);
-	
-				if ( settings.aptfe_button_link.is_external ) {
-	
-					view.addRenderAttribute(
-						'aptfe_render_button_attr',
-						'target',
-						'_blank'
-					);
-				}
-	
-				if ( settings.aptfe_button_link.nofollow ) {
-	
-					view.addRenderAttribute(
-						'aptfe_render_button_attr',
-						'rel',
-						'nofollow'
-					);
-				}
-			}
-	
-			// Title tag
-			view.addRenderAttribute(
-				'aptfe_header_title_tag_attr',
-				'class',
-				'title'
-			);
-	
-			var titleTag = settings.aptfe_header_title_tag || 'h3';
-	
-			var currencyPosition = settings.aptfe_currency_position || 'before';
-		#>
-	
-		<div {{{ view.getRenderAttributeString( 'aptfe_pricing_options' ) }}}>
-	
-			<div class="aptfe-pricing-header">
-	
-				<# if ( settings.aptfe_header_title ) { #>
-	
-					<{{{ titleTag }}}
-						{{{ view.getRenderAttributeString( 'aptfe_header_title_tag_attr' ) }}}>
-	
-						{{{ settings.aptfe_header_title }}}
-	
-					</{{{ titleTag }}}>
-	
-				<# } #>
-	
-				<# if ( settings.aptfe_header_description ) { #>
-	
-					<p class="decription">
-						{{ settings.aptfe_header_description }}
-					</p>
-	
-				<# } #>
-	
-			</div>
-	
-			<div class="aptfe-pricing-price">
-	
-				<# if ( settings.aptfe_pricing_additional_text ) { #>
-	
-					<span class="pricing-additional-text">
-						{{ settings.aptfe_pricing_additional_text }}
-					</span>
-	
-				<# } #>
-	
-				<# if (
-					settings.aptfe_pricing_sale === 'yes' &&
-					settings.aptfe_pricing_original_price
-				) { #>
-	
-					<span class="original-price">
-						{{ currency_symbol + settings.aptfe_pricing_original_price }}
-					</span>
-	
-				<# } #>
-	
-				<# if ( currencyPosition === 'before' ) { #>
-	
-					<span class="currency currency-position-before">
-						{{ currency_symbol }}
-					</span>
-	
-				<# } #>
-	
-				<# if ( intpart ) { #>
-	
-					<span class="price">
-						{{ intpart }}
-					</span>
-	
-				<# } #>
-	
-				<# if ( fraction ) { #>
-	
-					<span class="fraction-part">
-						{{ fraction }}
-					</span>
-	
-				<# } #>
-	
-				<# if ( currencyPosition === 'after' ) { #>
-	
-					<span class="currency currency-position-after">
-						{{ currency_symbol }}
-					</span>
-	
-				<# } #>
-	
-				<#
-					if ( settings.aptfe_pricing_period ) {
-	
-						var period_class =
-							( settings.aptfe_period_position || '' ) === 'below'
-								? 'period_position_below'
-								: '';
-				#>
-	
-					<span class="period {{ period_class }}">
-						{{ settings.aptfe_pricing_period }}
-					</span>
-	
-				<# } #>
-	
-			</div>
-	
-			<# if (
-				centerIconShow === 'yes' &&
-				settings.aptfe_features_top_icon &&
-				settings.aptfe_features_top_icon.value
-			) { #>
-	
-				<div class="aptfe-center-icon">
-	
-					{{{ elementor.helpers.renderIcon(
-						view,
-						settings.aptfe_features_top_icon,
-						{
-							'class': 'aptfe-features-top-icon',
-							'aria-hidden': true,
-						},
-						'i',
-						'object'
-					).value }}}
-	
-				</div>
-	
-			<# } #>
-	
-			<# if (
-				settings.aptfe_features_list &&
-				settings.aptfe_features_list.length
-			) { #>
-	
-				<div class="aptfe-features">
-	
-					<# if ( settings.aptfe_features_heading_text ) { #>
-	
-						<div class="features-heading-container">
-	
-							<h3 class="features-heading">
-								{{ settings.aptfe_features_heading_text }}
-							</h3>
-	
-						</div>
-	
-					<# } #>
-	
-					<ul class="items">
-	
-						<# _.each( settings.aptfe_features_list, function( item ) { #>
-	
-							<li class="item elementor-repeater-item-{{ item._id }}">
-	
-								<#
-									if (
-										item.aptfe_features_selected_item_icon
-									) {
-	
-										var iconPosition =
-											settings.aptfe_features_icon_position;
-								#>
-	
-									{{{ elementor.helpers.renderIcon(
-										view,
-										item.aptfe_features_selected_item_icon,
-										{
-											'class':
-												'aptfe-features-icon-' + iconPosition,
-											'aria-hidden': true,
-										},
-										'i',
-										'object'
-									).value }}}
-	
-								<# } #>
-	
-								<# if ( item.aptfe_features_item_text ) { #>
-	
-									<span class="item-text">
-										{{ item.aptfe_features_item_text }}
-									</span>
-	
-								<# } #>
-	
-							</li>
-	
-						<# }); #>
-	
-					</ul>
-	
-				</div>
-	
-			<# } #>
-	
-			<# if ( buttonShow === 'yes' ) { #>
-	
-				<div class="aptfe-button-box">
-	
-					<a {{{ view.getRenderAttributeString( 'aptfe_render_button_attr' ) }}}>
-	
-						{{{ settings.aptfe_button_text }}}
-	
-					</a>
-	
-				</div>
-	
-			<# } #>
-	
-			<# if (
-				additionalTextShow === 'yes' &&
-				settings.aptfe_additional_textarea
-			) { #>
-	
-				<div class="aptfe-additional-text">
-	
-					<p class="additional-text">
-						{{ settings.aptfe_additional_textarea }}
-					</p>
-	
-				</div>
-	
-			<# } #>
-	
-			<# if (
-				ribbonShow === 'yes' &&
-				settings.aptfe_ribbon_title
-			) { #>
-	
-				<div class="ribbon {{ settings.aptfe_ribbon_position || 'ribbon-right-angle' }}">
-	
-					<p>
-						{{ settings.aptfe_ribbon_title }}
-					</p>
-	
-				</div>
-	
-			<# } #>
-	
-		</div>
-		<?php
+
 	}
 }
