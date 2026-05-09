@@ -1,7 +1,7 @@
 === Advanced Pricing Table For Elementor ===
-Contributors: WPCreativeIdea
+Contributors: wpcreativeidea
 Tags: price, price table, pricing table, table, pricing
-Tested up to: 6.9
+Tested up to: 6.6.1
 Stable tag:  1.0.5
 Requires at least: 5.0
 Requires PHP: 7.4
