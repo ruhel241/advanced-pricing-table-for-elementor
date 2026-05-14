@@ -2,7 +2,7 @@
 Contributors: WPCreativeIdea
 Tags: price, price table, pricing table, table, pricing
 Tested up to: 6.9
-Stable tag:  1.0.5
+Stable tag:  1.0.0
 Requires at least: 5.0
 Requires PHP: 7.4
 License: GPLv2 or later

@@ -14,7 +14,7 @@ use Elementor\Group_Control_Background;
 use \Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 // use \Elementor\Group_Control_Text_Shadow;
-use APTFEPRO\Services\APTFEWidgetPro; 
+use APTFEPRO\Classes\APTFEWidgetPro; 
 
 /**
  * Elementor pricing Widget.

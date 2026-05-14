@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Advanced Pricing Table For Elementor
  * Description: Advanced Pricing Table for Elementor, this is elementor addon, and it's easy to use for elementor users.
- * Version:     1.0.5
+ * Version:     1.0.0
  * Author:      WPCreativeIdea
  * Author URI:  https://profiles.wordpress.org/wpcreativeidea/
  * Plugin URI:  https://wpcreativeidea.com/advanced-pricing-table-for-elementor
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'APTFE_DIR_FILE', __FILE__ );
 define( 'APTFE_DIR_PATH', plugin_dir_path( __FILE__ ) );
 define( 'APTFE_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-define( 'APTFE_PLUGIN_VERSION', '1.0.5' );
+define( 'APTFE_PLUGIN_VERSION', '1.0.0' );
 define( 'APTFE_LITE', true );
 
 /**
@@ -75,8 +75,8 @@ final class APTFE_Pricing_Table_Lite {
 		add_action( 'elementor/init', [ $this, 'init' ] );
 
 		if (defined('APTFE_PRO_DIR_FILE')) {
-			if (!class_exists(APTFEPRO\Services\APTFEWidgetPro::class)) {
-				require_once(APTFE_PRO_DIR_PATH.'Services/pricing-table-widget-pro.php');
+			if (!class_exists(APTFEPRO\Classes\APTFEWidgetPro::class)) {
+				require_once(APTFE_PRO_DIR_PATH.'Classes/APTFEWidgetPro.php');
 			}
 		}
 	}

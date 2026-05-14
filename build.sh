@@ -20,12 +20,11 @@ mkdir -p $DIST_DIR
 echo "📦 Copying production files..."
 
 cp -r assets $DIST_DIR/
-cp -r widgets $DIST_DIR/
+cp -r includes $DIST_DIR/
 cp -r languages $DIST_DIR/ 2>/dev/null
 cp advanced-pricing-table-for-elementor.php $DIST_DIR/
+cp autoload.php $DIST_DIR/
 cp readme.txt $DIST_DIR/ 2>/dev/null
-cp mix-manifest.json $DIST_DIR/
-cp composer.json $DIST_DIR/
 
 echo "🗜 Creating ZIP package..."
 

@@ -4,7 +4,7 @@ namespace APTFE\Widgets;
  
 use Elementor\Repeater;
 use Elementor\Controls_Manager;
-use APTFEPRO\Services\APTFEWidgetPro; 
+use APTFEPRO\Classes\APTFEWidgetPro; 
 
 /**
  * Elementor pricing Widget.
