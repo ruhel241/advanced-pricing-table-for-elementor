@@ -58,15 +58,15 @@
             position: relative;
             // padding-top: 10px;
             // padding-bottom: 10px;
-            &:before {
+            &::after {
                 content: "";
                 display: block;
                 position: absolute;
-                bottom: 13px;
+                top: 41px;
             }
             // padding: 40px 0 15px 0;
             font-weight: 800;
-            color: #555;
+            // color: #555;
             // background: #000;
             
             .pricing-additional-text {
@@ -236,10 +236,10 @@
                 padding: 12px 24px;
             }
         }
-        .additional-text {
-            // margin: 10px auto;
-            color: #7a7a7a;
-        }
+        // .additional-text {
+        //     // margin: 10px auto;
+        //     color: #7a7a7a;
+        // }
     }
     .aptfe-additional-text {
         order: 6;
@@ -263,6 +263,7 @@
         justify-content: center;
         align-items: center;
         width: 250px;
+        height: 30px;
         position: absolute;
         top: 27px;
         text-transform: uppercase;
@@ -313,11 +314,11 @@
     background-color: #000;
     .aptfe-pricing-header {
         flex-direction: column;
-        background-color: #C2E3F5; //#962744;
+        background-color: #774BFF; //#C2E3F5 //#962744;
         color: #fff;
         padding: 20px 20px 0px 20px;
         .title {
-            color: #111682;
+            color: #FFFFFF;
             font-family: Alata, Sans-serif;
             font-size: 25px;
             font-weight: 700;
@@ -331,14 +332,14 @@
             }
         }
         .decription {
-            color: #111682;
+            color: #FFFFFF;
         }
     }
     .aptfe-pricing-container { 
-        background-color: #C2E3F5; //#962744;
+        background-color: #774BFF; //#962744;
         padding: 10px 20px 25px 20px;
         .aptfe-pricing-price {
-            color: #111682; //rgb(255, 255, 255);
+            color: #FFFFFF; //rgb(255, 255, 255);
             justify-content: center;
             .currency {
                 font-size: 34px;
@@ -375,12 +376,12 @@
                     width: 100%;
                 }
                 svg {
-                    fill: #C2E3F5; //#962744;
+                    fill: #774BFF; //#962744;
                     height: 12px;
                     width: 12px;
                 }
                 i {
-                    color: #C2E3F5; //#962744;
+                    color: #774BFF; //#962744;
                 }
             }
         } 
@@ -391,8 +392,8 @@
         padding-bottom: 20px;
         justify-content: center;
        .aptfe-button {
-            color: #111682; // #FFFFFF;
-            background-color: #C2E3F5; //#962744;
+            color: #FFFFFF; // #FFFFFF;
+            background-color: #774BFF; //#962744;
             font-weight: 600;
        }
     }
@@ -400,10 +401,10 @@
         text-align: center;
         padding-right: 20px;
         padding-left: 20px;
-        .additional-text {
+        // .additional-text {
            color: #FFFFFF;
            font-size: 12px;
-        }     
+        // }     
     }
 }
 
@@ -414,7 +415,7 @@
     background-color: #fff;
     .aptfe-pricing-header {
         flex-direction: column;
-        // background-color: #C2E3F5; //#962744;
+        // background-color: #774BFF; //#962744;
         color: #fff;
         padding-top: 25px;
         .title {
@@ -436,7 +437,7 @@
         }
     }
     .aptfe-pricing-price {
-        // background-color: #C2E3F5; //#962744;
+        // background-color: #774BFF; //#962744;
         color: #111682; //rgb(255, 255, 255);
         justify-content: center;
         padding: 10px 0px 25px 0px;
@@ -501,11 +502,11 @@
         text-align: center;
         padding-top: 30px;
         padding-bottom: 0px;
-        .additional-text {
+        // .additional-text {
            color: #111682;
            font-size: 12px;
         //    padding-bottom: 12px;
-        }     
+        // }     
     }
     .ribbon {
         &.ribbon-left-vertical {
@@ -548,9 +549,8 @@
         flex-direction: column;
         // background-color: #FFFFFF;
         padding: 20px 20px 0px 20px;
-
         .title {
-            color: #111682;
+            color: #555;
             font-size: 24px;
             font-weight: 900;
             align-items: flex-start;
@@ -572,9 +572,8 @@
     .aptfe-pricing-price {
         // background-color: #FFFFFF;
         justify-content: flex-start;
-        color: #111682;
+        color: #555;
         padding: 10px 20px 25px 20px;
-
         .currency {
             font-size: 23px;
             align-self: flex-end;
@@ -611,12 +610,12 @@
                     width: 100%;
                 }
                 svg {
-                    fill: #073AA0;
+                    fill: #555;
                     height: 12px;
                     width: 12px;
                 }
                 i {
-                    color: #073AA0;
+                    color: #555;
                 }
             }
         }
@@ -626,7 +625,7 @@
         padding: 20px;
         .aptfe-button {
             background-color: #FBDEDE;
-            color: #111682;
+            color: #555;
             width: 100%;
             font-weight: 400;
             transition: color 0.4s ease, transform 0.4s ease;
@@ -658,11 +657,10 @@
         padding-left: 20px;
         padding-top: 20px;
         padding-bottom: 20px;
-
-        .additional-text {
+        // .additional-text {
             color: #686868;
             font-size: 12px;
-        }
+        // }
     }
 }
 

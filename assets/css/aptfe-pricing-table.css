@@ -51,15 +51,14 @@
 .aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price {
   position: relative;
 }
-.aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price:before {
+.aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price::after {
   content: "";
   display: block;
   position: absolute;
-  bottom: 13px;
+  top: 41px;
 }
 .aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price {
   font-weight: 800;
-  color: #555;
 }
 .aptfe-pricing-table-container .aptfe-pricing-container .aptfe-pricing-price .pricing-additional-text {
   flex: 1 0 100%;
@@ -212,9 +211,6 @@
 .aptfe-pricing-table-container .aptfe-button-box .aptfe-button.aptfe-button-size-sm {
   padding: 12px 24px;
 }
-.aptfe-pricing-table-container .aptfe-button-box .additional-text {
-  color: #7a7a7a;
-}
 .aptfe-pricing-table-container .aptfe-additional-text {
   order: 6;
   font-size: 14px;
@@ -236,6 +232,7 @@
   justify-content: center;
   align-items: center;
   width: 250px;
+  height: 30px;
   position: absolute;
   top: 27px;
   text-transform: uppercase;
@@ -286,12 +283,12 @@
 }
 .aptfe-pricing-table-template-1 .aptfe-pricing-header {
   flex-direction: column;
-  background-color: #C2E3F5;
+  background-color: #774BFF;
   color: #fff;
   padding: 20px 20px 0px 20px;
 }
 .aptfe-pricing-table-template-1 .aptfe-pricing-header .title {
-  color: #111682;
+  color: #FFFFFF;
   font-family: Alata, Sans-serif;
   font-size: 25px;
   font-weight: 700;
@@ -305,14 +302,14 @@
   margin-bottom: 10px;
 }
 .aptfe-pricing-table-template-1 .aptfe-pricing-header .decription {
-  color: #111682;
+  color: #FFFFFF;
 }
 .aptfe-pricing-table-template-1 .aptfe-pricing-container {
-  background-color: #C2E3F5;
+  background-color: #774BFF;
   padding: 10px 20px 25px 20px;
 }
 .aptfe-pricing-table-template-1 .aptfe-pricing-container .aptfe-pricing-price {
-  color: #111682;
+  color: #FFFFFF;
   justify-content: center;
 }
 .aptfe-pricing-table-template-1 .aptfe-pricing-container .aptfe-pricing-price .currency {
@@ -347,12 +344,12 @@
   width: 100%;
 }
 .aptfe-pricing-table-template-1 .aptfe-features .items li svg {
-  fill: #C2E3F5;
+  fill: #774BFF;
   height: 12px;
   width: 12px;
 }
 .aptfe-pricing-table-template-1 .aptfe-features .items li i {
-  color: #C2E3F5;
+  color: #774BFF;
 }
 .aptfe-pricing-table-template-1 .aptfe-button-box {
   padding-left: 20px;
@@ -361,16 +358,14 @@
   justify-content: center;
 }
 .aptfe-pricing-table-template-1 .aptfe-button-box .aptfe-button {
-  color: #111682;
-  background-color: #C2E3F5;
+  color: #FFFFFF;
+  background-color: #774BFF;
   font-weight: 600;
 }
 .aptfe-pricing-table-template-1 .aptfe-additional-text {
   text-align: center;
   padding-right: 20px;
   padding-left: 20px;
-}
-.aptfe-pricing-table-template-1 .aptfe-additional-text .additional-text {
   color: #FFFFFF;
   font-size: 12px;
 }
@@ -448,8 +443,6 @@
   text-align: center;
   padding-top: 30px;
   padding-bottom: 0px;
-}
-.aptfe-pricing-table-template-2 .aptfe-additional-text .additional-text {
   color: #111682;
   font-size: 12px;
 }
@@ -490,7 +483,7 @@
   padding: 20px 20px 0px 20px;
 }
 .aptfe-pricing-table-template-3 .aptfe-pricing-header .title {
-  color: #111682;
+  color: #555;
   font-size: 24px;
   font-weight: 900;
   align-items: flex-start;
@@ -508,7 +501,7 @@
 }
 .aptfe-pricing-table-template-3 .aptfe-pricing-price {
   justify-content: flex-start;
-  color: #111682;
+  color: #555;
   padding: 10px 20px 25px 20px;
 }
 .aptfe-pricing-table-template-3 .aptfe-pricing-price .currency {
@@ -548,12 +541,12 @@
   width: 100%;
 }
 .aptfe-pricing-table-template-3 .aptfe-features .items li svg {
-  fill: #073AA0;
+  fill: #555;
   height: 12px;
   width: 12px;
 }
 .aptfe-pricing-table-template-3 .aptfe-features .items li i {
-  color: #073AA0;
+  color: #555;
 }
 .aptfe-pricing-table-template-3 .aptfe-button-box {
   justify-content: flex-start;
@@ -561,7 +554,7 @@
 }
 .aptfe-pricing-table-template-3 .aptfe-button-box .aptfe-button {
   background-color: #FBDEDE;
-  color: #111682;
+  color: #555;
   width: 100%;
   font-weight: 400;
   transition: color 0.4s ease, transform 0.4s ease;
@@ -591,8 +584,6 @@
   padding-left: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
-}
-.aptfe-pricing-table-template-3 .aptfe-additional-text .additional-text {
   color: #686868;
   font-size: 12px;
 }
