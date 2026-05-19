@@ -359,7 +359,180 @@ class AdvancedPricingWidget extends Widget_Base {
 				</div>
 			<?php endif; ?>
 		</div>
-	<?php
+		<?php
+	}
+
+	protected function content_template() {
+		?>
+		<#
+			var template = '1';
+	
+			var headerShow          = 'yes';
+			var pricingShow         = 'yes';
+			var centerIconShow      = 'no';
+			var ribbonShow          = 'no';
+			var additionalTextShow  = '';
+			var buttonShow          = 'yes';
+			var featuresShow        = 'yes';
+			var iconPosition        = 'left';
+			var currencyPosition    = 'before';
+			var periodClass         = 'beside';
+	
+			// Currency format
+			var currency_format = settings.aptfe_pricing_currency_format || '.';
+			var priceParts      = ( settings.aptfe_pricing_price + '' ).split( currency_format );
+			var intpart         = priceParts[0] || '';
+			var fraction        = priceParts[1] || '';
+	
+			// Currency symbol
+			var currency_symbol = settings.aptfe_pricing_currency_symbol || '';
+			if ( currency_symbol === 'custom' ) {
+				currency_symbol = settings.aptfe_pricing_currency_symbol_custom || '';
+			}
+	
+			// Title tag
+			var titleTag = elementor.helpers.validateHTMLTag( settings.aptfe_header_title_tag || 'h3' );
+	
+			// Button classes
+			var buttonClasses = 'aptfe-button';
+	
+			// Container classes
+			var containerClasses = 'aptfe-pricing-table-container aptfe-pricing-table-template-' + template;
+		#>
+	
+		<div id="aptfe-pricing-table-{{ view.getID() }}" class="{{ containerClasses }}">
+	
+			<# if ( headerShow === 'yes' ) { #>
+				<div class="aptfe-pricing-header">
+					<# if ( settings.aptfe_header_title ) { #>
+						<{{{ titleTag }}} class="title">
+							{{{ settings.aptfe_header_title }}}
+						</{{{ titleTag }}}>
+					<# } #>
+	
+					<# if ( settings.aptfe_header_description ) { #>
+						<p class="decription">
+							{{ settings.aptfe_header_description }}
+						</p>
+					<# } #>
+				</div>
+			<# } #>
+	
+			<# if ( pricingShow === 'yes' ) { #>
+				<div class="aptfe-pricing-container">
+					<# if ( settings.aptfe_pricing_additional_text ) { #>
+						<div class="pricing-additional-text">
+							{{ settings.aptfe_pricing_additional_text }}
+						</div>
+					<# } #>
+	
+					<div class="aptfe-pricing-price">
+						<# if ( settings.aptfe_pricing_sale === 'yes' && settings.aptfe_pricing_original_price ) { #>
+							<span class="original-price">
+								{{{ currency_symbol + settings.aptfe_pricing_original_price }}}
+							</span>
+						<# } #>
+	
+						<# if ( currencyPosition === 'before' ) { #>
+							<span class="currency currency-position-before">
+								{{{ currency_symbol }}}
+							</span>
+						<# } #>
+	
+						<# if ( intpart ) { #>
+							<span class="price">
+								{{ intpart }}
+							</span>
+						<# } #>
+	
+						<# if ( fraction ) { #>
+							<span class="fraction-part">
+								{{ fraction }}
+							</span>
+						<# } #>
+	
+						<# if ( currencyPosition === 'after' ) { #>
+							<span class="currency currency-position-after">
+								{{{ currency_symbol }}}
+							</span>
+						<# } #>
+	
+						<# if ( settings.aptfe_pricing_period ) { #>
+							<span class="period period_position_{{ periodClass }}">
+								{{ settings.aptfe_pricing_period }}
+							</span>
+						<# } #>
+					</div>
+				</div>
+			<# } #>
+	
+			<# if ( centerIconShow === 'yes' && settings.aptfe_features_top_icon && settings.aptfe_features_top_icon.value ) { #>
+				<div class="aptfe-center-icon">
+					<# var iconHTML = elementor.helpers.renderIcon( view, settings.aptfe_features_top_icon, { 'class': 'aptfe-features-top-icon', 'aria-hidden': 'true' }, 'i', 'object' );
+					if ( iconHTML && iconHTML.rendered ) { #>
+						{{{ iconHTML.value }}}
+					<# } #>
+				</div>
+			<# } #>
+	
+			<# if ( featuresShow === 'yes' ) { #>
+				<div class="aptfe-features">
+					<# if ( settings.aptfe_features_heading_text ) { #>
+						<div class="features-heading-container">
+							<h3 class="features-heading">
+								{{ settings.aptfe_features_heading_text }}
+							</h3>
+						</div>
+					<# } #>
+	
+					<ul class="items">
+						<# _.each( settings.aptfe_features_list, function( item ) { #>
+							<li class="item elementor-repeater-item-{{ item._id }}">
+								<#
+									// Default check icon (free version behaviour)
+									var itemIcon = { value: 'fas fa-check', library: 'fa-solid' };
+	
+									// Use custom icon if available (mirrors the PRO branch in render())
+									if ( item.aptfe_features_selected_item_icon && item.aptfe_features_selected_item_icon.value ) {
+										itemIcon = item.aptfe_features_selected_item_icon;
+									}
+	
+									var itemIconHTML = elementor.helpers.renderIcon( view, itemIcon, { 'class': 'aptfe-features-icon-' + iconPosition, 'aria-hidden': 'true' }, 'i', 'object' );
+									if ( itemIconHTML && itemIconHTML.rendered ) { #>
+										{{{ itemIconHTML.value }}}
+								<# } #>
+	
+								<# if ( item.aptfe_features_item_text ) { #>
+									<span class="item-text">{{ item.aptfe_features_item_text }}</span>
+								<# } #>
+							</li>
+						<# } ); #>
+					</ul>
+				</div>
+			<# } #>
+	
+			<# if ( buttonShow === 'yes' ) { #>
+				<div class="aptfe-button-box">
+					<a class="{{ buttonClasses }}">
+						{{{ settings.aptfe_button_text }}}
+					</a>
+				</div>
+			<# } #>
+	
+			<# if ( additionalTextShow === 'yes' && settings.aptfe_additional_textarea ) { #>
+				<div class="aptfe-additional-text">
+					{{{ settings.aptfe_additional_textarea }}}
+				</div>
+			<# } #>
+	
+			<# if ( ribbonShow === 'yes' && settings.aptfe_ribbon_title ) { #>
+				<div class="ribbon {{ settings.aptfe_ribbon_position || 'ribbon-right-angle' }}">
+					{{ settings.aptfe_ribbon_title }}
+				</div>
+			<# } #>
+	
+		</div>
+		<?php
 	}
 
 	/**
@@ -397,6 +570,4 @@ class AdvancedPricingWidget extends Widget_Base {
 			return ob_get_clean();
 	}
 	
-	protected function content_template() {
-	}
 }

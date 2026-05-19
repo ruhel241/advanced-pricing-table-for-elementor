@@ -90,37 +90,34 @@ final class APTFE_Pricing_Table_Lite {
 		 * Register Widgets
 		 */
 		add_action( 'elementor/widgets/register', [ $this, 'init_widgets' ] );
-
+	
 		/**
 		 * Frontend Styles
 		 */
-		add_action(
-			'elementor/frontend/after_enqueue_styles',
-			function () {
-
-				wp_enqueue_style(
-					'aptfe-pricing-table',
-					APTFE_PLUGIN_URL . 'assets/css/aptfe-pricing-table.css',
-					[],
-					APTFE_PLUGIN_VERSION
-				);
-			}
-		);
-
+		add_action( 'elementor/frontend/after_enqueue_styles', function () {
+	
+			wp_enqueue_style(
+				'aptfe-pricing-table',
+				APTFE_PLUGIN_URL . 'assets/css/aptfe-pricing-table.css',
+				[],
+				APTFE_PLUGIN_VERSION
+			);
+	
+		});
+	
 		/**
 		 * Editor Styles
 		 */
-		add_action(
-			'elementor/editor/after_enqueue_styles',
-			function () {
-				wp_enqueue_style(
-					'aptfe-admin-css',
-					APTFE_PLUGIN_URL . 'assets/css/aptfe-admin.css',
-					[],
-					APTFE_PLUGIN_VERSION
-				);
-			}
-		);
+		add_action( 'elementor/editor/after_enqueue_styles', function () {
+	
+			wp_enqueue_style(
+				'aptfe-admin-css',
+				APTFE_PLUGIN_URL . 'assets/css/aptfe-admin.css',
+				[],
+				APTFE_PLUGIN_VERSION
+			);
+	
+		});
 	}
 
 	/**
