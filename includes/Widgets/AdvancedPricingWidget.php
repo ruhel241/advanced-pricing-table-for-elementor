@@ -124,6 +124,7 @@ class AdvancedPricingWidget extends Widget_Base {
 		$featuresShow 	     = 'yes';
 		$iconPosition 		 = 'left';
 		$currencyPosition 	 = 'before';
+		$periodClass 		 = 'beside';  
 		$template            = defined('APTFE_PRO') ? $settings["aptfe_pricing_template"] : '1';
 	
 		$this->add_render_attribute(
@@ -182,7 +183,6 @@ class AdvancedPricingWidget extends Widget_Base {
 			$settings['aptfe_header_title_tag'] ?? 'h3'
 		);
 	
-
 		if (defined('APTFE_PRO')) {
 			$headerShow 	     = $settings['aptfe_header_show'] ?? 'yes';
 			$pricingShow 	     = $settings['aptfe_pricing_show'] ?? 'yes';
@@ -193,6 +193,7 @@ class AdvancedPricingWidget extends Widget_Base {
 			$featuresShow 	     = $settings['aptfe_features_show']?? 'yes';
 			$iconPosition 		 = $settings['aptfe_features_icon_position'] ?? 'left';
 			$currencyPosition	 = $settings['aptfe_currency_position'] ?? 'before';
+			$periodClass 		 = $settings['aptfe_period_position'] ?? 'beside';
 		}
 		?>
 	
@@ -264,13 +265,8 @@ class AdvancedPricingWidget extends Widget_Base {
 							</span>
 						<?php endif; ?>
 			
-						<?php
-							if ( ! empty( $settings['aptfe_pricing_period'] ) ) :
-								$period_class = ( $settings['aptfe_period_position'] ?? '' ) === 'below'
-									? 'period_position_below'
-									: '';
-						?>
-							<span class="period <?php echo esc_attr( $period_class ); ?>">
+						<?php if ( ! empty( $settings['aptfe_pricing_period'] ) ) : ?>
+							<span class="period period_position_<?php echo esc_attr( $periodClass ); ?>">
 								<?php echo esc_html( $settings['aptfe_pricing_period'] ); ?>
 							</span>
 						<?php endif; ?>
@@ -363,7 +359,7 @@ class AdvancedPricingWidget extends Widget_Base {
 				</div>
 			<?php endif; ?>
 		</div>
-		<?php
+	<?php
 	}
 
 	/**
