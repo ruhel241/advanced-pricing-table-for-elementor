@@ -24,16 +24,17 @@ The free version includes:
 * Title, description, and pricing fields
 * Feature list support
 * Button
+* Pricing
 * Simple responsive design
 
 = Pro Version =
 Upgrade to Pro for advanced customization and premium features:
 * Multiple premium templates
-* Advanced styling controls (box shadow, border radius, spacing, hover effects)
+* Advanced all styling controls (box shadow, border radius, spacing, hover effects)
 * Ribbon (Pro feature)
-* Additional text advanced styling (Pro feature)
+* Additional text advanced styling
 * Fully customizable button design
-* Advanced typography controls
+* Advanced typography controls 
 * Advanced color controls for every section
 * More layout and design flexibility
 * Professional UI/UX ready templates
@@ -42,9 +43,9 @@ Upgrade to Pro for advanced customization and premium features:
 
 * Elementor-based pricing table widget
 * Add title, description, price, and feature list
-* Add icon support for features
+* Add center icon support for features (Pro)
 * Ribbon support (Pro)
-* Button customization
+* Button customization (Pro)
 * Additional text support (Pro advanced control)
 * Fully responsive design
 * Multiple premium templates (Pro)
@@ -79,9 +80,11 @@ Yes, it works with free Elementor.
 == Screenshots ==
 
 1. Default Template Free
-2. Elementor editor controls
-3. 
-4. Pro templates preview
+2. Default Template with diffrent color
+3. Pro Template with Gradient color and Ribbon
+4. Pro template preview
+5. Pro template preview
+6. Elementor editor controls
 
 == Changelog ==
 
