@@ -1,6 +1,6 @@
 === Advanced Pricing Table For Elementor ===
 Contributors: wpcreativeidea, ruhel241
-Tags: price, pricing, price table, pricing table, elementor, table, product pricing
+Tags: price, pricing, product pricing, pricing table, elementor
 Tested up to: 6.9
 Stable tag: 1.0.0
 Requires at least: 5.0
@@ -8,7 +8,7 @@ Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Advanced Pricing Table for Elementor is a powerful and flexible pricing table plugin that allows you to create beautiful pricing sections inside Elementor with ease. It includes multiple design options, rich content controls, and full customization support in both free and pro versions.
+Advanced Pricing Table for Elementor lets you create responsive and customizable pricing tables easily with Elementor.
 
 == Description ==
 
