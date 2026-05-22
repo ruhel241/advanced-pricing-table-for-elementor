@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Advanced Pricing Table For Elementor
  * Description: Advanced Pricing Table for Elementor, this is elementor addon, and it's easy to use for elementor users.
- * Version:     1.0.0
+ * Version:     1.0.1
  * Author:      WPCreativeIdea
  * Author URI:  https://profiles.wordpress.org/wpcreativeidea/
  * Plugin URI:  https://wpcreativeidea.com/advanced-pricing-table-for-elementor
