@@ -1,44 +1,487 @@
-// widget area
-.elementor-control-raw-html  {
-    .aptfe-nerd-box {
-        text-align: center;
-        margin-bottom: 30px;
-        .image-box {
-            background-color: #333;
-            .aptfe-nerd-box-icon {
-                opacity: 0.5;
-                display: block;
-            }
-        }   
-        .aptfe-nerd-box-title {
-            font-size: 16px ;
-            font-weight: 700;
-            line-height: 1.4;
-            margin: 20px;
-        }
-        .aptfe-nerd-box-message {
-            margin-bottom: 20px;
-            line-height: 1.4;
-        }
-        .aptfe-button {
-            background-color: #93003c;
-            color: #fff;
-            padding: 7px 25px;
-            margin-top: 20px;
-            -webkit-box-shadow: 0 0 1px rgba(0,0,0,.1),0 2px 2px rgba(0,0,0,.1);
-            box-shadow: 0 0 1px rgba(0,0,0,.1),0 2px 2px rgba(0,0,0,.1);
-            -webkit-transition: .5s;
-            -o-transition: .5s;
-            transition: .5s;
-        }
+#tab-aptfe-settings {
+    padding:0;
+    background:transparent;
+    &.elementor-active ~ .submit {
+        display: none !important;
     }
-}
+    .aptfe-tabs {
+        max-width:1400px;
+    }
+    .aptfe-tab-nav{
+        display:flex;
+        align-items:center;
+        gap:14px;
+        margin-bottom:24px;
+        padding:10px;
+        background:#ffffff;
+        border:1px solid #e5e7eb;
+        border-radius:22px;
+        box-shadow:0 10px 30px rgba(0,0,0,.04);
+        width:max-content;
+    }
 
-.elementor-control-aptfe_list {
-    .wp-media-buttons {
-        display: none;
+    .aptfe-tab-btn{
+        position:relative;
+        border:none;
+        background:transparent;
+        padding:14px 26px;
+        border-radius:16px;
+        cursor:pointer;
+        font-size:15px;
+        font-weight:600;
+        color:#6b7280;
+        transition:all .25s ease;
+        outline:none;
+        box-shadow:none !important;
     }
-    .elementor-control-input-wrapper {
-        margin: 0 !important;
+
+    .aptfe-tab-btn:hover{
+        color:#111827;
+        background:#f3f4f6;
+    }
+
+    .aptfe-tab-btn.active{
+        background:linear-gradient(135deg,#2563eb,#4f46e5);
+        color:#fff;
+        box-shadow:0 10px 25px rgba(37,99,235,.25);
+    }
+
+    .aptfe-tab-content{
+        position:relative;
+    }
+
+    .aptfe-tab-pane{
+        display:none;
+        background:#ffffff;
+        border-radius:30px;
+        padding:35px;
+        border:1px solid #e5e7eb;
+        box-shadow:
+            0 10px 25px rgba(0,0,0,.04),
+            0 20px 50px rgba(0,0,0,.05);
+        animation:aptfeFade .25s ease;
+    }
+
+    .aptfe-tab-pane.active{
+        display:block;
+    }
+
+    @keyframes aptfeFade{
+        from{
+            opacity:0;
+            transform:translateY(10px);
+        }
+        to{
+            opacity:1;
+            transform:translateY(0);
+        }
+    }
+
+    @media(max-width:767px){
+
+        .aptfe-tabs{
+            margin:20px auto;
+        }
+
+        .aptfe-tab-nav{
+            width:100%;
+            flex-direction:column;
+            align-items:stretch;
+            padding:8px;
+        }
+
+        .aptfe-tab-btn{
+            width:100%;
+            text-align:center;
+        }
+
+        .aptfe-tab-pane{
+            padding:20px;
+            border-radius:22px;
+        }
+    }
+
+
+    .aptfe-admin-wrap {
+        padding: 0px !important;
+    }
+    .aptfe-admin-wrap h1 {
+        padding: 20px 0px;
+    }
+
+    //license
+    .aptfe_license_box{
+        max-width:780px;
+        margin:40px auto;
+        padding:50px;
+        background:#ffffff;
+        border:1px solid #e5e7eb;
+        border-radius:28px;
+        text-align:center;
+        box-shadow:0 20px 45px rgba(0,0,0,.06);
+        position:relative;
+        overflow:hidden;
+    }
+
+    .aptfe_license_box::before{
+        content:"";
+        position:absolute;
+        top:-120px;
+        right:-120px;
+        width:240px;
+        height:240px;
+        background:linear-gradient(135deg,#4f46e5,#2563eb);
+        opacity:.08;
+        border-radius:50%;
+    }
+
+    .aptfe_license_box .title{
+        font-size: 20px;
+        line-height:1.4;
+        font-weight:700;
+        color:#111827;
+        margin-bottom:35px;
+    }
+
+    .aptfe-input-group{
+        display:flex;
+        align-items:center;
+        width:100%;
+        max-width:620px;
+        margin:0 auto;
+        border-radius:18px;
+        overflow:hidden;
+        background:#fff;
+        border:1px solid #dbe2ea;
+        box-shadow:0 10px 25px rgba(0,0,0,.04);
+    }
+
+    .aptfe_input__inner{
+        flex:1;
+        height:45px !important;
+        border:none !important;
+        padding:0 22px !important;
+        font-size:16px !important;
+        color:#111827;
+        background:#fff !important;
+        box-shadow:none !important;
+    }
+
+    .aptfe_input__inner:focus{
+        outline:none;
+        box-shadow:none !important;
+    }
+
+    .aptfe_input__inner::placeholder{
+        color:#9ca3af;
+    }
+
+    .aptfe-input-group__append{
+        height:45px;
+        min-width:190px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        background:linear-gradient(135deg,#2563eb,#4f46e5);
+        transition:.3s ease;
+    }
+
+    .aptfe-input-group__append:hover{
+        filter:brightness(1.05);
+    }
+
+    .aptfe-input-group__append a{
+        color:#fff !important;
+        text-decoration:none !important;
+        font-size:15px;
+        font-weight:600;
+        display:flex;
+        align-items:center;
+        gap:10px;
+    }
+
+    .aptfe-input-group__append a:focus{
+        box-shadow:none;
+        outline:none;
+    }
+
+    .aptfe_license_box hr{
+        border:none;
+        height:1px;
+        background:#edf2f7;
+        margin:35px 0;
+    }
+
+    .aptfe_license_box p{
+        font-size:15px;
+        color:#6b7280;
+        margin:0;
+    }
+
+    .aptfe_license_box p a{
+        color:#2563eb;
+        text-decoration:none;
+        font-weight:600;
+    }
+
+    .aptfe_license_box p a:hover{
+        text-decoration:underline;
+    }
+
+    #aptfe_deactivated_license{
+        padding:20px 0;
+    }
+
+    #aptfe_deactivated_license h2{
+        font-size:28px;
+        color:#16a34a;
+        margin:20px 0 10px;
+    }
+
+    #aptfe_deactivated_license span{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        width:90px;
+        height:90px;
+        border-radius:50%;
+        background:#dcfce7;
+        color:#16a34a;
+        img {
+            width: 50%;
+        }
+    }
+
+    #aptfe-loading-license, #aptfe-loading-addon {
+        text-align: center;
+        width: 20%;
+        margin: 0 auto;
+        img {
+            width: 30%;
+        }
+        h2 {
+            font-size:20px !important;
+            color:#4b5563 !important;
+        } 
+    }
+
+    @media(max-width:767px){
+
+        .aptfe_license_box{
+            padding:30px 20px;
+        }
+
+        .aptfe-input-group{
+            flex-direction:column;
+            border:none;
+            background:transparent;
+            box-shadow:none;
+            gap:15px;
+        }
+
+        .aptfe_input__inner{
+            width:100%;
+            border:1px solid #dbe2ea !important;
+            border-radius:16px !important;
+        }
+
+        .aptfe-input-group__append{
+            width:100%;
+            border-radius:16px;
+        }
+
+        .aptfe_license_box .title{
+            font-size:20px;
+        }
+    }
+
+    // settings
+    .aptfe-addons-wrapper *{
+        box-sizing:border-box;
+    }
+
+    .aptfe-addons-wrapper{
+        padding:40px 20px;
+        max-width:1400px;
+        margin:0 auto;
+    }
+
+    .aptfe-addons-heading{
+        text-align:center;
+        margin-bottom:50px;
+    }
+
+    .aptfe-addons-heading h1{
+        font-size: 28px;
+        line-height:1.2;
+        font-weight:700;
+        color:#111827;
+        margin-bottom:12px;
+    }
+
+    .aptfe-addons-heading p{
+        font-size:16px;
+        color:#6b7280;
+        margin:0;
+    }
+
+    .aptfe-addons-wrap{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+        gap:30px;
+    }
+
+    .aptfe-addons-templates{
+        background:#ffffff;
+        border:1px solid #e5e7eb;
+        border-radius:24px;
+        padding:35px 30px;
+        position:relative;
+        overflow:hidden;
+        transition:all .3s ease;
+        box-shadow:0 10px 30px rgba(0,0,0,.04);
+    }
+
+    .aptfe-addons-templates:hover{
+        transform:translateY(-6px);
+        border-color:#c7d2fe;
+        box-shadow:0 20px 40px rgba(37,99,235,.12);
+    }
+
+    .addons-box{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
+        height:100%;
+    }
+
+    .addons-box .image{
+        width:90px;
+        height:90px;
+        border-radius:22px;
+        background:linear-gradient(135deg,#f3f4f6,#ffffff);
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        padding:14px;
+        margin-bottom:25px;
+        border:1px solid #eef2f7;
+        box-shadow:0 10px 25px rgba(0,0,0,.05);
+    }
+
+    .addons-box .image img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        border-radius:16px;
+    }
+
+    .addons-box h2{
+        font-size:20px !important;
+        line-height:1.4;
+        font-weight:700;
+        color:#111827;
+        margin:0 0 15px;
+    }
+
+    .addons-box p{
+        color:#6b7280;
+        font-size:15px;
+        line-height:1.8;
+        margin:0 0 30px;
+        flex-grow:1;
+        padding-bottom: 20px;
+    }
+
+    .btn-box{
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:14px;
+        width:100%;
+    }
+
+    .aptfe-install-addon,
+    .viewInstall,
+    .upgrade-to-pro{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        text-decoration:none;
+        border-radius:14px;
+        padding:14px 24px;
+        font-size:14px;
+        font-weight:600;
+        transition:all .25s ease;
+        min-width:160px;
+        color: #fff !important;
+        text-decoration: none !important;
+        cursor: pointer;
+    }
+
+    .aptfe-install-addon{
+        background:linear-gradient(135deg,#22c55e,#16a34a);
+        color:#fff;
+        border:none;
+        box-shadow:0 10px 20px rgba(34,197,94,.22);
+    }
+
+    .aptfe-install-addon:hover{
+        transform:translateY(-2px);
+        box-shadow:0 15px 25px rgba(34,197,94,.3);
+        color:#fff;
+    }
+
+    .viewInstall{
+        background:#fff;
+        border:1px solid #d1d5db;
+        color:#374151 !important;
+        text-decoration: none !important;
+    }
+
+    .viewInstall:hover{
+        background:#eff6ff;
+        border-color:#93c5fd;
+        color:#2563eb !important;
+    }
+
+    .upgrade-to-pro{
+        background:linear-gradient(135deg,#2563eb,#4f46e5);
+        color:#fff !important;
+        border:none;
+        box-shadow:0 10px 20px rgba(79,70,229,.2);
+        text-decoration: none !important;;
+    }
+
+    .upgrade-to-pro:hover{
+        transform:translateY(-2px);
+        box-shadow:0 15px 30px rgba(79,70,229,.28);
+        color:#fff;
+    }
+
+    @media(max-width:767px){
+
+        .aptfe-addons-wrapper{
+            padding:20px 10px;
+        }
+
+        .aptfe-addons-heading h1{
+            font-size:28px;
+        }
+
+        .aptfe-addons-templates{
+            padding:25px 20px;
+        }
+
+        .btn-box{
+            flex-direction:column;
+        }
+
+        .aptfe-install-addon,
+        .viewInstall,
+        .upgrade-to-pro{
+            width:100%;
+        }
     }
 }

@@ -85,7 +85,9 @@ final class APTFE_Pricing_Table_Lite {
 	 * Init Plugin
 	 */
 	public function init() {
-
+		if ( is_admin() ) {
+			$this->adminHooks();
+		}
 		/**
 		 * Register Widgets
 		 */
@@ -111,14 +113,78 @@ final class APTFE_Pricing_Table_Lite {
 		add_action( 'elementor/editor/after_enqueue_styles', function () {
 	
 			wp_enqueue_style(
-				'aptfe-admin-css',
-				APTFE_PLUGIN_URL . 'assets/css/aptfe-admin.css',
+				'aptfe-editor-css',
+				APTFE_PLUGIN_URL . 'assets/css/aptfe-editor.css',
 				[],
 				APTFE_PLUGIN_VERSION
 			);
 	
 		});
 	}
+
+
+	public function adminHooks() {
+		
+		if (defined('APTFE_PRO')) {
+			$licenseController = new APTFEPRO\Classes\LicenseController();
+			$licenseController->register();		
+		}
+		
+		$setupController = new APTFE\Classes\SetupController();
+		$setupController->register();
+	
+		if (defined('ELEMENTOR_VERSION')) {
+			add_action('admin_init', [new APTFE\Classes\AdminPageHandler(), 'initialLoad']);
+		}
+
+		add_action( 'admin_notices', [$this, 'aptfe_admin_notice'] );
+		add_action( 'admin_init', [$this,  'aptfe_notice_dismissed'] );
+	}
+
+	
+	public function aptfe_admin_notice() {
+		$screen  = get_current_screen();
+		$user_id = get_current_user_id();
+		$nonce   = wp_create_nonce('aptfe_dismiss_notice_nonce');
+	
+		// Ensure user meta exists
+		if (!get_user_meta($user_id, 'aptfe-notice-dismissed', true)) {
+			add_user_meta($user_id, 'aptfe-notice-dismissed', 'active');
+		}
+	
+		// Show notice only on specific screens
+		if ($screen && in_array($screen->id, ['dashboard', 'plugins'], true)) {
+			if (get_user_meta($user_id, 'aptfe-notice-dismissed', true) === 'active') { 
+				?>
+				<div class="notice notice-success is-dismissible" id="is_aptfeReviewNotice">
+					<p>
+						<?php
+							esc_html_e(
+								'Thanks for installing Advanced Pricing Table for Elementor! Please consider giving us a 5-star rating.',
+								'advanced-pricing-table-for-elementor'
+							);
+							?>
+						<em><a href="https://wordpress.org/support/plugin/advanced-pricing-table-for-elementor/reviews/#new-post" target="_blank"><?php esc_html_e('Rate Us', 'advanced-pricing-table-for-elementor'); ?></a></em>
+					</p>
+					<button type="button" class="notice-dismiss" onclick="window.location.href='<?php echo esc_url(add_query_arg(['aptfe-dismissed-notice' => 1, 'aptfe_nonce' => $nonce])); ?>'"></button>
+				</div>
+				<?php
+			}
+		}
+	}
+	
+	public function aptfe_notice_dismissed() {
+		$user_id = get_current_user_id();
+	
+		if (
+			isset($_GET['aptfe-dismissed-notice'], $_GET['aptfe_nonce']) &&
+			wp_verify_nonce(sanitize_text_field(wp_unslash($_GET['aptfe_nonce'])), 'aptfe_dismiss_notice_nonce')
+		) {
+			update_user_meta($user_id, 'aptfe-notice-dismissed', 'deactive');
+		}
+	}
+
+
 
 	/**
 	 * Register Widgets
@@ -208,3 +274,9 @@ final class APTFE_Pricing_Table_Lite {
  * Init Plugin
  */
 APTFE_Pricing_Table_Lite::instance();
+
+function APTFE_DeactivatePlugin() {
+	$user_id = get_current_user_id();
+	update_user_meta($user_id, 'aptfe-notice-dismissed', 'active');
+}
+register_deactivation_hook( __FILE__, 'APTFE_DeactivatePlugin' );

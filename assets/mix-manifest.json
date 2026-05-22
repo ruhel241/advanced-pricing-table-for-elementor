@@ -1,4 +1,6 @@
 {
+    "/js/aptfe-admin.js": "/js/aptfe-admin.js",
+    "/css/aptfe-editor.css": "/css/aptfe-editor.css",
     "/css/aptfe-admin.css": "/css/aptfe-admin.css",
     "/css/aptfe-pricing-table.css": "/css/aptfe-pricing-table.css",
     "/images/additional-options.png": "/images/additional-options.png",
@@ -6,11 +8,17 @@
     "/images/button-styles.png": "/images/button-styles.png",
     "/images/center-icon-settings.png": "/images/center-icon-settings.png",
     "/images/center-icon-styles.png": "/images/center-icon-styles.png",
+    "/images/check.png": "/images/check.png",
     "/images/features-icon-settings.png": "/images/features-icon-settings.png",
     "/images/features-styles.png": "/images/features-styles.png",
     "/images/header-styles.png": "/images/header-styles.png",
+    "/images/image-comparison-logo.png": "/images/image-comparison-logo.png",
+    "/images/loading.gif": "/images/loading.gif",
     "/images/pricing-styles.png": "/images/pricing-styles.png",
+    "/images/pricing-table-logo.png": "/images/pricing-table-logo.png",
     "/images/pricing-table-styles.png": "/images/pricing-table-styles.png",
     "/images/ribbon-settings.png": "/images/ribbon-settings.png",
-    "/images/ribbon-styles.png": "/images/ribbon-styles.png"
+    "/images/ribbon-styles.png": "/images/ribbon-styles.png",
+    "/images/slider-logo.png": "/images/slider-logo.png",
+    "/images/testimonial-logo.png": "/images/testimonial-logo.png"
 }
